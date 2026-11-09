@@ -1,0 +1,30 @@
+[
+  {
+    "TeacherName": "Heinrich Alheid",
+    "SubjectName": "MINT-Modul",
+    "RoomName": "H1.1.Biologie Labor",
+    "start": "2026-09-11T08:30:00+02:00",
+    "end": "2026-09-11T11:30:00+02:00"
+  },
+  {
+    "TeacherName": "Alexandra Lutz",
+    "SubjectName": "Darstellendes Spiel",
+    "RoomName": "KuK",
+    "start": "2026-09-11T11:30:00+02:00",
+    "end": "2026-09-11T12:30:00+02:00"
+  },
+  {
+    "TeacherName": "Jan-Hauke Erichsen",
+    "SubjectName": "Sport",
+    "RoomName": "HS1",
+    "start": "2026-09-11T14:00:00+02:00",
+    "end": "2026-09-11T16:00:00+02:00"
+  },
+  {
+    "TeacherName": "Jörg Maurer",
+    "SubjectName": "Biologie",
+    "RoomName": "H1.2.Seminar",
+    "start": "2026-09-11T16:00:00+02:00",
+    "end": "2026-09-11T17:00:00+02:00"
+  }
+]

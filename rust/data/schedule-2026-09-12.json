@@ -1,0 +1,16 @@
+[
+  {
+    "TeacherName": "Jesse Jacobsen",
+    "SubjectName": "Geographie",
+    "RoomName": "H3.1.Seminar 1",
+    "start": "2026-09-12T10:30:00+02:00",
+    "end": "2026-09-12T11:30:00+02:00"
+  },
+  {
+    "TeacherName": "Oliver Droß",
+    "SubjectName": "Deutsch",
+    "RoomName": "H3.0.Seminar 1",
+    "start": "2026-09-12T11:30:00+02:00",
+    "end": "2026-09-12T12:30:00+02:00"
+  }
+]
