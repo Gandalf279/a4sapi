@@ -7,6 +7,8 @@ import sys
 import requests
 import urllib3
 
+from getpass import getpass
+
 # --------------------------------------------------------------------------
 # Config
 # --------------------------------------------------------------------------
@@ -16,10 +18,13 @@ PROXIES = {
 }
 BASE_URL = "https://schule.louisenlund.de/api"
 AUTH_URL = f"{BASE_URL}//Api/Authorization/JwtAuth"
-USERNAME = os.environ.get("SCHOOL_USERNAME")
-PASSWORD = os.environ.get("SCHOOL_PASSWORD")
+#USERNAME = os.environ.get("SCHOOL_USERNAME")
+#USERNAME = "carl.stempel"
+USERNAME = input("Enter username > ")
+#PASSWORD = os.environ.get("SCHOOL_PASSWORD")
+PASSWORD = getpass("Enter password > ")
 SCHOOL_ID = 35
-STUDENT_ID = 6296
+#STUDENT_ID = 6296
 SEMESTER_ID = 330
 TEMP_FOLDER = "./temp"
 DATA_FOLDER = "./data"
@@ -210,15 +215,17 @@ def main() -> int:
     output_path = f"{DATA_FOLDER}/schedule-{date:%Y-%m-%d}.json"
 
     try:
+        # auth
         log("Getting auth token...")
         jwt = get_token(AUTH_URL, USERNAME, PASSWORD, PROXIES)
         session = authed_session(jwt, PROXIES)
 
+
+        # schedule
         payload = {
             "schoolId": SCHOOL_ID,
             "from": f"{date}T01:00:00.000Z",
             "to": f"{date}T23:00:00.000Z",
-            "studentId": STUDENT_ID,
             "getShortNames": False,
             "getAbsences": False,
         }
