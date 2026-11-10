@@ -3,6 +3,7 @@ import datetime as dt
 import json
 import os
 import sys
+from cryptography.fernet import Fernet
 
 import requests
 import urllib3
@@ -16,7 +17,7 @@ BASE_URL = "https://schule.louisenlund.de/api"
 AUTH_URL = f"{BASE_URL}//Api/Authorization/JwtAuth"
 
 USERNAME = input("Enter username > ")
-PASSWORD = getpass("Enter password > ")
+PIN = getpass("Enter pin > ")
 
 SCHOOL_ID = 35
 SEMESTER_ID = 330
@@ -27,9 +28,56 @@ REQUEST_TIMEOUT = 15  # seconds
 urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
 
 
+
+
+from pathlib import Path
+
+PASSWORD_FILE = Path("pw.txt")
+KEY_FILE = Path("key.key")
+
+
+def load_password() -> str:
+    """Load or securely create an encrypted password."""
+
+    if PASSWORD_FILE.exists() and KEY_FILE.exists():
+        key = KEY_FILE.read_bytes()
+        fernet = Fernet(key)
+
+        try:
+            encrypted_password = PASSWORD_FILE.read_bytes()
+            return fernet.decrypt(encrypted_password).decode("utf-8")
+        except Exception as exc:
+            raise ScheduleError(
+                "Could not decrypt password. Check your encryption key."
+            ) from exc
+
+    print("No saved password found.")
+    password = getpass("Enter your password > ")
+
+    key = Fernet.generate_key()
+    fernet = Fernet(key)
+
+    encrypted_password = fernet.encrypt(password.encode("utf-8"))
+
+    KEY_FILE.write_bytes(key)
+    PASSWORD_FILE.write_bytes(encrypted_password)
+
+    # Restrict file permissions on Linux/macOS.
+    os.chmod(KEY_FILE, 0o600)
+    os.chmod(PASSWORD_FILE, 0o600)
+
+    print("Password encrypted and saved successfully.")
+
+    return password
+
+
+PASSWORD = load_password()
+
+
 # --------------------------------------------------------------------------
 # Helpers
 # --------------------------------------------------------------------------
+
 class Colors:
     RED = "\033[91m"
     GREEN = "\033[92m"
@@ -43,7 +91,6 @@ class Colors:
     UNDERLINE = "\033[4m"
     REVERSED = "\033[7m"
     RESET = "\033[0m"
-
 
 def log(msg: str, color: str = Colors.BLUE, ok: bool = True) -> None:
     mark = "v]" if ok else "x]"
