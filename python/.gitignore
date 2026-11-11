@@ -2,3 +2,5 @@ key.key
 pw.txt
 temp/**
 .venv/**
+build/**
+artifacts/**
