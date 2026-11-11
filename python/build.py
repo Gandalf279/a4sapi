@@ -27,6 +27,7 @@ APP_SOURCE = ROOT / "schedule_gui.py"
 APP_NAME = "LouisenlundSchedule"
 
 
+
 def read_os_release() -> dict[str, str]:
     """Read Linux distribution metadata without adding a dependency."""
     result: dict[str, str] = {}
