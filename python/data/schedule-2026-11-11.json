@@ -1,0 +1,16 @@
+[
+    {
+        "TeacherName": "Annika Mayrock",
+        "SubjectName": "Mathematik",
+        "RoomName": "H3.1.Seminar 3",
+        "start": "2026-11-11T08:30:00+01:00",
+        "end": "2026-11-11T09:30:00+01:00"
+    },
+    {
+        "TeacherName": "Anastasios Kotanidis",
+        "SubjectName": "Latein",
+        "RoomName": "H3.0.Seminar 3",
+        "start": "2026-11-11T09:30:00+01:00",
+        "end": "2026-11-11T10:30:00+01:00"
+    }
+]

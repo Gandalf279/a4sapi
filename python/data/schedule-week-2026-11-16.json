@@ -1,0 +1,135 @@
+[
+    {
+        "TeacherName": "Dirk Koroschetz",
+        "SubjectName": "Jahrgangsversammlung",
+        "RoomName": "H3.1.Lernstudio",
+        "start": "2026-11-16T08:30:00+01:00",
+        "end": "2026-11-16T09:00:00+01:00"
+    },
+    {
+        "TeacherName": "Max Strohfeldt",
+        "SubjectName": "Englisch",
+        "RoomName": "H1.2.Seminar",
+        "start": "2026-11-16T10:30:00+01:00",
+        "end": "2026-11-16T11:30:00+01:00"
+    },
+    {
+        "TeacherName": "Tim Birkhoven",
+        "SubjectName": "Physik",
+        "RoomName": "H1.0.Physik Labor",
+        "start": "2026-11-16T14:00:00+01:00",
+        "end": "2026-11-16T17:00:00+01:00"
+    },
+    {
+        "TeacherName": "Jörg Maurer",
+        "SubjectName": "Chemie",
+        "RoomName": "H1.1.Chemie Space",
+        "start": "2026-11-17T08:30:00+01:00",
+        "end": "2026-11-17T09:30:00+01:00"
+    },
+    {
+        "TeacherName": "Zhiyuan Gao",
+        "SubjectName": "Musik",
+        "RoomName": "M2",
+        "start": "2026-11-17T09:30:00+01:00",
+        "end": "2026-11-17T10:30:00+01:00"
+    },
+    {
+        "TeacherName": "Olaf Thiele",
+        "SubjectName": "Geschichte",
+        "RoomName": "H3.1.Seminar 2",
+        "start": "2026-11-17T15:00:00+01:00",
+        "end": "2026-11-17T16:00:00+01:00"
+    },
+    {
+        "TeacherName": "Anastasios Kotanidis",
+        "SubjectName": "Latein",
+        "RoomName": "H3.0.Seminar 3",
+        "start": "2026-11-18T09:30:00+01:00",
+        "end": "2026-11-18T10:30:00+01:00"
+    },
+    {
+        "TeacherName": "Max Strohfeldt",
+        "SubjectName": "Englisch",
+        "RoomName": "H1.2.Seminar",
+        "start": "2026-11-18T10:30:00+01:00",
+        "end": "2026-11-18T11:30:00+01:00"
+    },
+    {
+        "TeacherName": "Annika Mayrock",
+        "SubjectName": "Mathematik",
+        "RoomName": "H3.1.Seminar 3",
+        "start": "2026-11-18T11:30:00+01:00",
+        "end": "2026-11-18T12:30:00+01:00"
+    },
+    {
+        "TeacherName": "Ida Sophie Siewertsen",
+        "SubjectName": "Deutsch",
+        "RoomName": "H3.0.Seminar 1",
+        "start": "2026-11-18T15:00:00+01:00",
+        "end": "2026-11-18T16:00:00+01:00"
+    },
+    {
+        "TeacherName": "Dirk Koroschetz",
+        "SubjectName": "Lernzeit",
+        "RoomName": "H2.0.Multispace",
+        "start": "2026-11-19T08:30:00+01:00",
+        "end": "2026-11-19T09:30:00+01:00"
+    },
+    {
+        "TeacherName": "Jörg Maurer",
+        "SubjectName": "Chemie",
+        "RoomName": "H1.1.Chemie Space",
+        "start": "2026-11-19T09:30:00+01:00",
+        "end": "2026-11-19T12:30:00+01:00"
+    },
+    {
+        "TeacherName": "Annika Mayrock",
+        "SubjectName": "Mathematik",
+        "RoomName": "H2.1.Seminar 4",
+        "start": "2026-11-19T14:00:00+01:00",
+        "end": "2026-11-19T15:00:00+01:00"
+    },
+    {
+        "TeacherName": "Heinrich Alheid",
+        "SubjectName": "MINT-Modul",
+        "RoomName": "H1.1.Biologie Labor",
+        "start": "2026-11-20T08:30:00+01:00",
+        "end": "2026-11-20T11:30:00+01:00"
+    },
+    {
+        "TeacherName": "Alexandra Lutz",
+        "SubjectName": "Darstellendes Spiel",
+        "RoomName": "KuK",
+        "start": "2026-11-20T11:30:00+01:00",
+        "end": "2026-11-20T12:30:00+01:00"
+    },
+    {
+        "TeacherName": "Jan-Hauke Erichsen",
+        "SubjectName": "Sport",
+        "RoomName": "HS1",
+        "start": "2026-11-20T14:00:00+01:00",
+        "end": "2026-11-20T16:00:00+01:00"
+    },
+    {
+        "TeacherName": "Jörg Maurer",
+        "SubjectName": "Biologie",
+        "RoomName": "H1.2.Seminar",
+        "start": "2026-11-20T16:00:00+01:00",
+        "end": "2026-11-20T17:00:00+01:00"
+    },
+    {
+        "TeacherName": "Jesse Jacobsen",
+        "SubjectName": "Geographie",
+        "RoomName": "H3.1.Seminar 1",
+        "start": "2026-11-21T10:30:00+01:00",
+        "end": "2026-11-21T11:30:00+01:00"
+    },
+    {
+        "TeacherName": "Ida Sophie Siewertsen",
+        "SubjectName": "Deutsch",
+        "RoomName": "H3.0.Seminar 1",
+        "start": "2026-11-21T11:30:00+01:00",
+        "end": "2026-11-21T12:30:00+01:00"
+    }
+]

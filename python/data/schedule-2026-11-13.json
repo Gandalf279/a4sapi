@@ -1,0 +1,16 @@
+[
+    {
+        "TeacherName": "Heinrich Alheid",
+        "SubjectName": "MINT-Modul",
+        "RoomName": "H1.1.Biologie Labor",
+        "start": "2026-11-13T08:30:00+01:00",
+        "end": "2026-11-13T11:30:00+01:00"
+    },
+    {
+        "TeacherName": "Annika Mayrock",
+        "SubjectName": "Mathematik",
+        "RoomName": "H1.0.Physik Space II",
+        "start": "2026-11-13T11:30:00+01:00",
+        "end": "2026-11-13T12:30:00+01:00"
+    }
+]

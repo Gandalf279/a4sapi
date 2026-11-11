@@ -1,0 +1,100 @@
+[
+    {
+        "TeacherName": "Jesse Jacobsen",
+        "SubjectName": "Geographie",
+        "RoomName": "H2.1.Seminar 1",
+        "start": "2026-11-09T09:30:00+01:00",
+        "end": "2026-11-09T10:30:00+01:00"
+    },
+    {
+        "TeacherName": "Hendrik Woicichowski",
+        "SubjectName": "Englisch",
+        "RoomName": "H4.0.Seminar 2",
+        "start": "2026-11-09T10:30:00+01:00",
+        "end": "2026-11-09T11:30:00+01:00"
+    },
+    {
+        "TeacherName": "Prof. Dr. Florian Schatz",
+        "SubjectName": "Informatik",
+        "RoomName": "H1.0.Informatik Space",
+        "start": "2026-11-09T13:30:00+01:00",
+        "end": "2026-11-09T17:30:00+01:00"
+    },
+    {
+        "TeacherName": "Jan-Hauke Erichsen",
+        "SubjectName": "Sport",
+        "RoomName": "HS1",
+        "start": "2026-11-10T08:30:00+01:00",
+        "end": "2026-11-10T10:30:00+01:00"
+    },
+    {
+        "TeacherName": "Olaf Thiele",
+        "SubjectName": "Geschichte",
+        "RoomName": "H3.1.Seminar 2",
+        "start": "2026-11-10T14:00:00+01:00",
+        "end": "2026-11-10T15:00:00+01:00"
+    },
+    {
+        "TeacherName": "Tim Birkhoven",
+        "SubjectName": "Physik",
+        "RoomName": "H1.0.Physik Space I",
+        "start": "2026-11-10T15:00:00+01:00",
+        "end": "2026-11-10T16:00:00+01:00"
+    },
+    {
+        "TeacherName": "Annika Mayrock",
+        "SubjectName": "Mathematik",
+        "RoomName": "H3.1.Seminar 3",
+        "start": "2026-11-11T08:30:00+01:00",
+        "end": "2026-11-11T09:30:00+01:00"
+    },
+    {
+        "TeacherName": "Anastasios Kotanidis",
+        "SubjectName": "Latein",
+        "RoomName": "H3.0.Seminar 3",
+        "start": "2026-11-11T09:30:00+01:00",
+        "end": "2026-11-11T10:30:00+01:00"
+    },
+    {
+        "TeacherName": "Anastasios Kotanidis",
+        "SubjectName": "Latein",
+        "RoomName": "H3.0.Seminar 3",
+        "start": "2026-11-12T08:30:00+01:00",
+        "end": "2026-11-12T09:30:00+01:00"
+    },
+    {
+        "TeacherName": "Jörg Maurer",
+        "SubjectName": "Biologie",
+        "RoomName": "H1.1.Chemie Space",
+        "start": "2026-11-12T09:30:00+01:00",
+        "end": "2026-11-12T12:30:00+01:00"
+    },
+    {
+        "TeacherName": "Ida Sophie Siewertsen",
+        "SubjectName": "Deutsch",
+        "RoomName": "H2.1.Seminar 4",
+        "start": "2026-11-12T14:00:00+01:00",
+        "end": "2026-11-12T15:00:00+01:00"
+    },
+    {
+        "TeacherName": "Alexandra Lutz",
+        "SubjectName": "Darstellendes Spiel",
+        "RoomName": "KuK",
+        "start": "2026-11-12T15:00:00+01:00",
+        "end": "2026-11-12T17:00:00+01:00"
+    },
+    {
+        "TeacherName": "Heinrich Alheid",
+        "SubjectName": "MINT-Modul",
+        "RoomName": "H1.1.Biologie Labor",
+        "start": "2026-11-13T08:30:00+01:00",
+        "end": "2026-11-13T11:30:00+01:00"
+    },
+    {
+        "TeacherName": "Annika Mayrock",
+        "SubjectName": "Mathematik",
+        "RoomName": "H1.0.Physik Space II",
+        "start": "2026-11-13T11:30:00+01:00",
+        "end": "2026-11-13T12:30:00+01:00"
+    }
+]
