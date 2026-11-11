@@ -1,0 +1,154 @@
+name: Build and publish desktop releases
+
+on:
+  # Create a GitHub Release whenever a version tag is pushed, e.g. v1.2.0.
+  push:
+    tags:
+      - 'v*'
+
+  # Also allow builds to be started manually from the Actions tab.
+  # Manual runs from a branch create workflow artifacts only; manual runs
+  # selected on a v* tag also publish/update that tag's GitHub Release.
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  windows:
+    name: Build Windows binary
+    runs-on: windows-latest
+    steps:
+      - name: Check out source
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+          cache: pip
+          cache-dependency-path: |
+            requirements-build.txt
+            requirements_louisenlund_gui.txt
+
+      - name: Install build dependencies
+        run: python -m pip install -r requirements-build.txt
+
+      - name: Build Windows package
+        run: python build.py
+
+      - name: Upload Windows package
+        uses: actions/upload-artifact@v4
+        with:
+          name: louisenlund-windows
+          path: artifacts/*.zip
+          if-no-files-found: error
+          retention-days: 30
+
+  macos:
+    name: Build macOS application
+    runs-on: macos-latest
+    steps:
+      - name: Check out source
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+          cache: pip
+          cache-dependency-path: |
+            requirements-build.txt
+            requirements_louisenlund_gui.txt
+
+      - name: Install build dependencies
+        run: python -m pip install -r requirements-build.txt
+
+      - name: Build macOS package
+        run: python build.py
+
+      - name: Upload macOS package
+        uses: actions/upload-artifact@v4
+        with:
+          name: louisenlund-macos
+          path: artifacts/*.zip
+          if-no-files-found: error
+          retention-days: 30
+
+  linux-arch:
+    name: Build Arch Linux package
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out source
+        uses: actions/checkout@v4
+
+      - name: Build inside the official Arch Linux container
+        shell: bash
+        run: |
+          docker run --rm \
+            -v "${GITHUB_WORKSPACE}:/src" \
+            -w /src \
+            archlinux:latest \
+            bash -euo pipefail -c '
+              pacman -Syu --noconfirm --needed
+              pacman -S --noconfirm --needed python python-pip tk base-devel
+              python -m venv .venv-arch
+              . .venv-arch/bin/activate
+              python -m pip install --upgrade pip
+              python -m pip install -r requirements-build.txt
+              python build.py
+            '
+
+      - name: Upload Arch Linux package
+        uses: actions/upload-artifact@v4
+        with:
+          name: louisenlund-linux-arch
+          path: artifacts/*.tar.gz
+          if-no-files-found: error
+          retention-days: 30
+
+  publish-release:
+    name: Publish assets on GitHub Releases
+    # Only publish for version tags. A manual run from a branch still builds
+    # all platforms and leaves the resulting files in the Actions artifacts.
+    if: startsWith(github.ref, 'refs/tags/v')
+    needs:
+      - windows
+      - macos
+      - linux-arch
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - name: Download all platform packages
+        uses: actions/download-artifact@v4
+        with:
+          pattern: louisenlund-*
+          path: release-assets
+          merge-multiple: true
+
+      - name: Show release files
+        shell: bash
+        run: |
+          echo 'Files to attach to the GitHub Release:'
+          find release-assets -maxdepth 1 -type f -printf '%f\n' | sort
+          test -n "$(find release-assets -maxdepth 1 -type f -print -quit)"
+
+      - name: Create or update GitHub Release
+        uses: softprops/action-gh-release@v2
+        with:
+          tag_name: ${{ github.ref_name }}
+          name: Louisenlund Schedule ${{ github.ref_name }}
+          generate_release_notes: true
+          fail_on_unmatched_files: true
+          files: release-assets/*
+          body: |
+            ## Downloads
+
+            Download the archive matching your operating system. Keep the complete extracted application folder together, including the `_internal` directory where present.
+
+            - **Windows:** ZIP archive; extract it and run `LouisenlundSchedule.exe`.
+            - **macOS:** ZIP archive; extract it and open `LouisenlundSchedule.app`.
+            - **Arch Linux:** TAR.GZ archive; extract it and run `./run.sh` from the `LouisenlundSchedule` folder.
+
+            macOS and Windows builds are currently unsigned. macOS may require allowing the app in Privacy & Security, and Windows may display a SmartScreen warning.
