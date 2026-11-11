@@ -22,8 +22,7 @@ import tarfile
 import zipfile
 from pathlib import Path
 
-#ROOT = Path(__file__).resolve().parent
-ROOT = Path(__file__).resolve()
+ROOT = Path(__file__).resolve().parent
 APP_SOURCE = ROOT / "schedule_gui.py"
 APP_NAME = "LouisenlundSchedule"
 
