@@ -95,41 +95,101 @@ jobs:
           if-no-files-found: error
           retention-days: 30
 
-  linux-arch:
-    name: Build Arch Linux package
+  linux-glibc:
+    name: Build Linux package (glibc, x86_64)
     runs-on: ubuntu-latest
     needs: locate-project
     steps:
       - name: Check out source
         uses: actions/checkout@v4
 
-      - name: Build inside official Arch Linux container
+      # Built on Debian 11 (glibc 2.31) so the binary runs on every glibc
+      # distribution with glibc >= 2.31: Debian 11+, Ubuntu 20.04+, RHEL/Alma/
+      # Rocky 9+, Fedora, openSUSE, Arch, and others. The python:3.12 image
+      # ships Python with Tk support.
+      - name: Build inside Debian 11 container
         shell: bash
         env:
           BUILD_DIR: ${{ needs.locate-project.outputs.build_dir }}
         run: |
           set -euo pipefail
-          docker run --rm \
+          docker run --rm -i \
             -v "${GITHUB_WORKSPACE}/${BUILD_DIR}:/src" \
             -w /src \
-            archlinux:latest \
-            bash -euo pipefail -c '
-              pacman -Syu --noconfirm --needed
-              pacman -S --noconfirm --needed python python-pip tk base-devel
-              test -f requirements-build.txt || { echo "Missing requirements-build.txt in /src" >&2; exit 1; }
-              test -f build.py || { echo "Missing build.py in /src" >&2; exit 1; }
-              python -m venv /tmp/louisenlund-build-venv
-              . /tmp/louisenlund-build-venv/bin/activate
-              python -m pip install --upgrade pip
-              python -m pip install -r requirements-build.txt
-              python build.py
-              test -n "$(find artifacts -maxdepth 1 -type f -name "*.tar.gz" -print -quit)"
-            '
+            python:3.12-bullseye \
+            bash -s <<'EOF'
+          set -euo pipefail
+          test -f requirements-build.txt || { echo "Missing requirements-build.txt in /src" >&2; exit 1; }
+          test -f build.py || { echo "Missing build.py in /src" >&2; exit 1; }
+          apt-get update
+          apt-get install -y --no-install-recommends binutils
+          python -m venv /tmp/build-venv
+          . /tmp/build-venv/bin/activate
+          python -m pip install --upgrade pip
+          python -m pip install -r requirements-build.txt
+          python build.py
+          test -n "$(find artifacts -maxdepth 1 -type f -name '*.tar.gz' -print -quit)"
 
-      - name: Upload Arch Linux package
+          # Report the highest glibc symbol version required by the bundle.
+          max_glibc="$(
+            find "artifacts/linux-glibc-x86_64" -type f \( -name '*.so*' -o -perm -u+x \) -print0 \
+              | xargs -0 -r objdump -T 2>/dev/null \
+              | grep -o 'GLIBC_[0-9][0-9.]*' \
+              | sed 's/GLIBC_//' \
+              | sort -Vu \
+              | tail -n 1
+          )"
+          echo "Highest required glibc: ${max_glibc:-none}"
+          if [ -n "${max_glibc}" ] && [ "$(printf '%s\n2.31\n' "${max_glibc}" | sort -V | tail -n 1)" != "2.31" ]; then
+            echo "Bundle requires glibc ${max_glibc}, newer than the 2.31 target." >&2
+            exit 1
+          fi
+          EOF
+
+      - name: Upload glibc Linux package
         uses: actions/upload-artifact@v4
         with:
-          name: louisenlund-linux-arch
+          name: louisenlund-linux-glibc
+          path: ${{ needs.locate-project.outputs.build_dir }}/artifacts/*.tar.gz
+          if-no-files-found: error
+          retention-days: 30
+
+  linux-musl:
+    name: Build Linux package (musl / Alpine, x86_64)
+    runs-on: ubuntu-latest
+    needs: locate-project
+    steps:
+      - name: Check out source
+        uses: actions/checkout@v4
+
+      - name: Build inside Alpine container
+        shell: bash
+        env:
+          BUILD_DIR: ${{ needs.locate-project.outputs.build_dir }}
+        run: |
+          set -euo pipefail
+          docker run --rm -i \
+            -v "${GITHUB_WORKSPACE}/${BUILD_DIR}:/src" \
+            -w /src \
+            alpine:latest \
+            sh -s <<'EOF'
+          set -eu
+          test -f requirements-build.txt || { echo "Missing requirements-build.txt in /src" >&2; exit 1; }
+          test -f build.py || { echo "Missing build.py in /src" >&2; exit 1; }
+          apk add --no-cache python3 python3-dev py3-pip py3-tkinter tk \
+            build-base binutils zlib-dev jpeg-dev freetype-dev bash
+          python3 -m venv /tmp/build-venv
+          . /tmp/build-venv/bin/activate
+          python -m pip install --upgrade pip
+          python -m pip install -r requirements-build.txt
+          python build.py
+          test -n "$(find artifacts -maxdepth 1 -type f -name '*.tar.gz' -print -quit)"
+          EOF
+
+      - name: Upload musl Linux package
+        uses: actions/upload-artifact@v4
+        with:
+          name: louisenlund-linux-musl
           path: ${{ needs.locate-project.outputs.build_dir }}/artifacts/*.tar.gz
           if-no-files-found: error
           retention-days: 30
@@ -141,7 +201,8 @@ jobs:
       - locate-project
       - windows
       - macos
-      - linux-arch
+      - linux-glibc
+      - linux-musl
     runs-on: ubuntu-latest
     permissions:
       contents: write
@@ -158,7 +219,7 @@ jobs:
         run: |
           set -euo pipefail
           find release-assets -maxdepth 1 -type f -printf '%f\n' | sort
-          test "$(find release-assets -maxdepth 1 -type f | wc -l)" -ge 3
+          test "$(find release-assets -maxdepth 1 -type f | wc -l)" -ge 4
 
       - name: Create or update GitHub Release
         uses: softprops/action-gh-release@v2
@@ -175,6 +236,9 @@ jobs:
 
             - **Windows:** Extract the ZIP and run `LouisenlundSchedule.exe`.
             - **macOS:** Extract the ZIP and open `LouisenlundSchedule.app`.
-            - **Arch Linux:** Extract the TAR.GZ and run `./run.sh` from the `LouisenlundSchedule` folder.
+            - **Linux (glibc, x86_64):** Use the `linux-glibc-x86_64` TAR.GZ for Debian, Ubuntu, Fedora, RHEL-family, openSUSE, Arch and similar (glibc 2.31 or newer). Extract it and run `./run.sh` from the `LouisenlundSchedule` folder.
+            - **Linux (musl, x86_64):** Use the `linux-musl-x86_64` TAR.GZ for Alpine Linux and other musl-based distributions. Extract it and run `./run.sh` from the `LouisenlundSchedule` folder.
+
+            Linux builds require a graphical session (X11 or Wayland with XWayland). ARM systems are not covered by these packages.
 
             Windows and macOS builds are currently unsigned. Windows may display a SmartScreen warning; macOS may require allowing the app in Privacy & Security.
