@@ -4,3 +4,4 @@ temp/**
 .venv/**
 build/**
 artifacts/**
+__pycache__/**
