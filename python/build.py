@@ -4,6 +4,11 @@
 Run this script on the OS you want to build for. PyInstaller does not provide
 reliable cross-compilation between Windows, macOS and Linux.
 
+Linux builds are tagged by C library: "glibc" (Debian, Ubuntu, Fedora, Arch,
+openSUSE, ...) or "musl" (Alpine, Void-musl, ...). A glibc build only runs on
+systems whose glibc is at least as new as the build system's, so the glibc
+package should be built on an old base image (see the GitHub Actions workflow).
+
 Examples:
     python -m pip install -r requirements-build.txt
     python build.py
@@ -13,7 +18,6 @@ Examples:
 from __future__ import annotations
 
 import argparse
-import os
 import platform
 import shutil
 import subprocess
@@ -32,18 +36,12 @@ APP_SOURCE = next((path for path in APP_SOURCE_CANDIDATES if path.is_file()), No
 APP_NAME = "LouisenlundSchedule"
 
 
-def read_os_release() -> dict[str, str]:
-    """Read Linux distribution metadata without adding a dependency."""
-    result: dict[str, str] = {}
-    path = Path("/etc/os-release")
-    if not path.exists():
-        return result
-    for line in path.read_text(encoding="utf-8", errors="replace").splitlines():
-        if "=" not in line or line.startswith("#"):
-            continue
-        key, value = line.split("=", 1)
-        result[key] = value.strip().strip('"').lower()
-    return result
+def detect_linux_libc() -> str:
+    """Return "musl" or "glibc" for the running Linux system."""
+    for directory in (Path("/lib"), Path("/usr/lib"), Path("/lib64")):
+        if directory.is_dir() and any(directory.glob("ld-musl-*")):
+            return "musl"
+    return "glibc"
 
 
 def platform_tag() -> tuple[str, str]:
@@ -62,19 +60,14 @@ def platform_tag() -> tuple[str, str]:
     if system == "darwin":
         return "macos", f"macos-{architecture}"
     if system == "linux":
-        release = read_os_release()
-        distro_id = release.get("ID", "linux")
-        id_like = release.get("ID_LIKE", "")
-        arch_ids = {"arch", "manjaro", "endeavouros", "garuda", "cachyos", "artix"}
-        is_arch_family = distro_id in arch_ids or "arch" in id_like.split()
-        distro_tag = "arch" if is_arch_family else distro_id
-        if not is_arch_family:
+        libc = detect_linux_libc()
+        if libc == "glibc":
+            _, version = platform.libc_ver()
             print(
-                "WARNING: This is not a detected Arch-family distribution. "
-                "For the requested Arch Linux build, run this script on Arch "
-                "or use the included GitHub Actions workflow."
+                f"Build system glibc: {version or 'unknown'}. The resulting binary "
+                "requires this glibc version or newer on the target."
             )
-        return "linux", f"linux-{distro_tag}-{architecture}"
+        return "linux", f"linux-{libc}-{architecture}"
     raise SystemExit(
         f"Unsupported build OS: {platform.system()}. "
         "Build on Windows, macOS, or Linux."
@@ -131,10 +124,10 @@ def validate_linux_bundle(bundle: Path, app_name: str) -> None:
     # Provide a launcher that always runs from the application directory.
     launcher = bundle / "run.sh"
     launcher.write_text(
-        "#!/usr/bin/env bash\n"
-        "set -euo pipefail\n"
-        'cd -- "$(dirname -- "${BASH_SOURCE[0]}")"\n'
-        f'if [[ ! -d "_internal" || ! -f "_internal/{python_libraries[0].name}" ]]; then\n'
+        "#!/usr/bin/env sh\n"
+        "set -eu\n"
+        'cd -- "$(dirname -- "$0")"\n'
+        f'if [ ! -d "_internal" ] || [ ! -f "_internal/{python_libraries[0].name}" ]; then\n'
         '  echo "LouisenlundSchedule is incomplete: the _internal runtime folder is missing." >&2\n'
         '  echo "Extract the complete .tar.gz package; do not copy the executable on its own." >&2\n'
         '  exit 1\n'
@@ -239,7 +232,7 @@ def main() -> int:
     print(f"Application: {bundle}")
     print(f"Package:     {archive}")
     if os_kind == "linux":
-        print("Run on Arch Linux after extracting the archive:")
+        print("Run on Linux after extracting the archive:")
         print(f"  cd {args.name} && ./run.sh")
         print("IMPORTANT: use the artifacts/ output, not the intermediate build/ directory.")
     if os_kind == "macos":
