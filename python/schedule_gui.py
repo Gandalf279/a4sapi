@@ -1065,6 +1065,30 @@ class ScheduleApp:
                     font=("Segoe UI", 8),
                 )
 
+        now = dt.datetime.now()
+        today = now.date()
+        if week_start <= today <= week_start + dt.timedelta(days=6):
+            current_minute = now.hour * 60 + now.minute
+            if start_absolute <= current_minute <= end_absolute:
+                y = header_height + ((current_minute - start_absolute) / 60) * hour_height
+                canvas.create_line(
+                    0,
+                    y,
+                    total_width,
+                    y,
+                    fill=palette["accent"],
+                    width=2,
+                    dash=(6, 5),
+                )
+                canvas.create_text(
+                    time_col_width + 8,
+                    y - 10,
+                    text=now.strftime("%H:%M"),
+                    anchor="w",
+                    fill=palette["accent"],
+                    font=("Segoe UI", 8, "bold"),
+                )
+
         lesson_colors = (
             self.DARK_LESSON_COLORS
             if ctk.get_appearance_mode() == "Dark"
