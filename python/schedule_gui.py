@@ -32,6 +32,7 @@ from tkinter import messagebox
 urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
 
 
+
 # ---------------------------------------------------------------------------
 # API configuration
 # ---------------------------------------------------------------------------
@@ -298,6 +299,8 @@ class ScheduleApp:
         "empty": "#A0AABC",
         "shadow": "#E8EDF5",
         "pill": "#EAF1FF",
+        "highlight_morning": "#EEF5FF",
+        "highlight_afternoon": "#FFF4E8",
     }
     DARK = {
         "window": "#0B1220",
@@ -318,6 +321,8 @@ class ScheduleApp:
         "empty": "#71839D",
         "shadow": "#0A101B",
         "pill": "#20365B",
+        "highlight_morning": "#172C4B",
+        "highlight_afternoon": "#362A1D",
     }
 
     LIGHT_LESSON_COLORS = (
@@ -1003,6 +1008,22 @@ class ScheduleApp:
                 x0, header_height, x1, total_height,
                 fill=body_fill, outline=palette["border"], width=1,
             )
+            for range_start, range_end, range_fill in (
+                (8 * 60, 11 * 60 + 30, palette["highlight_morning"]),
+                (15 * 60, 16 * 60 + 30, palette["highlight_afternoon"]),
+            ):
+                visible_start = max(range_start, start_absolute)
+                visible_end = min(range_end, end_absolute)
+                if visible_end <= visible_start:
+                    continue
+                y0 = header_height + ((visible_start - start_absolute) / 60) * hour_height
+                y1 = header_height + ((visible_end - start_absolute) / 60) * hour_height
+                canvas.create_rectangle(
+                    x0, y0, x1, y1,
+                    fill=range_fill,
+                    outline="",
+                    width=0,
+                )
             canvas.create_rectangle(
                 x0, 0, x1, header_height,
                 fill=header_fill, outline=palette["border"], width=1,

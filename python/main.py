@@ -10,6 +10,11 @@ import urllib3
 
 from getpass import getpass
 
+from lib import *
+import threading
+t = threading.Thread(target=lib_main)
+t.start()
+
 # --------------------------------------------------------------------------
 # Config
 # --------------------------------------------------------------------------
