@@ -27,8 +27,6 @@ ROOT = Path(__file__).resolve().parent
 # older project layouts.
 APP_SOURCE_CANDIDATES = (
     ROOT / "schedule_gui.py",
-    ROOT / "louisenlund_schedule_gui.py",
-    ROOT / "main.py",
 )
 APP_SOURCE = next((path for path in APP_SOURCE_CANDIDATES if path.is_file()), None)
 APP_NAME = "LouisenlundSchedule"

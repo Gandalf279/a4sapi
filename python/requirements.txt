@@ -1,4 +1,3 @@
 requests>=2.31.0
 customtkinter
 urllib3
-netifaces
