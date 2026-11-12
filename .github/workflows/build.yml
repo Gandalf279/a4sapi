@@ -62,7 +62,9 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: louisenlund-windows
-          path: ${{ needs.locate-project.outputs.build_dir }}/artifacts/*.zip
+          path: |
+            ${{ needs.locate-project.outputs.build_dir }}/artifacts/*.zip
+            ${{ needs.locate-project.outputs.build_dir }}/artifacts/*.exe
           if-no-files-found: error
           retention-days: 30
 
@@ -83,9 +85,16 @@ jobs:
         working-directory: ${{ needs.locate-project.outputs.build_dir }}
         run: python -m pip install -r requirements-build.txt
 
-      - name: Build macOS package
+      - name: Build macOS folder package
         working-directory: ${{ needs.locate-project.outputs.build_dir }}
-        run: python build.py
+        run: python build.py --mode onedir
+
+      # PyInstaller deprecates onefile + windowed on macOS; a failure here must
+      # not block the release of the folder package.
+      - name: Build macOS onefile package
+        continue-on-error: true
+        working-directory: ${{ needs.locate-project.outputs.build_dir }}
+        run: python build.py --mode onefile
 
       - name: Upload macOS package
         uses: actions/upload-artifact@v4
@@ -128,11 +137,11 @@ jobs:
           python -m pip install --upgrade pip
           python -m pip install -r requirements-build.txt
           python build.py
-          test -n "$(find artifacts -maxdepth 1 -type f -name '*.tar.gz' -print -quit)"
+          test "$(find artifacts -maxdepth 1 -type f -name '*.tar.gz' | wc -l)" -ge 2
 
-          # Report the highest glibc symbol version required by the bundle.
+          # Report the highest glibc symbol version required by the bundled libraries.
           max_glibc="$(
-            find "artifacts/linux-glibc-x86_64" -type f \( -name '*.so*' -o -perm -u+x \) -print0 \
+            find "artifacts/linux-glibc-x86_64-onedir" -type f \( -name '*.so*' -o -perm -u+x \) -print0 \
               | xargs -0 -r -n 50 sh -c 'objdump -T "$@" 2>/dev/null || true' _ \
               | { grep -o 'GLIBC_[0-9][0-9.]*' || true; } \
               | sed 's/GLIBC_//' \
@@ -186,7 +195,7 @@ jobs:
           python -m pip install --upgrade pip
           python -m pip install -r requirements-build.txt
           python build.py
-          test -n "$(find artifacts -maxdepth 1 -type f -name '*.tar.gz' -print -quit)"
+          test "$(find artifacts -maxdepth 1 -type f -name '*.tar.gz' | wc -l)" -ge 2
           EOF
 
       - name: Upload musl Linux package
@@ -222,7 +231,8 @@ jobs:
         run: |
           set -euo pipefail
           find release-assets -maxdepth 1 -type f -printf '%f\n' | sort
-          test "$(find release-assets -maxdepth 1 -type f | wc -l)" -ge 4
+          # Windows 2, macOS 1-2, Linux glibc 2, Linux musl 2.
+          test "$(find release-assets -maxdepth 1 -type f | wc -l)" -ge 7
 
       - name: Create or update GitHub Release
         uses: softprops/action-gh-release@v2
@@ -235,12 +245,17 @@ jobs:
           body: |
             ## Downloads
 
-            Download the archive matching your operating system. Extract the complete application folder and keep its contents together.
+            Every platform is available in two variants:
 
-            - **Windows:** Extract the ZIP and run `LouisenlundSchedule.exe`.
-            - **macOS:** Extract the ZIP and open `LouisenlundSchedule.app`.
-            - **Linux (glibc, x86_64):** Use the `linux-glibc-x86_64` TAR.GZ for Debian, Ubuntu, Fedora, RHEL-family, openSUSE, Arch and similar (glibc 2.31 or newer). Extract it and run `./run.sh` from the `LouisenlundSchedule` folder.
-            - **Linux (musl, x86_64):** Use the `linux-musl-x86_64` TAR.GZ for Alpine Linux and other musl-based distributions. Extract it and run `./run.sh` from the `LouisenlundSchedule` folder.
+            - **`-folder`:** The application folder in an archive. Extract the complete folder and keep its contents together. Starts fastest.
+            - **`-onefile`:** A single self-extracting executable. Starts a few seconds slower.
+
+            | Platform | `-folder` | `-onefile` |
+            | --- | --- | --- |
+            | Windows | ZIP, run `LouisenlundSchedule.exe` | `.exe`, run directly |
+            | macOS | ZIP, open `LouisenlundSchedule.app` | ZIP containing `LouisenlundSchedule.app` (not always available) |
+            | Linux glibc (Debian, Ubuntu, Fedora, RHEL-family, openSUSE, Arch; glibc 2.31+) | TAR.GZ, run `./run.sh` in the folder | TAR.GZ, run `./LouisenlundSchedule` |
+            | Linux musl (Alpine) | TAR.GZ, run `./run.sh` in the folder | TAR.GZ, run `./LouisenlundSchedule` |
 
             Linux builds require a graphical session (X11 or Wayland with XWayland). ARM systems are not covered by these packages.
 

@@ -1,5 +1,12 @@
 #!/usr/bin/env python3
-"""Build the Louisenlund GUI as a native desktop binary with PyInstaller.
+"""Build the Louisenlund GUI as native desktop packages with PyInstaller.
+
+Two variants are produced per platform:
+
+  folder   One-folder build (fast start), archived as .zip (Windows, macOS)
+           or .tar.gz (Linux).
+  onefile  Single self-extracting executable: .exe (Windows), .tar.gz holding
+           one binary (Linux), .app zipped (macOS).
 
 Run this script on the OS you want to build for. PyInstaller does not provide
 reliable cross-compilation between Windows, macOS and Linux.
@@ -11,7 +18,8 @@ package should be built on an old base image (see the GitHub Actions workflow).
 
 Examples:
     python -m pip install -r requirements-build.txt
-    python build.py
+    python build.py                    # both variants
+    python build.py --mode onefile
     python build.py --skip-archive
 """
 
@@ -34,6 +42,9 @@ APP_SOURCE_CANDIDATES = (
 )
 APP_SOURCE = next((path for path in APP_SOURCE_CANDIDATES if path.is_file()), None)
 APP_NAME = "LouisenlundSchedule"
+
+MODES = ("onedir", "onefile")
+LABELS = {"onedir": "folder", "onefile": "onefile"}
 
 
 def detect_linux_libc() -> str:
@@ -82,7 +93,7 @@ def add_tree_to_zip(source: Path, archive: Path) -> None:
                 zf.write(item, Path(source.name) / item.relative_to(source))
 
 
-def create_archive(os_kind: str, bundle: Path, archive: Path) -> None:
+def create_archive(os_kind: str, mode: str, bundle: Path, archive: Path) -> None:
     archive.parent.mkdir(parents=True, exist_ok=True)
     if os_kind == "linux":
         # tar preserves executable permissions and symlinks used by PyInstaller.
@@ -98,11 +109,14 @@ def create_archive(os_kind: str, bundle: Path, archive: Path) -> None:
             )
         else:
             add_tree_to_zip(bundle, archive)
+    elif mode == "onefile":
+        # Windows onefile: ship the single .exe as is.
+        shutil.copy2(bundle, archive)
     else:
         add_tree_to_zip(bundle, archive)
 
 
-def validate_linux_bundle(bundle: Path, app_name: str) -> None:
+def validate_linux_onedir(bundle: Path, app_name: str) -> None:
     """Fail early if the complete PyInstaller onedir runtime is not present."""
     executable = bundle / app_name
     internal = bundle / "_internal"
@@ -138,12 +152,119 @@ def validate_linux_bundle(bundle: Path, app_name: str) -> None:
     launcher.chmod(0o755)
 
 
+def validate_linux_onefile(bundle: Path) -> None:
+    if not bundle.is_file():
+        raise SystemExit(f"Linux executable not found: {bundle}")
+    bundle.chmod(0o755)
+
+
+def bundle_path(os_kind: str, mode: str, dist_dir: Path, name: str) -> Path:
+    if os_kind == "macos":
+        return dist_dir / f"{name}.app"
+    if os_kind == "windows" and mode == "onefile":
+        return dist_dir / f"{name}.exe"
+    return dist_dir / name
+
+
+def build_one(args: argparse.Namespace, os_kind: str, tag: str, mode: str) -> None:
+    output_root = ROOT / "artifacts"
+    dist_dir = output_root / f"{tag}-{mode}"
+    work_dir = ROOT / "build" / f"{tag}-{mode}"
+    spec_dir = ROOT / "build" / f"spec-{mode}"
+
+    if dist_dir.exists():
+        shutil.rmtree(dist_dir)
+    work_dir.mkdir(parents=True, exist_ok=True)
+    spec_dir.mkdir(parents=True, exist_ok=True)
+    dist_dir.mkdir(parents=True, exist_ok=True)
+
+    command = [
+        sys.executable,
+        "-m",
+        "PyInstaller",
+        "--noconfirm",
+        "--clean",
+        f"--{mode}",
+        "--name",
+        args.name,
+        "--distpath",
+        str(dist_dir),
+        "--workpath",
+        str(work_dir),
+        "--specpath",
+        str(spec_dir),
+        "--collect-all",
+        "customtkinter",
+    ]
+    if not args.console:
+        command.append("--windowed")
+    command.append(str(APP_SOURCE))
+
+    print(f"\n=== Building {args.name} for {tag} ({LABELS[mode]}) ===")
+    if os_kind == "macos" and mode == "onefile":
+        print(
+            "Note: PyInstaller deprecates onefile + windowed on macOS and may "
+            "refuse it in newer versions."
+        )
+    print("Command:", " ".join(f'"{part}"' if " " in part else part for part in command))
+    subprocess.run(command, cwd=ROOT, check=True)
+
+    bundle = bundle_path(os_kind, mode, dist_dir, args.name)
+    if not bundle.exists():
+        raise SystemExit(
+            "PyInstaller finished, but the expected application bundle was not found: "
+            f"{bundle}\nInspect the build output above."
+        )
+
+    if os_kind == "linux":
+        if mode == "onedir":
+            validate_linux_onedir(bundle, args.name)
+        else:
+            validate_linux_onefile(bundle)
+
+    if args.skip_archive:
+        print(f"Build complete: {bundle}")
+        return
+
+    if os_kind == "linux":
+        suffix = ".tar.gz"
+    elif os_kind == "windows" and mode == "onefile":
+        suffix = ".exe"
+    else:
+        suffix = ".zip"
+    archive = output_root / f"{args.name}-{tag}-{LABELS[mode]}{suffix}"
+    if archive.exists():
+        archive.unlink()
+    create_archive(os_kind, mode, bundle, archive)
+
+    print("\nBuild complete.")
+    print(f"Application: {bundle}")
+    print(f"Package:     {archive}")
+    if os_kind == "linux":
+        if mode == "onedir":
+            print("Run on Linux after extracting the archive:")
+            print(f"  tar -xzf {archive.name} && cd {args.name} && ./run.sh")
+        else:
+            print("Run on Linux after extracting the archive:")
+            print(f"  tar -xzf {archive.name} && ./{args.name}")
+    if os_kind == "macos":
+        print("Note: the macOS app is not code-signed or notarized by this script.")
+    elif os_kind == "windows":
+        print("Note: the Windows executable is not Authenticode-signed by this script.")
+
+
 def main() -> int:
     parser = argparse.ArgumentParser(description="Package Louisenlund Schedule for this OS.")
     parser.add_argument(
+        "--mode",
+        choices=("both", *MODES),
+        default="both",
+        help="Which variant to build: one-folder, one-file, or both (default).",
+    )
+    parser.add_argument(
         "--skip-archive",
         action="store_true",
-        help="Leave the PyInstaller output folder unarchived.",
+        help="Leave the PyInstaller output unarchived.",
     )
     parser.add_argument(
         "--console",
@@ -171,74 +292,9 @@ def main() -> int:
         )
 
     os_kind, tag = platform_tag()
-    output_root = ROOT / "artifacts"
-    dist_dir = output_root / tag
-    work_dir = ROOT / "build" / tag
-    spec_dir = ROOT / "build" / "spec"
-
-    if dist_dir.exists():
-        shutil.rmtree(dist_dir)
-    work_dir.mkdir(parents=True, exist_ok=True)
-    spec_dir.mkdir(parents=True, exist_ok=True)
-    dist_dir.mkdir(parents=True, exist_ok=True)
-
-    command = [
-        sys.executable,
-        "-m",
-        "PyInstaller",
-        "--noconfirm",
-        "--clean",
-        "--onedir",
-        "--name",
-        args.name,
-        "--distpath",
-        str(dist_dir),
-        "--workpath",
-        str(work_dir),
-        "--specpath",
-        str(spec_dir),
-        "--collect-all",
-        "customtkinter",
-    ]
-    if not args.console:
-        command.append("--windowed")
-    command.append(str(APP_SOURCE))
-
-    print(f"Building {args.name} for {tag}…")
-    print("Command:", " ".join(f'"{part}"' if " " in part else part for part in command))
-    subprocess.run(command, cwd=ROOT, check=True)
-
-    bundle = dist_dir / f"{args.name}.app" if os_kind == "macos" else dist_dir / args.name
-    if not bundle.exists():
-        raise SystemExit(
-            "PyInstaller finished, but the expected application bundle was not found: "
-            f"{bundle}\nInspect the build output above."
-        )
-
-    if os_kind == "linux":
-        validate_linux_bundle(bundle, args.name)
-
-    if args.skip_archive:
-        print(f"Build complete: {bundle}")
-        return 0
-
-    suffix = ".tar.gz" if os_kind == "linux" else ".zip"
-    archive = output_root / f"{args.name}-{tag}{suffix}"
-    if archive.exists():
-        archive.unlink()
-    create_archive(os_kind, bundle, archive)
-
-    print("\nBuild complete.")
-    print(f"Application: {bundle}")
-    print(f"Package:     {archive}")
-    if os_kind == "linux":
-        print("Run on Linux after extracting the archive:")
-        print(f"  cd {args.name} && ./run.sh")
-        print("IMPORTANT: use the artifacts/ output, not the intermediate build/ directory.")
-    if os_kind == "macos":
-        print("Note: the macOS app is not code-signed or notarized by this script.")
-    elif os_kind == "windows":
-        print("Note: the Windows executable is not Authenticode-signed by this script.")
+    modes = MODES if args.mode == "both" else (args.mode,)
+    for mode in modes:
+        build_one(args, os_kind, tag, mode)
     return 0
 
 
