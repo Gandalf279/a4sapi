@@ -1,0 +1,319 @@
+{
+    "subjectForStudentClassId": 45885,
+    "gradingIsClosed": false,
+    "gradingCloseWindowIsActive": false,
+    "scaleIsFixt": false,
+    "teacherId": 0,
+    "semesterId": 330,
+    "defaultGradeScaleId": null,
+    "bestGrade": 1,
+    "worstGrade": 6,
+    "rounding": {
+        "finalRounding": 1,
+        "roundingMode": 1
+    },
+    "structure": [
+        {
+            "id": 21926,
+            "name": "Klassenarbeiten / Klausuren",
+            "structureType": 0,
+            "tmpCalc": null,
+            "isDeleted": false,
+            "date": null,
+            "children": [
+                {
+                    "id": 50502,
+                    "name": "Klassenarbeit Nr. 1 - Gedichtinterpretation",
+                    "structureType": 1,
+                    "tmpCalc": null,
+                    "isDeleted": false,
+                    "date": "2026-10-10T00:00:00+02:00",
+                    "children": []
+                }
+            ]
+        },
+        {
+            "id": 21886,
+            "name": "Unterrichtsbeiträge",
+            "structureType": 0,
+            "tmpCalc": null,
+            "isDeleted": false,
+            "date": null,
+            "children": [
+                {
+                    "id": 21922,
+                    "name": "mündliche Beiträge",
+                    "structureType": 0,
+                    "tmpCalc": null,
+                    "isDeleted": false,
+                    "date": null,
+                    "children": [
+                        {
+                            "id": 49293,
+                            "name": "Prozessnote I, bis 07.09.2026",
+                            "structureType": 1,
+                            "tmpCalc": null,
+                            "isDeleted": false,
+                            "date": "2026-09-07T00:00:00+02:00",
+                            "children": []
+                        }
+                    ]
+                },
+                {
+                    "id": 21925,
+                    "name": "praktisch-gestalterische Beiträge",
+                    "structureType": 0,
+                    "tmpCalc": null,
+                    "isDeleted": false,
+                    "date": null,
+                    "children": []
+                },
+                {
+                    "id": 21923,
+                    "name": "schriftliche Beiträge",
+                    "structureType": 0,
+                    "tmpCalc": null,
+                    "isDeleted": false,
+                    "date": null,
+                    "children": []
+                },
+                {
+                    "id": 21924,
+                    "name": "Tests",
+                    "structureType": 0,
+                    "tmpCalc": null,
+                    "isDeleted": false,
+                    "date": null,
+                    "children": [
+                        {
+                            "id": 49638,
+                            "name": "Test 1: Sprachliche Gestaltungsmittel",
+                            "structureType": 1,
+                            "tmpCalc": null,
+                            "isDeleted": false,
+                            "date": "2026-09-16T00:00:00+02:00",
+                            "children": []
+                        }
+                    ]
+                }
+            ]
+        }
+    ],
+    "testCategories": [
+        {
+            "id": 21926,
+            "name": "Klassenarbeiten / Klausuren",
+            "color": "#FFFFFF",
+            "parentId": null,
+            "weight": 40,
+            "isWeightActive": true,
+            "isShowExactAverage": false,
+            "isShowAverage": true,
+            "bestCount": null,
+            "isPublic": true,
+            "creator": "admin-loui",
+            "creationDate": "2026-08-28T16:44:33.23+02:00",
+            "lastModificator": "oliver.dross",
+            "lastModificationDate": "2026-10-13T09:36:57.05+02:00",
+            "isFixt": false
+        },
+        {
+            "id": 21922,
+            "name": "mündliche Beiträge",
+            "color": "#FFFFFF",
+            "parentId": 21886,
+            "weight": 35,
+            "isWeightActive": true,
+            "isShowExactAverage": false,
+            "isShowAverage": true,
+            "bestCount": null,
+            "isPublic": true,
+            "creator": "admin-loui",
+            "creationDate": "2026-08-28T16:44:33.23+02:00",
+            "lastModificator": "oliver.dross",
+            "lastModificationDate": "2026-10-13T09:36:57.11+02:00",
+            "isFixt": false
+        },
+        {
+            "id": 21925,
+            "name": "praktisch-gestalterische Beiträge",
+            "color": "#FFFFFF",
+            "parentId": 21886,
+            "weight": 15,
+            "isWeightActive": true,
+            "isShowExactAverage": false,
+            "isShowAverage": true,
+            "bestCount": null,
+            "isPublic": true,
+            "creator": "admin-loui",
+            "creationDate": "2026-08-28T16:44:33.23+02:00",
+            "lastModificator": "oliver.dross",
+            "lastModificationDate": "2026-10-13T09:36:57.22+02:00",
+            "isFixt": false
+        },
+        {
+            "id": 21923,
+            "name": "schriftliche Beiträge",
+            "color": "#FFFFFF",
+            "parentId": 21886,
+            "weight": 30,
+            "isWeightActive": true,
+            "isShowExactAverage": false,
+            "isShowAverage": true,
+            "bestCount": null,
+            "isPublic": true,
+            "creator": "admin-loui",
+            "creationDate": "2026-08-28T16:44:33.23+02:00",
+            "lastModificator": "oliver.dross",
+            "lastModificationDate": "2026-10-13T09:36:57.22+02:00",
+            "isFixt": false
+        },
+        {
+            "id": 21924,
+            "name": "Tests",
+            "color": "#FFFFFF",
+            "parentId": 21886,
+            "weight": 20,
+            "isWeightActive": true,
+            "isShowExactAverage": false,
+            "isShowAverage": true,
+            "bestCount": null,
+            "isPublic": true,
+            "creator": "admin-loui",
+            "creationDate": "2026-08-28T16:44:33.23+02:00",
+            "lastModificator": "oliver.dross",
+            "lastModificationDate": "2026-10-13T09:36:57.22+02:00",
+            "isFixt": false
+        },
+        {
+            "id": 21886,
+            "name": "Unterrichtsbeiträge",
+            "color": "#FFFFFF",
+            "parentId": null,
+            "weight": 60,
+            "isWeightActive": true,
+            "isShowExactAverage": false,
+            "isShowAverage": true,
+            "bestCount": null,
+            "isPublic": true,
+            "creator": "admin-loui",
+            "creationDate": "2026-08-28T16:44:33.23+02:00",
+            "lastModificator": "oliver.dross",
+            "lastModificationDate": "2026-10-13T09:36:57.11+02:00",
+            "isFixt": false
+        }
+    ],
+    "tests": [
+        {
+            "id": 49293,
+            "title": "Prozessnote I, bis 07.09.2026",
+            "date": "2026-09-07T00:00:00+02:00",
+            "visibleDate": null,
+            "gradeScaleId": null,
+            "rounding": 10.0,
+            "weight": 1.0,
+            "maxPoints": 0.0,
+            "active": true,
+            "closed": false,
+            "visibleForStudents": true,
+            "showExactFinalGrade": false,
+            "showPoints": false,
+            "bonusPointsActive": false,
+            "bonusPoints": 0,
+            "calculationType": "Manual",
+            "comment": null,
+            "grades": [
+                {
+                    "id": 511229,
+                    "value": 2.7,
+                    "isManuallyChanged": false,
+                    "points": null,
+                    "isBlocked": false,
+                    "tendency": null,
+                    "comment": null,
+                    "isActive": true,
+                    "studentId": 6296,
+                    "testId": 49293
+                }
+            ]
+        },
+        {
+            "id": 49638,
+            "title": "Test 1: Sprachliche Gestaltungsmittel",
+            "date": "2026-09-16T00:00:00+02:00",
+            "visibleDate": null,
+            "gradeScaleId": null,
+            "rounding": 10.0,
+            "weight": 1.0,
+            "maxPoints": 0.0,
+            "active": true,
+            "closed": false,
+            "visibleForStudents": true,
+            "showExactFinalGrade": false,
+            "showPoints": false,
+            "bonusPointsActive": false,
+            "bonusPoints": 0,
+            "calculationType": "Manual",
+            "comment": null,
+            "grades": [
+                {
+                    "id": 513281,
+                    "value": 1.3,
+                    "isManuallyChanged": false,
+                    "points": null,
+                    "isBlocked": false,
+                    "tendency": null,
+                    "comment": null,
+                    "isActive": true,
+                    "studentId": 6296,
+                    "testId": 49638
+                }
+            ]
+        },
+        {
+            "id": 50502,
+            "title": "Klassenarbeit Nr. 1 - Gedichtinterpretation",
+            "date": "2026-10-10T00:00:00+02:00",
+            "visibleDate": null,
+            "gradeScaleId": null,
+            "rounding": 10.0,
+            "weight": 1.0,
+            "maxPoints": 0.0,
+            "active": true,
+            "closed": false,
+            "visibleForStudents": true,
+            "showExactFinalGrade": false,
+            "showPoints": false,
+            "bonusPointsActive": false,
+            "bonusPoints": 0,
+            "calculationType": "Manual",
+            "comment": null,
+            "grades": [
+                {
+                    "id": 521266,
+                    "value": 3.7,
+                    "isManuallyChanged": false,
+                    "points": null,
+                    "isBlocked": false,
+                    "tendency": null,
+                    "comment": null,
+                    "isActive": true,
+                    "studentId": 6296,
+                    "testId": 50502
+                }
+            ]
+        }
+    ],
+    "students": [
+        {
+            "id": 6296,
+            "name": "Stempel, Carl Johann",
+            "comment": null,
+            "gardeManuel": null,
+            "gardeCalculated": 2.7945454545,
+            "gardeFinal": null,
+            "dispensation": false
+        }
+    ],
+    "categoryResults": []
+}

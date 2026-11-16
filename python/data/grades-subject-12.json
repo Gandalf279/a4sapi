@@ -1,0 +1,683 @@
+{
+    "subjectForStudentClassId": 45886,
+    "gradingIsClosed": false,
+    "gradingCloseWindowIsActive": false,
+    "scaleIsFixt": false,
+    "teacherId": 0,
+    "semesterId": 330,
+    "defaultGradeScaleId": null,
+    "bestGrade": 1,
+    "worstGrade": 6,
+    "rounding": {
+        "finalRounding": 1,
+        "roundingMode": 1
+    },
+    "structure": [
+        {
+            "id": 22178,
+            "name": "Exams/KEL",
+            "structureType": 0,
+            "tmpCalc": null,
+            "isDeleted": false,
+            "date": null,
+            "children": [
+                {
+                    "id": 50631,
+                    "name": "KEL Greenwashing",
+                    "structureType": 1,
+                    "tmpCalc": null,
+                    "isDeleted": false,
+                    "date": "2026-11-23T00:00:00+01:00",
+                    "children": []
+                }
+            ]
+        },
+        {
+            "id": 22179,
+            "name": "Seminararbeit",
+            "structureType": 0,
+            "tmpCalc": null,
+            "isDeleted": false,
+            "date": null,
+            "children": [
+                {
+                    "id": 22180,
+                    "name": "Hard Skills",
+                    "structureType": 0,
+                    "tmpCalc": null,
+                    "isDeleted": false,
+                    "date": null,
+                    "children": [
+                        {
+                            "id": 22181,
+                            "name": "Graded Seminars",
+                            "structureType": 0,
+                            "tmpCalc": null,
+                            "isDeleted": false,
+                            "date": null,
+                            "children": []
+                        },
+                        {
+                            "id": 22182,
+                            "name": "Tests & Quizzes",
+                            "structureType": 0,
+                            "tmpCalc": null,
+                            "isDeleted": false,
+                            "date": null,
+                            "children": [
+                                {
+                                    "id": 49330,
+                                    "name": "Vocab Quiz#1: Check-in & Station 1",
+                                    "structureType": 1,
+                                    "tmpCalc": null,
+                                    "isDeleted": false,
+                                    "date": "2026-09-09T00:00:00+02:00",
+                                    "children": []
+                                },
+                                {
+                                    "id": 50350,
+                                    "name": "Vocab Quiz#2: The Garbage Eater",
+                                    "structureType": 1,
+                                    "tmpCalc": null,
+                                    "isDeleted": false,
+                                    "date": "2026-10-06T00:00:00+02:00",
+                                    "children": []
+                                }
+                            ]
+                        },
+                        {
+                            "id": 22183,
+                            "name": "Written Work",
+                            "structureType": 0,
+                            "tmpCalc": null,
+                            "isDeleted": false,
+                            "date": null,
+                            "children": [
+                                {
+                                    "id": 49331,
+                                    "name": "Personal letter",
+                                    "structureType": 1,
+                                    "tmpCalc": null,
+                                    "isDeleted": false,
+                                    "date": "2026-09-09T00:00:00+02:00",
+                                    "children": []
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "id": 22184,
+                    "name": "Soft Skills",
+                    "structureType": 0,
+                    "tmpCalc": null,
+                    "isDeleted": false,
+                    "date": null,
+                    "children": [
+                        {
+                            "id": 49327,
+                            "name": "31.09. - 11.09.",
+                            "structureType": 1,
+                            "tmpCalc": null,
+                            "isDeleted": false,
+                            "date": "2026-09-11T00:00:00+02:00",
+                            "children": []
+                        },
+                        {
+                            "id": 49328,
+                            "name": "14.09. - 25.09.",
+                            "structureType": 1,
+                            "tmpCalc": null,
+                            "isDeleted": false,
+                            "date": "2026-09-25T00:00:00+02:00",
+                            "children": []
+                        },
+                        {
+                            "id": 49329,
+                            "name": "28.09. - 09.10.",
+                            "structureType": 1,
+                            "tmpCalc": null,
+                            "isDeleted": false,
+                            "date": "2026-10-09T00:00:00+02:00",
+                            "children": []
+                        },
+                        {
+                            "id": 50635,
+                            "name": "07.12. - 18.12.",
+                            "structureType": 1,
+                            "tmpCalc": null,
+                            "isDeleted": false,
+                            "date": "2026-10-26T00:00:00+01:00",
+                            "children": []
+                        },
+                        {
+                            "id": 50632,
+                            "name": "26.10. - 06.11.",
+                            "structureType": 1,
+                            "tmpCalc": null,
+                            "isDeleted": false,
+                            "date": "2026-11-06T00:00:00+01:00",
+                            "children": []
+                        },
+                        {
+                            "id": 50633,
+                            "name": "09.11. - 20.11.",
+                            "structureType": 1,
+                            "tmpCalc": null,
+                            "isDeleted": false,
+                            "date": "2026-11-20T00:00:00+01:00",
+                            "children": []
+                        },
+                        {
+                            "id": 50634,
+                            "name": "23.11. - 04.12.",
+                            "structureType": 1,
+                            "tmpCalc": null,
+                            "isDeleted": false,
+                            "date": "2026-12-04T00:00:00+01:00",
+                            "children": []
+                        }
+                    ]
+                }
+            ]
+        }
+    ],
+    "testCategories": [
+        {
+            "id": 22178,
+            "name": "Exams/KEL",
+            "color": "#F4E1D2",
+            "parentId": null,
+            "weight": 40,
+            "isWeightActive": true,
+            "isShowExactAverage": false,
+            "isShowAverage": false,
+            "bestCount": null,
+            "isPublic": false,
+            "creator": "max.strohfeldt",
+            "creationDate": "2026-09-01T11:51:02.733+02:00",
+            "lastModificator": "max.strohfeldt",
+            "lastModificationDate": "2026-10-26T11:58:35.033+01:00",
+            "isFixt": false
+        },
+        {
+            "id": 22181,
+            "name": "Graded Seminars",
+            "color": "#FFFFFF",
+            "parentId": 22180,
+            "weight": 50,
+            "isWeightActive": true,
+            "isShowExactAverage": false,
+            "isShowAverage": false,
+            "bestCount": null,
+            "isPublic": false,
+            "creator": "max.strohfeldt",
+            "creationDate": "2026-09-01T11:51:02.75+02:00",
+            "lastModificator": "max.strohfeldt",
+            "lastModificationDate": "2026-10-26T11:58:35.047+01:00",
+            "isFixt": false
+        },
+        {
+            "id": 22180,
+            "name": "Hard Skills",
+            "color": "#D4C5E2",
+            "parentId": 22179,
+            "weight": 60,
+            "isWeightActive": true,
+            "isShowExactAverage": false,
+            "isShowAverage": false,
+            "bestCount": null,
+            "isPublic": false,
+            "creator": "max.strohfeldt",
+            "creationDate": "2026-09-01T11:51:02.75+02:00",
+            "lastModificator": "max.strohfeldt",
+            "lastModificationDate": "2026-10-26T11:58:35.047+01:00",
+            "isFixt": false
+        },
+        {
+            "id": 22179,
+            "name": "Seminararbeit",
+            "color": "#E8C8C8",
+            "parentId": null,
+            "weight": 60,
+            "isWeightActive": true,
+            "isShowExactAverage": false,
+            "isShowAverage": false,
+            "bestCount": null,
+            "isPublic": false,
+            "creator": "max.strohfeldt",
+            "creationDate": "2026-09-01T11:51:02.75+02:00",
+            "lastModificator": "max.strohfeldt",
+            "lastModificationDate": "2026-10-26T11:58:35.047+01:00",
+            "isFixt": false
+        },
+        {
+            "id": 22184,
+            "name": "Soft Skills",
+            "color": "#C3D8E0",
+            "parentId": 22179,
+            "weight": 40,
+            "isWeightActive": true,
+            "isShowExactAverage": false,
+            "isShowAverage": false,
+            "bestCount": null,
+            "isPublic": false,
+            "creator": "max.strohfeldt",
+            "creationDate": "2026-09-01T11:51:02.767+02:00",
+            "lastModificator": "max.strohfeldt",
+            "lastModificationDate": "2026-10-26T11:58:35.25+01:00",
+            "isFixt": false
+        },
+        {
+            "id": 22182,
+            "name": "Tests & Quizzes",
+            "color": "#FFFFFF",
+            "parentId": 22180,
+            "weight": 20,
+            "isWeightActive": true,
+            "isShowExactAverage": false,
+            "isShowAverage": false,
+            "bestCount": null,
+            "isPublic": false,
+            "creator": "max.strohfeldt",
+            "creationDate": "2026-09-01T11:51:02.75+02:00",
+            "lastModificator": "max.strohfeldt",
+            "lastModificationDate": "2026-10-26T11:58:35.047+01:00",
+            "isFixt": false
+        },
+        {
+            "id": 22183,
+            "name": "Written Work",
+            "color": "#FFFFFF",
+            "parentId": 22180,
+            "weight": 30,
+            "isWeightActive": true,
+            "isShowExactAverage": false,
+            "isShowAverage": false,
+            "bestCount": null,
+            "isPublic": false,
+            "creator": "max.strohfeldt",
+            "creationDate": "2026-09-01T11:51:02.75+02:00",
+            "lastModificator": "max.strohfeldt",
+            "lastModificationDate": "2026-10-26T11:58:35.157+01:00",
+            "isFixt": false
+        }
+    ],
+    "tests": [
+        {
+            "id": 49330,
+            "title": "Vocab Quiz#1: Check-in & Station 1",
+            "date": "2026-09-09T00:00:00+02:00",
+            "visibleDate": null,
+            "gradeScaleId": null,
+            "rounding": 10.0,
+            "weight": 1.0,
+            "maxPoints": 0.0,
+            "active": true,
+            "closed": false,
+            "visibleForStudents": true,
+            "showExactFinalGrade": false,
+            "showPoints": false,
+            "bonusPointsActive": false,
+            "bonusPoints": 0,
+            "calculationType": "Manual",
+            "comment": null,
+            "grades": [
+                {
+                    "id": 511437,
+                    "value": 1.3,
+                    "isManuallyChanged": false,
+                    "points": null,
+                    "isBlocked": false,
+                    "tendency": null,
+                    "comment": null,
+                    "isActive": true,
+                    "studentId": 6296,
+                    "testId": 49330
+                }
+            ]
+        },
+        {
+            "id": 49331,
+            "title": "Personal letter",
+            "date": "2026-09-09T00:00:00+02:00",
+            "visibleDate": null,
+            "gradeScaleId": null,
+            "rounding": 10.0,
+            "weight": 1.0,
+            "maxPoints": 0.0,
+            "active": true,
+            "closed": false,
+            "visibleForStudents": true,
+            "showExactFinalGrade": false,
+            "showPoints": false,
+            "bonusPointsActive": false,
+            "bonusPoints": 0,
+            "calculationType": "Manual",
+            "comment": null,
+            "grades": [
+                {
+                    "id": 521309,
+                    "value": 2.0,
+                    "isManuallyChanged": false,
+                    "points": null,
+                    "isBlocked": false,
+                    "tendency": null,
+                    "comment": null,
+                    "isActive": true,
+                    "studentId": 6296,
+                    "testId": 49331
+                }
+            ]
+        },
+        {
+            "id": 49327,
+            "title": "31.09. - 11.09.",
+            "date": "2026-09-11T00:00:00+02:00",
+            "visibleDate": null,
+            "gradeScaleId": null,
+            "rounding": 10.0,
+            "weight": 1.0,
+            "maxPoints": 0.0,
+            "active": true,
+            "closed": false,
+            "visibleForStudents": true,
+            "showExactFinalGrade": false,
+            "showPoints": false,
+            "bonusPointsActive": false,
+            "bonusPoints": 0,
+            "calculationType": "Manual",
+            "comment": null,
+            "grades": [
+                {
+                    "id": 512690,
+                    "value": 2.3,
+                    "isManuallyChanged": false,
+                    "points": null,
+                    "isBlocked": false,
+                    "tendency": null,
+                    "comment": null,
+                    "isActive": true,
+                    "studentId": 6296,
+                    "testId": 49327
+                }
+            ]
+        },
+        {
+            "id": 49328,
+            "title": "14.09. - 25.09.",
+            "date": "2026-09-25T00:00:00+02:00",
+            "visibleDate": null,
+            "gradeScaleId": null,
+            "rounding": 10.0,
+            "weight": 1.0,
+            "maxPoints": 0.0,
+            "active": true,
+            "closed": false,
+            "visibleForStudents": true,
+            "showExactFinalGrade": false,
+            "showPoints": false,
+            "bonusPointsActive": false,
+            "bonusPoints": 0,
+            "calculationType": "Manual",
+            "comment": null,
+            "grades": [
+                {
+                    "id": 516946,
+                    "value": 2.7,
+                    "isManuallyChanged": false,
+                    "points": null,
+                    "isBlocked": false,
+                    "tendency": null,
+                    "comment": null,
+                    "isActive": true,
+                    "studentId": 6296,
+                    "testId": 49328
+                }
+            ]
+        },
+        {
+            "id": 50350,
+            "title": "Vocab Quiz#2: The Garbage Eater",
+            "date": "2026-10-06T00:00:00+02:00",
+            "visibleDate": null,
+            "gradeScaleId": null,
+            "rounding": 10.0,
+            "weight": 1.0,
+            "maxPoints": 0.0,
+            "active": true,
+            "closed": false,
+            "visibleForStudents": true,
+            "showExactFinalGrade": false,
+            "showPoints": false,
+            "bonusPointsActive": false,
+            "bonusPoints": 0,
+            "calculationType": "Manual",
+            "comment": null,
+            "grades": [
+                {
+                    "id": 519505,
+                    "value": 1.3,
+                    "isManuallyChanged": false,
+                    "points": null,
+                    "isBlocked": false,
+                    "tendency": null,
+                    "comment": null,
+                    "isActive": true,
+                    "studentId": 6296,
+                    "testId": 50350
+                }
+            ]
+        },
+        {
+            "id": 49329,
+            "title": "28.09. - 09.10.",
+            "date": "2026-10-09T00:00:00+02:00",
+            "visibleDate": null,
+            "gradeScaleId": null,
+            "rounding": 10.0,
+            "weight": 1.0,
+            "maxPoints": 0.0,
+            "active": true,
+            "closed": false,
+            "visibleForStudents": true,
+            "showExactFinalGrade": false,
+            "showPoints": false,
+            "bonusPointsActive": false,
+            "bonusPoints": 0,
+            "calculationType": "Manual",
+            "comment": null,
+            "grades": [
+                {
+                    "id": 521322,
+                    "value": 2.7,
+                    "isManuallyChanged": false,
+                    "points": null,
+                    "isBlocked": false,
+                    "tendency": null,
+                    "comment": null,
+                    "isActive": true,
+                    "studentId": 6296,
+                    "testId": 49329
+                }
+            ]
+        },
+        {
+            "id": 50635,
+            "title": "07.12. - 18.12.",
+            "date": "2026-10-26T00:00:00+01:00",
+            "visibleDate": null,
+            "gradeScaleId": null,
+            "rounding": 10.0,
+            "weight": 1.0,
+            "maxPoints": 0.0,
+            "active": true,
+            "closed": false,
+            "visibleForStudents": true,
+            "showExactFinalGrade": false,
+            "showPoints": false,
+            "bonusPointsActive": false,
+            "bonusPoints": 0,
+            "calculationType": "Manual",
+            "comment": null,
+            "grades": [
+                {
+                    "id": 0,
+                    "value": null,
+                    "isManuallyChanged": false,
+                    "points": null,
+                    "isBlocked": false,
+                    "tendency": null,
+                    "comment": null,
+                    "isActive": true,
+                    "studentId": 6296,
+                    "testId": 50635
+                }
+            ]
+        },
+        {
+            "id": 50632,
+            "title": "26.10. - 06.11.",
+            "date": "2026-11-06T00:00:00+01:00",
+            "visibleDate": null,
+            "gradeScaleId": null,
+            "rounding": 10.0,
+            "weight": 1.0,
+            "maxPoints": 0.0,
+            "active": true,
+            "closed": false,
+            "visibleForStudents": true,
+            "showExactFinalGrade": false,
+            "showPoints": false,
+            "bonusPointsActive": false,
+            "bonusPoints": 0,
+            "calculationType": "Manual",
+            "comment": null,
+            "grades": [
+                {
+                    "id": 0,
+                    "value": null,
+                    "isManuallyChanged": false,
+                    "points": null,
+                    "isBlocked": false,
+                    "tendency": null,
+                    "comment": null,
+                    "isActive": true,
+                    "studentId": 6296,
+                    "testId": 50632
+                }
+            ]
+        },
+        {
+            "id": 50633,
+            "title": "09.11. - 20.11.",
+            "date": "2026-11-20T00:00:00+01:00",
+            "visibleDate": null,
+            "gradeScaleId": null,
+            "rounding": 10.0,
+            "weight": 1.0,
+            "maxPoints": 0.0,
+            "active": true,
+            "closed": false,
+            "visibleForStudents": true,
+            "showExactFinalGrade": false,
+            "showPoints": false,
+            "bonusPointsActive": false,
+            "bonusPoints": 0,
+            "calculationType": "Manual",
+            "comment": null,
+            "grades": [
+                {
+                    "id": 0,
+                    "value": null,
+                    "isManuallyChanged": false,
+                    "points": null,
+                    "isBlocked": false,
+                    "tendency": null,
+                    "comment": null,
+                    "isActive": true,
+                    "studentId": 6296,
+                    "testId": 50633
+                }
+            ]
+        },
+        {
+            "id": 50631,
+            "title": "KEL Greenwashing",
+            "date": "2026-11-23T00:00:00+01:00",
+            "visibleDate": null,
+            "gradeScaleId": null,
+            "rounding": 10.0,
+            "weight": 1.0,
+            "maxPoints": 0.0,
+            "active": true,
+            "closed": false,
+            "visibleForStudents": true,
+            "showExactFinalGrade": false,
+            "showPoints": false,
+            "bonusPointsActive": false,
+            "bonusPoints": 0,
+            "calculationType": "Manual",
+            "comment": null,
+            "grades": [
+                {
+                    "id": 0,
+                    "value": null,
+                    "isManuallyChanged": false,
+                    "points": null,
+                    "isBlocked": false,
+                    "tendency": null,
+                    "comment": null,
+                    "isActive": true,
+                    "studentId": 6296,
+                    "testId": 50631
+                }
+            ]
+        },
+        {
+            "id": 50634,
+            "title": "23.11. - 04.12.",
+            "date": "2026-12-04T00:00:00+01:00",
+            "visibleDate": null,
+            "gradeScaleId": null,
+            "rounding": 10.0,
+            "weight": 1.0,
+            "maxPoints": 0.0,
+            "active": true,
+            "closed": false,
+            "visibleForStudents": true,
+            "showExactFinalGrade": false,
+            "showPoints": false,
+            "bonusPointsActive": false,
+            "bonusPoints": 0,
+            "calculationType": "Manual",
+            "comment": null,
+            "grades": [
+                {
+                    "id": 0,
+                    "value": null,
+                    "isManuallyChanged": false,
+                    "points": null,
+                    "isBlocked": false,
+                    "tendency": null,
+                    "comment": null,
+                    "isActive": true,
+                    "studentId": 6296,
+                    "testId": 50634
+                }
+            ]
+        }
+    ],
+    "students": [
+        {
+            "id": 6296,
+            "name": "Stempel, Carl Johann",
+            "comment": null,
+            "gardeManuel": null,
+            "gardeCalculated": 2.0586666667,
+            "gardeFinal": null,
+            "dispensation": false
+        }
+    ],
+    "categoryResults": []
+}

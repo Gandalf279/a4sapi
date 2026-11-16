@@ -1,0 +1,460 @@
+{
+    "subjectForStudentClassId": 45893,
+    "gradingIsClosed": false,
+    "gradingCloseWindowIsActive": false,
+    "scaleIsFixt": false,
+    "teacherId": 0,
+    "semesterId": 330,
+    "defaultGradeScaleId": null,
+    "bestGrade": 1,
+    "worstGrade": 6,
+    "rounding": {
+        "finalRounding": 1,
+        "roundingMode": 1
+    },
+    "structure": [
+        {
+            "id": 23012,
+            "name": "Diskursive Unterrichtsbeiträge",
+            "structureType": 0,
+            "tmpCalc": null,
+            "isDeleted": false,
+            "date": null,
+            "children": [
+                {
+                    "id": 50341,
+                    "name": "Musik in der Werbung - Werbespots",
+                    "structureType": 1,
+                    "tmpCalc": null,
+                    "isDeleted": false,
+                    "date": "2026-09-06T00:00:00+02:00",
+                    "children": []
+                },
+                {
+                    "id": 50342,
+                    "name": "Jingle Detektiv",
+                    "structureType": 1,
+                    "tmpCalc": null,
+                    "isDeleted": false,
+                    "date": "2026-09-21T00:00:00+02:00",
+                    "children": []
+                }
+            ]
+        },
+        {
+            "id": 23011,
+            "name": "Klassenarbeit",
+            "structureType": 0,
+            "tmpCalc": null,
+            "isDeleted": false,
+            "date": null,
+            "children": []
+        },
+        {
+            "id": 23010,
+            "name": "Praktisch-gestalterische Unterrichtsbeiträge",
+            "structureType": 0,
+            "tmpCalc": null,
+            "isDeleted": false,
+            "date": null,
+            "children": [
+                {
+                    "id": 50340,
+                    "name": "Jingle Werkstatt",
+                    "structureType": 1,
+                    "tmpCalc": null,
+                    "isDeleted": false,
+                    "date": "2026-10-06T00:00:00+02:00",
+                    "children": []
+                }
+            ]
+        },
+        {
+            "id": 23009,
+            "name": "Schriftliche Unterrichtsbeiträge",
+            "structureType": 0,
+            "tmpCalc": null,
+            "isDeleted": false,
+            "date": null,
+            "children": [
+                {
+                    "id": 50336,
+                    "name": "Musik Begegnen",
+                    "structureType": 1,
+                    "tmpCalc": null,
+                    "isDeleted": false,
+                    "date": "2026-08-25T00:00:00+02:00",
+                    "children": []
+                },
+                {
+                    "id": 50337,
+                    "name": "Musikalische Parameter",
+                    "structureType": 1,
+                    "tmpCalc": null,
+                    "isDeleted": false,
+                    "date": "2026-09-02T00:00:00+02:00",
+                    "children": []
+                },
+                {
+                    "id": 50338,
+                    "name": "Jingle und Zielgruppe",
+                    "structureType": 1,
+                    "tmpCalc": null,
+                    "isDeleted": false,
+                    "date": "2026-09-26T00:00:00+02:00",
+                    "children": []
+                },
+                {
+                    "id": 50339,
+                    "name": "Jingle Bewerten",
+                    "structureType": 1,
+                    "tmpCalc": null,
+                    "isDeleted": false,
+                    "date": "2026-10-06T00:00:00+02:00",
+                    "children": []
+                }
+            ]
+        },
+        {
+            "id": 23008,
+            "name": "Tests",
+            "structureType": 0,
+            "tmpCalc": null,
+            "isDeleted": false,
+            "date": null,
+            "children": []
+        }
+    ],
+    "testCategories": [
+        {
+            "id": 23012,
+            "name": "Diskursive Unterrichtsbeiträge",
+            "color": "#FFFFFF",
+            "parentId": null,
+            "weight": 25,
+            "isWeightActive": true,
+            "isShowExactAverage": false,
+            "isShowAverage": false,
+            "bestCount": null,
+            "isPublic": false,
+            "creator": "zhiyuan.gao",
+            "creationDate": "2026-10-04T14:43:17+02:00",
+            "lastModificator": "zhiyuan.gao",
+            "lastModificationDate": "2026-10-06T10:56:49.13+02:00",
+            "isFixt": false
+        },
+        {
+            "id": 23011,
+            "name": "Klassenarbeit",
+            "color": "#FFFFFF",
+            "parentId": null,
+            "weight": 20,
+            "isWeightActive": true,
+            "isShowExactAverage": false,
+            "isShowAverage": false,
+            "bestCount": null,
+            "isPublic": false,
+            "creator": "zhiyuan.gao",
+            "creationDate": "2026-10-04T14:42:56.233+02:00",
+            "lastModificator": "zhiyuan.gao",
+            "lastModificationDate": "2026-10-06T10:56:49.24+02:00",
+            "isFixt": false
+        },
+        {
+            "id": 23010,
+            "name": "Praktisch-gestalterische Unterrichtsbeiträge",
+            "color": "#FFFFFF",
+            "parentId": null,
+            "weight": 25,
+            "isWeightActive": true,
+            "isShowExactAverage": false,
+            "isShowAverage": false,
+            "bestCount": null,
+            "isPublic": false,
+            "creator": "zhiyuan.gao",
+            "creationDate": "2026-10-04T14:42:41.357+02:00",
+            "lastModificator": "zhiyuan.gao",
+            "lastModificationDate": "2026-10-06T10:56:49.24+02:00",
+            "isFixt": false
+        },
+        {
+            "id": 23009,
+            "name": "Schriftliche Unterrichtsbeiträge",
+            "color": "#FFFFFF",
+            "parentId": null,
+            "weight": 25,
+            "isWeightActive": true,
+            "isShowExactAverage": false,
+            "isShowAverage": false,
+            "bestCount": null,
+            "isPublic": false,
+            "creator": "zhiyuan.gao",
+            "creationDate": "2026-10-04T14:42:26.513+02:00",
+            "lastModificator": "zhiyuan.gao",
+            "lastModificationDate": "2026-10-06T10:56:49.3+02:00",
+            "isFixt": false
+        },
+        {
+            "id": 23008,
+            "name": "Tests",
+            "color": "#FFFFFF",
+            "parentId": null,
+            "weight": 5,
+            "isWeightActive": true,
+            "isShowExactAverage": false,
+            "isShowAverage": false,
+            "bestCount": null,
+            "isPublic": false,
+            "creator": "zhiyuan.gao",
+            "creationDate": "2026-10-04T14:42:09.497+02:00",
+            "lastModificator": "zhiyuan.gao",
+            "lastModificationDate": "2026-10-06T10:56:49.507+02:00",
+            "isFixt": false
+        }
+    ],
+    "tests": [
+        {
+            "id": 50336,
+            "title": "Musik Begegnen",
+            "date": "2026-08-25T00:00:00+02:00",
+            "visibleDate": null,
+            "gradeScaleId": null,
+            "rounding": 1.0,
+            "weight": 1.0,
+            "maxPoints": 0.0,
+            "active": true,
+            "closed": false,
+            "visibleForStudents": true,
+            "showExactFinalGrade": false,
+            "showPoints": false,
+            "bonusPointsActive": false,
+            "bonusPoints": 0,
+            "calculationType": "Manual",
+            "comment": null,
+            "grades": [
+                {
+                    "id": 519442,
+                    "value": 1.0,
+                    "isManuallyChanged": false,
+                    "points": null,
+                    "isBlocked": false,
+                    "tendency": null,
+                    "comment": null,
+                    "isActive": true,
+                    "studentId": 6296,
+                    "testId": 50336
+                }
+            ]
+        },
+        {
+            "id": 50337,
+            "title": "Musikalische Parameter",
+            "date": "2026-09-02T00:00:00+02:00",
+            "visibleDate": null,
+            "gradeScaleId": null,
+            "rounding": 1.0,
+            "weight": 1.0,
+            "maxPoints": 0.0,
+            "active": true,
+            "closed": false,
+            "visibleForStudents": true,
+            "showExactFinalGrade": false,
+            "showPoints": false,
+            "bonusPointsActive": false,
+            "bonusPoints": 0,
+            "calculationType": "Manual",
+            "comment": null,
+            "grades": [
+                {
+                    "id": 519443,
+                    "value": 1.0,
+                    "isManuallyChanged": false,
+                    "points": null,
+                    "isBlocked": false,
+                    "tendency": null,
+                    "comment": null,
+                    "isActive": true,
+                    "studentId": 6296,
+                    "testId": 50337
+                }
+            ]
+        },
+        {
+            "id": 50341,
+            "title": "Musik in der Werbung - Werbespots",
+            "date": "2026-09-06T00:00:00+02:00",
+            "visibleDate": null,
+            "gradeScaleId": null,
+            "rounding": 1.0,
+            "weight": 1.0,
+            "maxPoints": 0.0,
+            "active": true,
+            "closed": false,
+            "visibleForStudents": true,
+            "showExactFinalGrade": false,
+            "showPoints": false,
+            "bonusPointsActive": false,
+            "bonusPoints": 0,
+            "calculationType": "Manual",
+            "comment": null,
+            "grades": [
+                {
+                    "id": 519440,
+                    "value": 2.0,
+                    "isManuallyChanged": false,
+                    "points": null,
+                    "isBlocked": false,
+                    "tendency": null,
+                    "comment": null,
+                    "isActive": true,
+                    "studentId": 6296,
+                    "testId": 50341
+                }
+            ]
+        },
+        {
+            "id": 50342,
+            "title": "Jingle Detektiv",
+            "date": "2026-09-21T00:00:00+02:00",
+            "visibleDate": null,
+            "gradeScaleId": null,
+            "rounding": 1.0,
+            "weight": 1.0,
+            "maxPoints": 0.0,
+            "active": true,
+            "closed": false,
+            "visibleForStudents": true,
+            "showExactFinalGrade": false,
+            "showPoints": false,
+            "bonusPointsActive": false,
+            "bonusPoints": 0,
+            "calculationType": "Manual",
+            "comment": null,
+            "grades": [
+                {
+                    "id": 519441,
+                    "value": 2.0,
+                    "isManuallyChanged": false,
+                    "points": null,
+                    "isBlocked": false,
+                    "tendency": null,
+                    "comment": null,
+                    "isActive": true,
+                    "studentId": 6296,
+                    "testId": 50342
+                }
+            ]
+        },
+        {
+            "id": 50338,
+            "title": "Jingle und Zielgruppe",
+            "date": "2026-09-26T00:00:00+02:00",
+            "visibleDate": null,
+            "gradeScaleId": null,
+            "rounding": 1.0,
+            "weight": 1.0,
+            "maxPoints": 0.0,
+            "active": true,
+            "closed": false,
+            "visibleForStudents": true,
+            "showExactFinalGrade": false,
+            "showPoints": false,
+            "bonusPointsActive": false,
+            "bonusPoints": 0,
+            "calculationType": "Manual",
+            "comment": null,
+            "grades": [
+                {
+                    "id": 519444,
+                    "value": 3.0,
+                    "isManuallyChanged": false,
+                    "points": null,
+                    "isBlocked": false,
+                    "tendency": null,
+                    "comment": null,
+                    "isActive": true,
+                    "studentId": 6296,
+                    "testId": 50338
+                }
+            ]
+        },
+        {
+            "id": 50339,
+            "title": "Jingle Bewerten",
+            "date": "2026-10-06T00:00:00+02:00",
+            "visibleDate": null,
+            "gradeScaleId": null,
+            "rounding": 1.0,
+            "weight": 1.0,
+            "maxPoints": 0.0,
+            "active": true,
+            "closed": false,
+            "visibleForStudents": true,
+            "showExactFinalGrade": false,
+            "showPoints": false,
+            "bonusPointsActive": false,
+            "bonusPoints": 0,
+            "calculationType": "Manual",
+            "comment": null,
+            "grades": [
+                {
+                    "id": 0,
+                    "value": null,
+                    "isManuallyChanged": false,
+                    "points": null,
+                    "isBlocked": false,
+                    "tendency": null,
+                    "comment": null,
+                    "isActive": true,
+                    "studentId": 6296,
+                    "testId": 50339
+                }
+            ]
+        },
+        {
+            "id": 50340,
+            "title": "Jingle Werkstatt",
+            "date": "2026-10-06T00:00:00+02:00",
+            "visibleDate": null,
+            "gradeScaleId": null,
+            "rounding": 1.0,
+            "weight": 1.0,
+            "maxPoints": 0.0,
+            "active": true,
+            "closed": false,
+            "visibleForStudents": true,
+            "showExactFinalGrade": false,
+            "showPoints": false,
+            "bonusPointsActive": false,
+            "bonusPoints": 0,
+            "calculationType": "Manual",
+            "comment": null,
+            "grades": [
+                {
+                    "id": 0,
+                    "value": null,
+                    "isManuallyChanged": false,
+                    "points": null,
+                    "isBlocked": false,
+                    "tendency": null,
+                    "comment": null,
+                    "isActive": true,
+                    "studentId": 6296,
+                    "testId": 50340
+                }
+            ]
+        }
+    ],
+    "students": [
+        {
+            "id": 6296,
+            "name": "Stempel, Carl Johann",
+            "comment": null,
+            "gardeManuel": null,
+            "gardeCalculated": 1.8333333333,
+            "gardeFinal": null,
+            "dispensation": false
+        }
+    ],
+    "categoryResults": []
+}

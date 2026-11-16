@@ -1,4 +1,4 @@
-"""Louisenlund weekly timetable with a modern CustomTkinter interface.
+"""Louisenlund weekly timetable and grades with a modern CustomTkinter interface.
 
 Install dependencies with:
     python -m pip install -r requirements-schedule-gui.txt
@@ -39,11 +39,17 @@ urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
 API_BASE = "https://schule.louisenlund.de/api"
 AUTH_URL = f"{API_BASE}//Api/Authorization/JwtAuth"
 SCHEDULE_URL = f"{API_BASE}//api/Schedule/GetScheduleCached"
+GRADES_URL = f"{API_BASE}//Api/Dashboard/StudentGrade/GetFinalGradeDetails"
+USER_INFO_URL = f"{API_BASE}//Api/AppUser/GetUserInfo"
 
 SCHOOL_ID = 35
 REQUEST_TIMEOUT = 15
 TEMP_FOLDER = Path("temp")
 DATA_FOLDER = Path("data")
+
+# Hardcoded IDs for the grades request (taken from the web app's request).
+STUDENT_CLASS_ID = 6527
+SUBJECT_ID = 30
 
 
 class ScheduleError(Exception):
@@ -249,7 +255,15 @@ def fetch_schedule(
     if filter_relevant:
         lessons = [lesson for lesson in lessons if lesson.get("SubjectRelevantAbsences")]
 
-    fields = ("TeacherName", "SubjectName", "RoomName", "start", "end")
+    fields = (
+        "TeacherName",
+        "SubjectName",
+        "RoomName",
+        "Subject_Id",
+        "StudentClass_Id",
+        "start",
+        "end",
+    )
     simplified = [
         {field: lesson.get(field) for field in fields}
         for lesson in lessons
@@ -271,6 +285,312 @@ def fetch_schedule(
         "raw_path": str(raw_path.resolve()),
         "week_start": week_start,
         "week_end": week_end,
+    }
+
+
+# ---------------------------------------------------------------------------
+# Grades
+# ---------------------------------------------------------------------------
+def _weighted_mean(items: list[tuple[float, float]]) -> float | None:
+    """Weighted mean of (value, weight) pairs; plain mean if all weights are 0."""
+    if not items:
+        return None
+    total_weight = sum(weight for _, weight in items)
+    if total_weight <= 0:
+        return sum(value for value, _ in items) / len(items)
+    return sum(value * weight for value, weight in items) / total_weight
+
+
+def collect_subjects(lessons: list[dict[str, Any]]) -> list[dict[str, Any]]:
+    """Return unique subject ids/names/class ids from schedule lesson data."""
+    subjects: dict[int, dict[str, Any]] = {}
+    for lesson in lessons:
+        if not isinstance(lesson, dict):
+            continue
+        subject_id = lesson.get("Subject_Id")
+        subject_name = lesson.get("SubjectName")
+        if subject_name is None:
+            continue
+        try:
+            subject_key = int(subject_id)
+        except (TypeError, ValueError):
+            continue
+        name = str(subject_name).strip()
+        if not name:
+            continue
+        normalized = name.casefold()
+        if "veranstaltung" in normalized or "versammlung" in normalized:
+            continue
+
+        class_id = lesson.get("StudentClass_Id")
+        try:
+            class_key = int(class_id)
+        except (TypeError, ValueError):
+            class_key = None
+
+        item = subjects.setdefault(
+            subject_key,
+            {"id": subject_key, "name": name, "class_id": class_key},
+        )
+        if class_key is not None and item.get("class_id") is None:
+            item["class_id"] = class_key
+        if item.get("name") == "":
+            item["name"] = name
+    return [
+        {"id": item["id"], "name": item["name"], "class_id": item.get("class_id")}
+        for item in sorted(subjects.values(), key=lambda item: item["id"])
+    ]
+
+
+def parse_grades(data: dict[str, Any], student_id: int) -> dict[str, Any]:
+    """Build the category tree and averages from a GetFinalGradeDetails response.
+
+    Category weights come from ``testCategories``. A category without graded
+    entries is ignored, and the weights of its siblings are renormalised.
+    """
+    tests = {
+        test.get("id"): test
+        for test in data.get("tests", [])
+        if isinstance(test, dict)
+    }
+    categories = {
+        category.get("id"): category
+        for category in data.get("testCategories", [])
+        if isinstance(category, dict)
+    }
+
+    def test_value(test: dict[str, Any]) -> float | None:
+        for grade in test.get("grades", []) or []:
+            if (
+                isinstance(grade, dict)
+                and grade.get("studentId") == student_id
+                and grade.get("isActive", True)
+                and isinstance(grade.get("value"), (int, float))
+            ):
+                return float(grade["value"])
+        return None
+
+    def build(node: Any) -> dict[str, Any] | None:
+        if not isinstance(node, dict) or node.get("isDeleted"):
+            return None
+        node_id = node.get("id")
+
+        if node.get("structureType") == 1:
+            test = tests.get(node_id)
+            if test is None or test.get("active") is False:
+                return None
+            weight = test.get("weight")
+            return {
+                "kind": "test",
+                "name": node.get("name") or test.get("title") or "Test",
+                "date": node.get("date") or test.get("date"),
+                "weight": float(weight) if isinstance(weight, (int, float)) else 1.0,
+                "value": test_value(test),
+                "children": [],
+            }
+
+        meta = categories.get(node_id, {})
+        raw_weight = meta.get("weight")
+        weight = (
+            float(raw_weight)
+            if isinstance(raw_weight, (int, float)) and meta.get("isWeightActive", True)
+            else 1.0
+        )
+        children = [
+            child
+            for child in (build(item) for item in node.get("children", []) or [])
+            if child is not None
+        ]
+        graded = [
+            (child["value"], child["weight"])
+            for child in children
+            if child["value"] is not None
+        ]
+        return {
+            "kind": "category",
+            "name": node.get("name") or "Category",
+            "date": None,
+            "weight": weight,
+            "value": _weighted_mean(graded),
+            "children": children,
+        }
+
+    roots = [
+        root
+        for root in (build(item) for item in data.get("structure", []) or [])
+        if root is not None
+    ]
+    computed = _weighted_mean(
+        [(root["value"], root["weight"]) for root in roots if root["value"] is not None]
+    )
+
+    students = [s for s in data.get("students", []) if isinstance(s, dict)]
+    student = next((s for s in students if s.get("id") == student_id), None)
+    if student is None and students:
+        student = students[0]
+    student = student or {}
+
+    def number(value: Any) -> float | None:
+        return float(value) if isinstance(value, (int, float)) else None
+
+    final_grade = number(student.get("gardeFinal"))
+    manual_grade = number(student.get("gardeManuel"))
+    calculated_grade = number(student.get("gardeCalculated"))
+    if final_grade is not None:
+        shown, source = final_grade, "Final grade"
+    elif manual_grade is not None:
+        shown, source = manual_grade, "Manual grade"
+    elif calculated_grade is not None:
+        shown, source = calculated_grade, "Calculated grade"
+    else:
+        shown, source = computed, "Calculated locally"
+
+    def count_graded(nodes: list[dict[str, Any]]) -> int:
+        total = 0
+        for node in nodes:
+            if node["kind"] == "test":
+                total += 1 if node["value"] is not None else 0
+            else:
+                total += count_graded(node["children"])
+        return total
+
+    best = number(data.get("bestGrade"))
+    worst = number(data.get("worstGrade"))
+    return {
+        "roots": roots,
+        "shown": shown,
+        "source": source,
+        "student_name": str(student.get("name") or ""),
+        "best": best if best is not None else 1.0,
+        "worst": worst if worst is not None else 6.0,
+        "graded_count": count_graded(roots),
+    }
+
+
+def fetch_student_id(session: requests.Session) -> int:
+    """Read the student ID (crmEntityId) of the signed-in user from GetUserInfo."""
+    info = fetch_json(session, "GET", USER_INFO_URL)
+    if not isinstance(info, dict):
+        raise ScheduleError("The user info response has an unexpected format.")
+    value = info.get("crmEntityId")
+    if isinstance(value, bool) or not isinstance(value, (int, str)):
+        raise ScheduleError("The user info response contains no 'crmEntityId'.")
+    try:
+        return int(value)
+    except ValueError as exc:
+        raise ScheduleError(f"Invalid 'crmEntityId' in user info: {value!r}") from exc
+
+
+def fetch_grades(
+    username: str,
+    password: str,
+    pin: str,
+    status_queue: queue.Queue[tuple[str, Any]],
+    subject_specs: list[dict[str, Any]] | None = None,
+) -> dict[str, Any]:
+    """Fetch and save the grade details for all relevant subjects."""
+    DATA_FOLDER.mkdir(parents=True, exist_ok=True)
+
+    if subject_specs is None:
+        subject_specs = [{"id": SUBJECT_ID, "name": "Mathematik", "class_id": STUDENT_CLASS_ID}]
+
+    normalized_subjects: list[tuple[int, str, int | None]] = []
+    for subject in subject_specs:
+        if not isinstance(subject, dict):
+            continue
+        raw_id = subject.get("id", subject.get("subject_id"))
+        name = str(subject.get("name") or subject.get("subject_name") or "").strip()
+        try:
+            subject_id = int(raw_id)
+        except (TypeError, ValueError):
+            continue
+        class_id = subject.get("class_id", subject.get("studentClassId"))
+        try:
+            resolved_class_id = int(class_id)
+        except (TypeError, ValueError):
+            resolved_class_id = None
+        if not name:
+            name = f"Subject {subject_id}"
+        normalized_subjects.append((subject_id, name, resolved_class_id))
+
+    if not normalized_subjects:
+        normalized_subjects = [(SUBJECT_ID, "Mathematik", STUDENT_CLASS_ID)]
+
+    status_queue.put(("status", "Signing in…"))
+    token = get_token(username, password, pin)
+
+    session = requests.Session()
+    session.headers.update(
+        {
+            "Authorization": f"Bearer {token}",
+            "Accept": "application/json, text/plain, */*",
+        }
+    )
+    session.verify = False
+
+    status_queue.put(("status", "Looking up student ID…"))
+    student_id = fetch_student_id(session)
+
+    subject_rows: list[dict[str, Any]] = []
+    for subject_id, subject_name, class_id in normalized_subjects:
+        request_class_id = class_id if class_id is not None else STUDENT_CLASS_ID
+        status_queue.put(("status", f"Downloading grades for {subject_name}…"))
+        data = fetch_json(
+            session,
+            "GET",
+            GRADES_URL,
+            params={
+                "studentClassId": request_class_id,
+                "subjectId": subject_id,
+                "studentId": student_id,
+            },
+        )
+        if not isinstance(data, dict):
+            raise ScheduleError("The grades response has an unexpected format.")
+
+        output_path = DATA_FOLDER / f"grades-subject-{subject_id}.json"
+        with output_path.open("w", encoding="utf-8") as file:
+            json.dump(data, file, ensure_ascii=False, indent=4)
+
+        summary = parse_grades(data, student_id)
+        subject_rows.append(
+            {
+                "id": subject_id,
+                "name": subject_name,
+                "shown": summary["shown"],
+                "summary": summary,
+            }
+        )
+
+    values = [item["shown"] for item in subject_rows if item["shown"] is not None]
+    overall = sum(values) / len(values) if values else None
+    overall_summary = {
+        "roots": [],
+        "shown": overall,
+        "source": "Average across subjects",
+        "student_name": str(
+            next(
+                (
+                    item["summary"]["student_name"]
+                    for item in subject_rows
+                    if item["summary"].get("student_name")
+                ),
+                "",
+            )
+        ),
+        "best": 1.0,
+        "worst": 6.0,
+        "graded_count": sum(item["summary"].get("graded_count", 0) for item in subject_rows),
+        "subjects": subject_rows,
+    }
+
+    output_path = DATA_FOLDER / "grades-all-subjects.json"
+    with output_path.open("w", encoding="utf-8") as file:
+        json.dump({"subjects": subject_rows, "overall": overall_summary}, file, ensure_ascii=False, indent=4)
+
+    return {
+        "summary": overall_summary,
+        "output_path": str(output_path.resolve()),
     }
 
 
@@ -354,13 +674,16 @@ class ScheduleApp:
 
         self.result_queue: queue.Queue[tuple[str, Any]] = queue.Queue()
         self.busy = False
+        self.grades_busy = False
         self.last_output_path: Path | None = None
         self.current_lessons: list[dict[str, Any]] = []
+        self.current_subjects: list[dict[str, Any]] = []
         self.current_week_start: dt.date | None = None
         self._grid_resize_job: str | None = None
         self._week_refresh_job: str | None = None
         self._refresh_after_busy = False
         self.colors = self.LIGHT
+        self._grade_scale: tuple[float, float] = (1.0, 6.0)
 
         self.username_var = tk.StringVar()
         self.pin_var = tk.StringVar()
@@ -405,7 +728,7 @@ class ScheduleApp:
         ).pack(anchor="w")
         ctk.CTkLabel(
             title_area,
-            text="WEEKLY TIMETABLE  ·  YOUR SCHOOL WEEK AT A GLANCE",
+            text="WEEKLY TIMETABLE & GRADES  ·  YOUR SCHOOL WEEK AT A GLANCE",
             font=ctk.CTkFont(family="Segoe UI", size=10, weight="bold"),
             text_color=("#71809A", "#91A2BC"),
         ).pack(anchor="w", pady=(2, 0))
@@ -583,13 +906,17 @@ class ScheduleApp:
 
         controls.grid_remove()
 
-        # Persistent week navigation: stays visible even when Account & settings is closed.
+        # Persistent toolbar: week navigation (left) and view switch (right).
         week_toolbar = ctk.CTkFrame(page, fg_color="transparent")
         week_toolbar.grid(row=2, column=0, sticky="ew", pady=(0, 8))
+        week_toolbar.grid_columnconfigure(1, weight=1)
+
         # Keep the previous/range/next controls grouped at the left edge.
+        self.nav_frame = ctk.CTkFrame(week_toolbar, fg_color="transparent")
+        self.nav_frame.grid(row=0, column=0, sticky="w")
 
         self.prev_button = ctk.CTkButton(
-            week_toolbar,
+            self.nav_frame,
             text="‹",
             command=lambda: self._shift_week(-7),
             width=38,
@@ -603,7 +930,7 @@ class ScheduleApp:
         self.prev_button.grid(row=0, column=0, sticky="w", padx=(0, 6))
 
         ctk.CTkLabel(
-            week_toolbar,
+            self.nav_frame,
             textvariable=self.week_range_var,
             font=ctk.CTkFont(size=12, weight="bold"),
             text_color=("#53627A", "#B0BED2"),
@@ -611,7 +938,7 @@ class ScheduleApp:
         ).grid(row=0, column=1, sticky="w", padx=(4, 10))
 
         self.next_button = ctk.CTkButton(
-            week_toolbar,
+            self.nav_frame,
             text="›",
             command=lambda: self._shift_week(7),
             width=38,
@@ -624,6 +951,17 @@ class ScheduleApp:
         )
         self.next_button.grid(row=0, column=2, sticky="w")
 
+        self.view_switch = ctk.CTkSegmentedButton(
+            week_toolbar,
+            values=["Timetable", "Grades"],
+            command=self._switch_view,
+            height=34,
+            corner_radius=9,
+            font=ctk.CTkFont(size=12, weight="bold"),
+        )
+        self.view_switch.set("Timetable")
+        self.view_switch.grid(row=0, column=1, sticky="e")
+
         # Timetable card
         timetable = ctk.CTkFrame(
             page,
@@ -635,6 +973,7 @@ class ScheduleApp:
         timetable.grid(row=3, column=0, sticky="nsew")
         timetable.grid_columnconfigure(0, weight=1)
         timetable.grid_rowconfigure(1, weight=1)
+        self.timetable_card = timetable
 
         timetable_header = ctk.CTkFrame(timetable, fg_color="transparent")
         timetable_header.grid(row=0, column=0, sticky="ew", padx=18, pady=(14, 10))
@@ -688,6 +1027,52 @@ class ScheduleApp:
         self.grid_canvas.bind("<Button-4>", lambda _event: self.grid_canvas.yview_scroll(-1, "units"))
         self.grid_canvas.bind("<Button-5>", lambda _event: self.grid_canvas.yview_scroll(1, "units"))
 
+        # Grades card (same grid cell as the timetable; toggled by the view switch)
+        grades = ctk.CTkFrame(
+            page,
+            corner_radius=16,
+            border_width=1,
+            border_color=(self.LIGHT["border"], self.DARK["border"]),
+            fg_color=(self.LIGHT["card"], self.DARK["card"]),
+        )
+        grades.grid(row=3, column=0, sticky="nsew")
+        grades.grid_columnconfigure(0, weight=1)
+        grades.grid_rowconfigure(1, weight=1)
+        self.grades_card = grades
+
+        grades_header = ctk.CTkFrame(grades, fg_color="transparent")
+        grades_header.grid(row=0, column=0, sticky="ew", padx=18, pady=(14, 10))
+        grades_header.grid_columnconfigure(0, weight=1)
+        ctk.CTkLabel(
+            grades_header,
+            text="Your grades",
+            font=ctk.CTkFont(size=16, weight="bold"),
+            text_color=(self.LIGHT["text"], self.DARK["text"]),
+        ).grid(row=0, column=0, sticky="w")
+        self.grades_button = ctk.CTkButton(
+            grades_header,
+            text="↻   Load grades",
+            command=self._start_grades_fetch,
+            width=150,
+            height=34,
+            corner_radius=10,
+            font=ctk.CTkFont(size=12, weight="bold"),
+        )
+        self.grades_button.grid(row=0, column=1, sticky="e")
+
+        self.grades_body = ctk.CTkScrollableFrame(
+            grades,
+            fg_color="transparent",
+            corner_radius=0,
+        )
+        self.grades_body.grid(row=1, column=0, sticky="nsew", padx=10, pady=(0, 12))
+        self.grades_body.grid_columnconfigure(0, weight=1)
+        self._render_grades_placeholder(
+            "No grades loaded. Open Account & settings, enter the login details, "
+            "then press Load grades."
+        )
+        grades.grid_remove()
+
         footer = ctk.CTkFrame(page, fg_color="transparent")
         footer.grid(row=4, column=0, sticky="ew", pady=(10, 0))
         footer.grid_columnconfigure(0, weight=1)
@@ -727,6 +1112,18 @@ class ScheduleApp:
             self.settings_toggle.configure(text="⚙  Account & settings  ▾")
             self.settings_toggle.master.winfo_children()[1].grid_remove()
         self.root.after(80, self._on_grid_resize, None)
+
+    def _switch_view(self, value: str) -> None:
+        """Show either the weekly timetable or the grades overview."""
+        if value == "Grades":
+            self.timetable_card.grid_remove()
+            self.nav_frame.grid_remove()
+            self.grades_card.grid()
+        else:
+            self.grades_card.grid_remove()
+            self.timetable_card.grid()
+            self.nav_frame.grid()
+            self.root.after(80, self._on_grid_resize, None)
 
     def _make_labeled_entry(
         self,
@@ -795,7 +1192,7 @@ class ScheduleApp:
         self.fetch_button.configure(state="disabled", text="Fetching…")
         self.progress.start()
         week_start, week_end = week_bounds(selected_date)
-        self.status_var.set(f"Preparing week {week_start:%d %b}–{week_end:%d %b}…")
+        self.status_var.set(f"Preparing week {week_start:%d %b}-{week_end:%d %b}…")
         self.count_var.set("Fetching schedule…")
 
         worker = threading.Thread(
@@ -837,6 +1234,267 @@ class ScheduleApp:
         except Exception as exc:  # Keep unexpected worker exceptions visible in the GUI.
             self.result_queue.put(("error", f"Unexpected error: {exc}"))
 
+    # -- grades ------------------------------------------------------------
+    def _start_grades_fetch(self) -> None:
+        if self.grades_busy:
+            return
+        username = self.username_var.get().strip()
+        password = self.password_entry.get()
+        pin = self.pin_var.get()
+        if not username or not password:
+            messagebox.showwarning(
+                "Missing login details",
+                "Open Account & settings and enter your username and password.",
+            )
+            return
+        self.grades_busy = True
+        self.grades_button.configure(state="disabled", text="Loading…")
+        if not self.busy:
+            self.progress.start()
+        self.status_var.set("Preparing grades request…")
+
+        worker = threading.Thread(
+            target=self._grades_worker,
+            args=(username, password, pin, self.current_subjects),
+            daemon=True,
+        )
+        worker.start()
+
+    def _grades_worker(
+        self,
+        username: str,
+        password: str,
+        pin: str,
+        subject_specs: list[dict[str, Any]],
+    ) -> None:
+        try:
+            result = fetch_grades(username, password, pin, self.result_queue, subject_specs)
+            self.result_queue.put(("grades_success", result))
+        except ScheduleError as exc:
+            self.result_queue.put(("grades_error", str(exc)))
+        except Exception as exc:  # Keep unexpected worker exceptions visible in the GUI.
+            self.result_queue.put(("grades_error", f"Unexpected error: {exc}"))
+
+    def _finish_grades_busy(self) -> None:
+        self.grades_busy = False
+        self.grades_button.configure(state="normal", text="↻   Load grades")
+        if not self.busy:
+            self.progress.stop()
+            self.progress.set(0)
+
+    def _show_grades(self, result: dict[str, Any]) -> None:
+        self._finish_grades_busy()
+        summary: dict[str, Any] = result["summary"]
+        self._grade_scale = (summary["best"], summary["worst"])
+        self._render_grades(summary)
+        self.status_var.set(f"Saved grades  ·  {result['output_path']}")
+        self.count_var.set(f"{summary['graded_count']} graded entries")
+
+    @staticmethod
+    def _format_grade(value: float | None, decimals: int = 2) -> str:
+        if value is None:
+            return "–"
+        return f"{value:.{decimals}f}"
+
+    @staticmethod
+    def _format_test_grade(value: float | None) -> str:
+        if value is None:
+            return "–"
+        return f"{value:.1f}" if round(value, 1) == round(value, 6) else f"{value:.2f}"
+
+    def _grade_color(self, value: float | None) -> tuple[str, str]:
+        """Return (light, dark) text colours for a grade on the active scale."""
+        if value is None:
+            return ("#A0AABC", "#71839D")
+        best, worst = self._grade_scale
+        span = worst - best
+        ratio = (value - best) / span if span else 0.0
+        if ratio <= 0.1:
+            return ("#1E8E5A", "#4FD08C")
+        if ratio <= 0.3:
+            return ("#2F6FE0", "#6C97FF")
+        if ratio <= 0.5:
+            return ("#B7791F", "#E3B055")
+        if ratio <= 0.7:
+            return ("#C2570C", "#F08F4A")
+        return ("#C62F3F", "#F06C7A")
+
+    def _clear_grades_body(self) -> None:
+        for child in self.grades_body.winfo_children():
+            child.destroy()
+
+    def _render_grades_placeholder(self, text: str) -> None:
+        self._clear_grades_body()
+        ctk.CTkLabel(
+            self.grades_body,
+            text=text,
+            font=ctk.CTkFont(size=12),
+            text_color=("#74829A", "#91A2BC"),
+            wraplength=560,
+            justify="left",
+        ).pack(anchor="w", padx=8, pady=14)
+
+    def _render_grades(self, summary: dict[str, Any]) -> None:
+        self._clear_grades_body()
+
+        # Final grade tile
+        tile = ctk.CTkFrame(
+            self.grades_body,
+            corner_radius=14,
+            border_width=1,
+            border_color=(self.LIGHT["border"], self.DARK["border"]),
+            fg_color=(self.LIGHT["surface"], self.DARK["surface"]),
+        )
+        tile.pack(fill="x", padx=4, pady=(2, 12))
+        tile.grid_columnconfigure(1, weight=1)
+
+        shown: float | None = summary["shown"]
+        ctk.CTkLabel(
+            tile,
+            text=self._format_grade(shown, 2),
+            font=ctk.CTkFont(size=44, weight="bold"),
+            text_color=self._grade_color(shown),
+        ).grid(row=0, column=0, rowspan=2, padx=(22, 18), pady=14)
+        ctk.CTkLabel(
+            tile,
+            text=summary["source"].upper(),
+            font=ctk.CTkFont(size=10, weight="bold"),
+            text_color=("#74829A", "#91A2BC"),
+            anchor="w",
+        ).grid(row=0, column=1, sticky="sw", pady=(16, 0))
+        detail_parts = []
+        if summary["student_name"]:
+            detail_parts.append(summary["student_name"])
+        if shown is not None:
+            detail_parts.append(f"exact {shown:.3f}")
+        detail_parts.append(
+            f"scale {summary['best']:g} (best) – {summary['worst']:g} (worst)"
+        )
+        ctk.CTkLabel(
+            tile,
+            text="  ·  ".join(detail_parts),
+            font=ctk.CTkFont(size=12),
+            text_color=(self.LIGHT["text"], self.DARK["text"]),
+            anchor="w",
+        ).grid(row=1, column=1, sticky="nw", pady=(2, 16))
+
+        subject_rows = summary.get("subjects")
+        if subject_rows:
+            header = ctk.CTkLabel(
+                self.grades_body,
+                text="SUBJECT AVERAGES",
+                font=ctk.CTkFont(size=10, weight="bold"),
+                text_color=("#74829A", "#91A2BC"),
+                anchor="w",
+            )
+            header.pack(anchor="w", padx=8, pady=(0, 8))
+            for entry in subject_rows:
+                subject_name = str(entry.get("name") or "Subject")
+                subject_value = entry.get("shown")
+                row = ctk.CTkFrame(
+                    self.grades_body,
+                    corner_radius=10,
+                    border_width=1,
+                    border_color=(self.LIGHT["border"], self.DARK["border"]),
+                    fg_color=(self.LIGHT["card"], self.DARK["card"]),
+                )
+                row.pack(fill="x", padx=4, pady=3)
+                row.grid_columnconfigure(0, weight=1)
+                ctk.CTkLabel(
+                    row,
+                    text=subject_name,
+                    font=ctk.CTkFont(size=13),
+                    text_color=(self.LIGHT["text"], self.DARK["text"]),
+                    anchor="w",
+                ).grid(row=0, column=0, sticky="w", padx=(14, 8), pady=(10, 10))
+                ctk.CTkLabel(
+                    row,
+                    text=self._format_grade(subject_value, 2),
+                    font=ctk.CTkFont(size=15, weight="bold"),
+                    text_color=self._grade_color(subject_value),
+                    width=68,
+                    anchor="e",
+                ).grid(row=0, column=1, sticky="e", padx=(0, 14), pady=10)
+            return
+
+        if not summary["roots"]:
+            ctk.CTkLabel(
+                self.grades_body,
+                text="The response contains no grade structure.",
+                font=ctk.CTkFont(size=12),
+                text_color=("#74829A", "#91A2BC"),
+            ).pack(anchor="w", padx=8, pady=8)
+            return
+
+        for root in summary["roots"]:
+            self._add_grade_node(root, 0)
+
+    def _add_grade_node(self, node: dict[str, Any], depth: int) -> None:
+        is_test = node["kind"] == "test"
+        row = ctk.CTkFrame(
+            self.grades_body,
+            corner_radius=10,
+            border_width=1 if is_test else 0,
+            border_color=(self.LIGHT["border"], self.DARK["border"]),
+            fg_color=(
+                (self.LIGHT["card"], self.DARK["card"])
+                if is_test
+                else (self.LIGHT["header"], self.DARK["header"])
+                if depth == 0
+                else (self.LIGHT["surface"], self.DARK["surface"])
+            ),
+        )
+        row.pack(fill="x", padx=(4 + depth * 22, 4), pady=3)
+        row.grid_columnconfigure(0, weight=1)
+
+        ctk.CTkLabel(
+            row,
+            text=str(node["name"]),
+            font=ctk.CTkFont(size=13 if depth == 0 and not is_test else 12, weight="normal" if is_test else "bold"),
+            text_color=(self.LIGHT["text"], self.DARK["text"]),
+            anchor="w",
+        ).grid(row=0, column=0, sticky="w", padx=(14, 8), pady=(9, 0 if is_test else 9))
+
+        if is_test:
+            date = self._parse_schedule_datetime(node.get("date"))
+            subtitle = date.strftime("%d %b %Y") if date else ""
+            if node["weight"] != 1.0:
+                subtitle += f"{'  ·  ' if subtitle else ''}weight ×{node['weight']:g}"
+            if subtitle:
+                ctk.CTkLabel(
+                    row,
+                    text=subtitle,
+                    font=ctk.CTkFont(size=10),
+                    text_color=("#74829A", "#91A2BC"),
+                    anchor="w",
+                ).grid(row=1, column=0, sticky="w", padx=(14, 8), pady=(0, 9))
+            value_text = self._format_test_grade(node["value"])
+        else:
+            ctk.CTkLabel(
+                row,
+                text=f"{node['weight']:g} %",
+                font=ctk.CTkFont(size=10, weight="bold"),
+                text_color=("#53627A", "#B0BED2"),
+                fg_color=(self.LIGHT["pill"], self.DARK["pill"]),
+                corner_radius=8,
+                width=52,
+                height=22,
+            ).grid(row=0, column=1, sticky="e", padx=(0, 10), pady=9)
+            value_text = self._format_grade(node["value"], 2)
+
+        ctk.CTkLabel(
+            row,
+            text=value_text,
+            font=ctk.CTkFont(size=16 if is_test else 15, weight="bold"),
+            text_color=self._grade_color(node["value"]),
+            width=56,
+            anchor="e",
+        ).grid(row=0, column=2, rowspan=2 if is_test else 1, sticky="e", padx=(0, 14), pady=9)
+
+        for child in node["children"]:
+            self._add_grade_node(child, depth + 1)
+
+    # -- schedule ----------------------------------------------------------
     def _poll_queue(self) -> None:
         try:
             while True:
@@ -850,6 +1508,13 @@ class ScheduleApp:
                     self.status_var.set("Could not load the schedule.")
                     self.count_var.set("Request failed")
                     messagebox.showerror("Schedule error", str(payload))
+                elif kind == "grades_success":
+                    self._show_grades(payload)
+                elif kind == "grades_error":
+                    self._finish_grades_busy()
+                    self.status_var.set("Could not load the grades.")
+                    self.count_var.set("Request failed")
+                    messagebox.showerror("Grades error", str(payload))
         except queue.Empty:
             pass
         self.root.after(120, self._poll_queue)
@@ -859,6 +1524,7 @@ class ScheduleApp:
         self.current_lessons = sorted(
             result["lessons"], key=lambda lesson: str(lesson.get("start", ""))
         )
+        self.current_subjects = collect_subjects(self.current_lessons)
         self.current_week_start = result["week_start"]
         self._draw_week_grid()
         week_start: dt.date = result["week_start"]
@@ -872,13 +1538,14 @@ class ScheduleApp:
     def _finish_busy(self) -> None:
         self.busy = False
         self.fetch_button.configure(state="normal", text="↻   Fetch whole week")
-        self.progress.stop()
-        self.progress.set(0)
+        if not self.grades_busy:
+            self.progress.stop()
+            self.progress.set(0)
         if self._refresh_after_busy:
             self._refresh_after_busy = False
             self.root.after(0, self._start_fetch)
 
-    def _on_grid_resize(self, _event: tk.Event) -> None:
+    def _on_grid_resize(self, _event: tk.Event | None) -> None:
         if self.current_week_start is None:
             return
         if self._grid_resize_job is not None:

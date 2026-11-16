@@ -3,27 +3,26 @@
         "TeacherName": "Dirk Koroschetz",
         "SubjectName": "Jahrgangsversammlung",
         "RoomName": "H3.1.Lernstudio",
+        "Subject_Id": 91,
+        "StudentClass_Id": 6506,
         "start": "2026-11-16T08:30:00+01:00",
         "end": "2026-11-16T09:00:00+01:00"
     },
     {
         "TeacherName": "Max Strohfeldt",
         "SubjectName": "Englisch",
-        "RoomName": "H1.2.Seminar",
+        "RoomName": "H2.1.Seminar 4",
+        "Subject_Id": 12,
+        "StudentClass_Id": 6526,
         "start": "2026-11-16T10:30:00+01:00",
         "end": "2026-11-16T11:30:00+01:00"
-    },
-    {
-        "TeacherName": "Tim Birkhoven",
-        "SubjectName": "Physik",
-        "RoomName": "H1.0.Physik Labor",
-        "start": "2026-11-16T14:00:00+01:00",
-        "end": "2026-11-16T17:00:00+01:00"
     },
     {
         "TeacherName": "Jörg Maurer",
         "SubjectName": "Chemie",
         "RoomName": "H1.1.Chemie Space",
+        "Subject_Id": 6,
+        "StudentClass_Id": 6537,
         "start": "2026-11-17T08:30:00+01:00",
         "end": "2026-11-17T09:30:00+01:00"
     },
@@ -31,6 +30,8 @@
         "TeacherName": "Zhiyuan Gao",
         "SubjectName": "Musik",
         "RoomName": "M2",
+        "Subject_Id": 32,
+        "StudentClass_Id": 6533,
         "start": "2026-11-17T09:30:00+01:00",
         "end": "2026-11-17T10:30:00+01:00"
     },
@@ -38,6 +39,8 @@
         "TeacherName": "Olaf Thiele",
         "SubjectName": "Geschichte",
         "RoomName": "H3.1.Seminar 2",
+        "Subject_Id": 17,
+        "StudentClass_Id": 6528,
         "start": "2026-11-17T15:00:00+01:00",
         "end": "2026-11-17T16:00:00+01:00"
     },
@@ -45,6 +48,8 @@
         "TeacherName": "Anastasios Kotanidis",
         "SubjectName": "Latein",
         "RoomName": "H3.0.Seminar 3",
+        "Subject_Id": 29,
+        "StudentClass_Id": 6486,
         "start": "2026-11-18T09:30:00+01:00",
         "end": "2026-11-18T10:30:00+01:00"
     },
@@ -52,6 +57,8 @@
         "TeacherName": "Max Strohfeldt",
         "SubjectName": "Englisch",
         "RoomName": "H1.2.Seminar",
+        "Subject_Id": 12,
+        "StudentClass_Id": 6526,
         "start": "2026-11-18T10:30:00+01:00",
         "end": "2026-11-18T11:30:00+01:00"
     },
@@ -59,6 +66,8 @@
         "TeacherName": "Annika Mayrock",
         "SubjectName": "Mathematik",
         "RoomName": "H3.1.Seminar 3",
+        "Subject_Id": 30,
+        "StudentClass_Id": 6527,
         "start": "2026-11-18T11:30:00+01:00",
         "end": "2026-11-18T12:30:00+01:00"
     },
@@ -66,13 +75,17 @@
         "TeacherName": "Ida Sophie Siewertsen",
         "SubjectName": "Deutsch",
         "RoomName": "H3.0.Seminar 1",
+        "Subject_Id": 8,
+        "StudentClass_Id": 6525,
         "start": "2026-11-18T15:00:00+01:00",
         "end": "2026-11-18T16:00:00+01:00"
     },
     {
-        "TeacherName": "Dirk Koroschetz",
-        "SubjectName": "Lernzeit",
-        "RoomName": "H2.0.Multispace",
+        "TeacherName": "Jan-Hauke Erichsen",
+        "SubjectName": "Sport",
+        "RoomName": "HS2",
+        "Subject_Id": 41,
+        "StudentClass_Id": 6522,
         "start": "2026-11-19T08:30:00+01:00",
         "end": "2026-11-19T09:30:00+01:00"
     },
@@ -80,6 +93,8 @@
         "TeacherName": "Jörg Maurer",
         "SubjectName": "Chemie",
         "RoomName": "H1.1.Chemie Space",
+        "Subject_Id": 6,
+        "StudentClass_Id": 6537,
         "start": "2026-11-19T09:30:00+01:00",
         "end": "2026-11-19T12:30:00+01:00"
     },
@@ -87,49 +102,36 @@
         "TeacherName": "Annika Mayrock",
         "SubjectName": "Mathematik",
         "RoomName": "H2.1.Seminar 4",
+        "Subject_Id": 30,
+        "StudentClass_Id": 6527,
         "start": "2026-11-19T14:00:00+01:00",
         "end": "2026-11-19T15:00:00+01:00"
     },
     {
-        "TeacherName": "Heinrich Alheid",
-        "SubjectName": "MINT-Modul",
-        "RoomName": "H1.1.Biologie Labor",
+        "TeacherName": "Karen Stange",
+        "SubjectName": "Veranstaltung",
+        "RoomName": "extern",
+        "Subject_Id": 391,
+        "StudentClass_Id": 6524,
         "start": "2026-11-20T08:30:00+01:00",
-        "end": "2026-11-20T11:30:00+01:00"
-    },
-    {
-        "TeacherName": "Alexandra Lutz",
-        "SubjectName": "Darstellendes Spiel",
-        "RoomName": "KuK",
-        "start": "2026-11-20T11:30:00+01:00",
-        "end": "2026-11-20T12:30:00+01:00"
+        "end": "2026-11-20T18:00:00+01:00"
     },
     {
         "TeacherName": "Jan-Hauke Erichsen",
         "SubjectName": "Sport",
         "RoomName": "HS1",
+        "Subject_Id": 41,
+        "StudentClass_Id": 6522,
         "start": "2026-11-20T14:00:00+01:00",
         "end": "2026-11-20T16:00:00+01:00"
     },
     {
-        "TeacherName": "Jörg Maurer",
-        "SubjectName": "Biologie",
-        "RoomName": "H1.2.Seminar",
-        "start": "2026-11-20T16:00:00+01:00",
-        "end": "2026-11-20T17:00:00+01:00"
-    },
-    {
-        "TeacherName": "Jesse Jacobsen",
-        "SubjectName": "Geographie",
-        "RoomName": "H3.1.Seminar 1",
-        "start": "2026-11-21T10:30:00+01:00",
-        "end": "2026-11-21T11:30:00+01:00"
-    },
-    {
-        "TeacherName": "Ida Sophie Siewertsen",
-        "SubjectName": "Deutsch",
-        "RoomName": "H3.0.Seminar 1",
-        "start": "2026-11-21T11:30:00+01:00",
-        "end": "2026-11-21T12:30:00+01:00"
+        "TeacherName": "Karen Stange",
+        "SubjectName": "Veranstaltung",
+        "RoomName": "extern",
+        "Subject_Id": 391,
+        "StudentClass_Id": 6524,
+        "start": "2026-11-21T08:30:00+01:00",
+        "end": "2026-11-21T18:00:00+01:00"
     }
 ]

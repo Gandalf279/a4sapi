@@ -1,0 +1,17 @@
+{
+    "subjectForStudentClassId": 0,
+    "gradingIsClosed": false,
+    "gradingCloseWindowIsActive": false,
+    "scaleIsFixt": false,
+    "teacherId": 0,
+    "semesterId": 0,
+    "defaultGradeScaleId": null,
+    "bestGrade": 0,
+    "worstGrade": 0,
+    "rounding": null,
+    "structure": [],
+    "testCategories": [],
+    "tests": [],
+    "students": [],
+    "categoryResults": []
+}

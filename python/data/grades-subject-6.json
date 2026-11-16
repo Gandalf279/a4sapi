@@ -1,0 +1,181 @@
+{
+    "subjectForStudentClassId": 45897,
+    "gradingIsClosed": false,
+    "gradingCloseWindowIsActive": false,
+    "scaleIsFixt": false,
+    "teacherId": 0,
+    "semesterId": 330,
+    "defaultGradeScaleId": null,
+    "bestGrade": 1,
+    "worstGrade": 6,
+    "rounding": {
+        "finalRounding": 1,
+        "roundingMode": 1
+    },
+    "structure": [
+        {
+            "id": 21438,
+            "name": "Leistungsnachweis",
+            "structureType": 0,
+            "tmpCalc": null,
+            "isDeleted": false,
+            "date": null,
+            "children": []
+        },
+        {
+            "id": 21412,
+            "name": "modulbezogene Leistungen",
+            "structureType": 0,
+            "tmpCalc": null,
+            "isDeleted": false,
+            "date": null,
+            "children": [
+                {
+                    "id": 21436,
+                    "name": "Test/Kolloquien",
+                    "structureType": 0,
+                    "tmpCalc": null,
+                    "isDeleted": false,
+                    "date": null,
+                    "children": []
+                },
+                {
+                    "id": 21437,
+                    "name": "Unterrichtsbeiträge",
+                    "structureType": 0,
+                    "tmpCalc": null,
+                    "isDeleted": false,
+                    "date": null,
+                    "children": [
+                        {
+                            "id": 50242,
+                            "name": "Unterrichtsbeiträge bis 05.10.",
+                            "structureType": 1,
+                            "tmpCalc": null,
+                            "isDeleted": false,
+                            "date": "2026-10-05T00:00:00+02:00",
+                            "children": []
+                        }
+                    ]
+                }
+            ]
+        }
+    ],
+    "testCategories": [
+        {
+            "id": 21438,
+            "name": "Leistungsnachweis",
+            "color": "#FFFFFF",
+            "parentId": null,
+            "weight": 30,
+            "isWeightActive": true,
+            "isShowExactAverage": false,
+            "isShowAverage": true,
+            "bestCount": null,
+            "isPublic": true,
+            "creator": "admin-loui",
+            "creationDate": "2026-08-19T11:12:37.813+02:00",
+            "lastModificator": "joerg.maurer",
+            "lastModificationDate": "2026-10-06T14:02:24.717+02:00",
+            "isFixt": false
+        },
+        {
+            "id": 21412,
+            "name": "modulbezogene Leistungen",
+            "color": "#FFFFFF",
+            "parentId": null,
+            "weight": 70,
+            "isWeightActive": true,
+            "isShowExactAverage": false,
+            "isShowAverage": true,
+            "bestCount": null,
+            "isPublic": true,
+            "creator": "admin-loui",
+            "creationDate": "2026-08-19T11:12:37.813+02:00",
+            "lastModificator": "joerg.maurer",
+            "lastModificationDate": "2026-10-06T14:02:24.717+02:00",
+            "isFixt": false
+        },
+        {
+            "id": 21436,
+            "name": "Test/Kolloquien",
+            "color": "#FFFFFF",
+            "parentId": 21412,
+            "weight": 40,
+            "isWeightActive": true,
+            "isShowExactAverage": false,
+            "isShowAverage": true,
+            "bestCount": null,
+            "isPublic": true,
+            "creator": "admin-loui",
+            "creationDate": "2026-08-19T11:12:37.813+02:00",
+            "lastModificator": "joerg.maurer",
+            "lastModificationDate": "2026-10-06T14:02:24.717+02:00",
+            "isFixt": false
+        },
+        {
+            "id": 21437,
+            "name": "Unterrichtsbeiträge",
+            "color": "#FFFFFF",
+            "parentId": 21412,
+            "weight": 60,
+            "isWeightActive": true,
+            "isShowExactAverage": false,
+            "isShowAverage": true,
+            "bestCount": null,
+            "isPublic": true,
+            "creator": "admin-loui",
+            "creationDate": "2026-08-19T11:12:37.813+02:00",
+            "lastModificator": "joerg.maurer",
+            "lastModificationDate": "2026-10-06T14:02:24.717+02:00",
+            "isFixt": false
+        }
+    ],
+    "tests": [
+        {
+            "id": 50242,
+            "title": "Unterrichtsbeiträge bis 05.10.",
+            "date": "2026-10-05T00:00:00+02:00",
+            "visibleDate": null,
+            "gradeScaleId": null,
+            "rounding": 10.0,
+            "weight": 1.0,
+            "maxPoints": 0.0,
+            "active": true,
+            "closed": false,
+            "visibleForStudents": true,
+            "showExactFinalGrade": false,
+            "showPoints": false,
+            "bonusPointsActive": false,
+            "bonusPoints": 0,
+            "calculationType": "Manual",
+            "comment": null,
+            "grades": [
+                {
+                    "id": 518550,
+                    "value": 2.3,
+                    "isManuallyChanged": false,
+                    "points": null,
+                    "isBlocked": false,
+                    "tendency": null,
+                    "comment": null,
+                    "isActive": true,
+                    "studentId": 6296,
+                    "testId": 50242
+                }
+            ]
+        }
+    ],
+    "students": [
+        {
+            "id": 6296,
+            "name": "Stempel, Carl Johann",
+            "comment": null,
+            "gardeManuel": null,
+            "gardeCalculated": 2.3,
+            "gardeFinal": null,
+            "dispensation": false
+        }
+    ],
+    "categoryResults": []
+}

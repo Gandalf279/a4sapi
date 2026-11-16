@@ -1,0 +1,1609 @@
+{
+    "subjects": [
+        {
+            "id": 6,
+            "name": "Chemie",
+            "shown": 2.3,
+            "summary": {
+                "roots": [
+                    {
+                        "kind": "category",
+                        "name": "Leistungsnachweis",
+                        "date": null,
+                        "weight": 30.0,
+                        "value": null,
+                        "children": []
+                    },
+                    {
+                        "kind": "category",
+                        "name": "modulbezogene Leistungen",
+                        "date": null,
+                        "weight": 70.0,
+                        "value": 2.3,
+                        "children": [
+                            {
+                                "kind": "category",
+                                "name": "Test/Kolloquien",
+                                "date": null,
+                                "weight": 40.0,
+                                "value": null,
+                                "children": []
+                            },
+                            {
+                                "kind": "category",
+                                "name": "Unterrichtsbeiträge",
+                                "date": null,
+                                "weight": 60.0,
+                                "value": 2.3,
+                                "children": [
+                                    {
+                                        "kind": "test",
+                                        "name": "Unterrichtsbeiträge bis 05.10.",
+                                        "date": "2026-10-05T00:00:00+02:00",
+                                        "weight": 1.0,
+                                        "value": 2.3,
+                                        "children": []
+                                    }
+                                ]
+                            }
+                        ]
+                    }
+                ],
+                "shown": 2.3,
+                "source": "Calculated grade",
+                "student_name": "Stempel, Carl Johann",
+                "best": 1.0,
+                "worst": 6.0,
+                "graded_count": 1
+            }
+        },
+        {
+            "id": 8,
+            "name": "Deutsch",
+            "shown": 2.7945454545,
+            "summary": {
+                "roots": [
+                    {
+                        "kind": "category",
+                        "name": "Klassenarbeiten / Klausuren",
+                        "date": null,
+                        "weight": 40.0,
+                        "value": 3.7,
+                        "children": [
+                            {
+                                "kind": "test",
+                                "name": "Klassenarbeit Nr. 1 - Gedichtinterpretation",
+                                "date": "2026-10-10T00:00:00+02:00",
+                                "weight": 1.0,
+                                "value": 3.7,
+                                "children": []
+                            }
+                        ]
+                    },
+                    {
+                        "kind": "category",
+                        "name": "Unterrichtsbeiträge",
+                        "date": null,
+                        "weight": 60.0,
+                        "value": 2.190909090909091,
+                        "children": [
+                            {
+                                "kind": "category",
+                                "name": "mündliche Beiträge",
+                                "date": null,
+                                "weight": 35.0,
+                                "value": 2.7,
+                                "children": [
+                                    {
+                                        "kind": "test",
+                                        "name": "Prozessnote I, bis 07.09.2026",
+                                        "date": "2026-09-07T00:00:00+02:00",
+                                        "weight": 1.0,
+                                        "value": 2.7,
+                                        "children": []
+                                    }
+                                ]
+                            },
+                            {
+                                "kind": "category",
+                                "name": "praktisch-gestalterische Beiträge",
+                                "date": null,
+                                "weight": 15.0,
+                                "value": null,
+                                "children": []
+                            },
+                            {
+                                "kind": "category",
+                                "name": "schriftliche Beiträge",
+                                "date": null,
+                                "weight": 30.0,
+                                "value": null,
+                                "children": []
+                            },
+                            {
+                                "kind": "category",
+                                "name": "Tests",
+                                "date": null,
+                                "weight": 20.0,
+                                "value": 1.3,
+                                "children": [
+                                    {
+                                        "kind": "test",
+                                        "name": "Test 1: Sprachliche Gestaltungsmittel",
+                                        "date": "2026-09-16T00:00:00+02:00",
+                                        "weight": 1.0,
+                                        "value": 1.3,
+                                        "children": []
+                                    }
+                                ]
+                            }
+                        ]
+                    }
+                ],
+                "shown": 2.7945454545,
+                "source": "Calculated grade",
+                "student_name": "Stempel, Carl Johann",
+                "best": 1.0,
+                "worst": 6.0,
+                "graded_count": 3
+            }
+        },
+        {
+            "id": 12,
+            "name": "Englisch",
+            "shown": 2.0586666667,
+            "summary": {
+                "roots": [
+                    {
+                        "kind": "category",
+                        "name": "Exams/KEL",
+                        "date": null,
+                        "weight": 40.0,
+                        "value": null,
+                        "children": [
+                            {
+                                "kind": "test",
+                                "name": "KEL Greenwashing",
+                                "date": "2026-11-23T00:00:00+01:00",
+                                "weight": 1.0,
+                                "value": null,
+                                "children": []
+                            }
+                        ]
+                    },
+                    {
+                        "kind": "category",
+                        "name": "Seminararbeit",
+                        "date": null,
+                        "weight": 60.0,
+                        "value": 2.058666666666667,
+                        "children": [
+                            {
+                                "kind": "category",
+                                "name": "Hard Skills",
+                                "date": null,
+                                "weight": 60.0,
+                                "value": 1.72,
+                                "children": [
+                                    {
+                                        "kind": "category",
+                                        "name": "Graded Seminars",
+                                        "date": null,
+                                        "weight": 50.0,
+                                        "value": null,
+                                        "children": []
+                                    },
+                                    {
+                                        "kind": "category",
+                                        "name": "Tests & Quizzes",
+                                        "date": null,
+                                        "weight": 20.0,
+                                        "value": 1.3,
+                                        "children": [
+                                            {
+                                                "kind": "test",
+                                                "name": "Vocab Quiz#1: Check-in & Station 1",
+                                                "date": "2026-09-09T00:00:00+02:00",
+                                                "weight": 1.0,
+                                                "value": 1.3,
+                                                "children": []
+                                            },
+                                            {
+                                                "kind": "test",
+                                                "name": "Vocab Quiz#2: The Garbage Eater",
+                                                "date": "2026-10-06T00:00:00+02:00",
+                                                "weight": 1.0,
+                                                "value": 1.3,
+                                                "children": []
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "kind": "category",
+                                        "name": "Written Work",
+                                        "date": null,
+                                        "weight": 30.0,
+                                        "value": 2.0,
+                                        "children": [
+                                            {
+                                                "kind": "test",
+                                                "name": "Personal letter",
+                                                "date": "2026-09-09T00:00:00+02:00",
+                                                "weight": 1.0,
+                                                "value": 2.0,
+                                                "children": []
+                                            }
+                                        ]
+                                    }
+                                ]
+                            },
+                            {
+                                "kind": "category",
+                                "name": "Soft Skills",
+                                "date": null,
+                                "weight": 40.0,
+                                "value": 2.566666666666667,
+                                "children": [
+                                    {
+                                        "kind": "test",
+                                        "name": "31.09. - 11.09.",
+                                        "date": "2026-09-11T00:00:00+02:00",
+                                        "weight": 1.0,
+                                        "value": 2.3,
+                                        "children": []
+                                    },
+                                    {
+                                        "kind": "test",
+                                        "name": "14.09. - 25.09.",
+                                        "date": "2026-09-25T00:00:00+02:00",
+                                        "weight": 1.0,
+                                        "value": 2.7,
+                                        "children": []
+                                    },
+                                    {
+                                        "kind": "test",
+                                        "name": "28.09. - 09.10.",
+                                        "date": "2026-10-09T00:00:00+02:00",
+                                        "weight": 1.0,
+                                        "value": 2.7,
+                                        "children": []
+                                    },
+                                    {
+                                        "kind": "test",
+                                        "name": "07.12. - 18.12.",
+                                        "date": "2026-10-26T00:00:00+01:00",
+                                        "weight": 1.0,
+                                        "value": null,
+                                        "children": []
+                                    },
+                                    {
+                                        "kind": "test",
+                                        "name": "26.10. - 06.11.",
+                                        "date": "2026-11-06T00:00:00+01:00",
+                                        "weight": 1.0,
+                                        "value": null,
+                                        "children": []
+                                    },
+                                    {
+                                        "kind": "test",
+                                        "name": "09.11. - 20.11.",
+                                        "date": "2026-11-20T00:00:00+01:00",
+                                        "weight": 1.0,
+                                        "value": null,
+                                        "children": []
+                                    },
+                                    {
+                                        "kind": "test",
+                                        "name": "23.11. - 04.12.",
+                                        "date": "2026-12-04T00:00:00+01:00",
+                                        "weight": 1.0,
+                                        "value": null,
+                                        "children": []
+                                    }
+                                ]
+                            }
+                        ]
+                    }
+                ],
+                "shown": 2.0586666667,
+                "source": "Calculated grade",
+                "student_name": "Stempel, Carl Johann",
+                "best": 1.0,
+                "worst": 6.0,
+                "graded_count": 6
+            }
+        },
+        {
+            "id": 17,
+            "name": "Geschichte",
+            "shown": 2.15,
+            "summary": {
+                "roots": [
+                    {
+                        "kind": "category",
+                        "name": "Klassenarbeiten / Klausuren",
+                        "date": null,
+                        "weight": 40.0,
+                        "value": null,
+                        "children": []
+                    },
+                    {
+                        "kind": "category",
+                        "name": "Unterrichtsbeiträge",
+                        "date": null,
+                        "weight": 60.0,
+                        "value": 2.15,
+                        "children": [
+                            {
+                                "kind": "category",
+                                "name": "mündliche Beiträge",
+                                "date": null,
+                                "weight": 35.0,
+                                "value": 2.15,
+                                "children": [
+                                    {
+                                        "kind": "test",
+                                        "name": "Bewertete Diskussion",
+                                        "date": "2026-09-08T00:00:00+02:00",
+                                        "weight": 1.0,
+                                        "value": 2.0,
+                                        "children": []
+                                    },
+                                    {
+                                        "kind": "test",
+                                        "name": "Prozessnote I, bis 07.09.2026",
+                                        "date": "2026-10-05T00:00:00+02:00",
+                                        "weight": 1.0,
+                                        "value": 2.3,
+                                        "children": []
+                                    }
+                                ]
+                            },
+                            {
+                                "kind": "category",
+                                "name": "praktisch-gestalterische Beiträge",
+                                "date": null,
+                                "weight": 15.0,
+                                "value": null,
+                                "children": []
+                            },
+                            {
+                                "kind": "category",
+                                "name": "schriftliche Beiträge",
+                                "date": null,
+                                "weight": 30.0,
+                                "value": null,
+                                "children": []
+                            },
+                            {
+                                "kind": "category",
+                                "name": "Tests",
+                                "date": null,
+                                "weight": 20.0,
+                                "value": null,
+                                "children": []
+                            }
+                        ]
+                    }
+                ],
+                "shown": 2.15,
+                "source": "Calculated grade",
+                "student_name": "Stempel, Carl Johann",
+                "best": 1.0,
+                "worst": 6.0,
+                "graded_count": 2
+            }
+        },
+        {
+            "id": 29,
+            "name": "Latein",
+            "shown": 3.65,
+            "summary": {
+                "roots": [
+                    {
+                        "kind": "category",
+                        "name": "Leistungsnachweise",
+                        "date": null,
+                        "weight": 40.0,
+                        "value": null,
+                        "children": []
+                    },
+                    {
+                        "kind": "category",
+                        "name": "Unterrichtsbeiträge",
+                        "date": null,
+                        "weight": 60.0,
+                        "value": 3.65,
+                        "children": [
+                            {
+                                "kind": "category",
+                                "name": "Anwendungsseminare",
+                                "date": null,
+                                "weight": 40.0,
+                                "value": null,
+                                "children": []
+                            },
+                            {
+                                "kind": "category",
+                                "name": "Große Aufgaben",
+                                "date": null,
+                                "weight": 20.0,
+                                "value": null,
+                                "children": []
+                            },
+                            {
+                                "kind": "category",
+                                "name": "Studio Time",
+                                "date": null,
+                                "weight": 20.0,
+                                "value": 6.0,
+                                "children": [
+                                    {
+                                        "kind": "test",
+                                        "name": "Studio Times 08-10",
+                                        "date": "2026-09-18T00:00:00+02:00",
+                                        "weight": 1.0,
+                                        "value": 6.0,
+                                        "children": []
+                                    }
+                                ]
+                            },
+                            {
+                                "kind": "category",
+                                "name": "Tests",
+                                "date": null,
+                                "weight": 20.0,
+                                "value": 1.3,
+                                "children": [
+                                    {
+                                        "kind": "test",
+                                        "name": "Abfragen 1. Hj.",
+                                        "date": "2026-09-18T00:00:00+02:00",
+                                        "weight": 1.0,
+                                        "value": null,
+                                        "children": []
+                                    },
+                                    {
+                                        "kind": "test",
+                                        "name": "Test #1",
+                                        "date": "2026-09-18T00:00:00+02:00",
+                                        "weight": 1.0,
+                                        "value": 1.3,
+                                        "children": []
+                                    }
+                                ]
+                            }
+                        ]
+                    }
+                ],
+                "shown": 3.65,
+                "source": "Calculated grade",
+                "student_name": "Stempel, Carl Johann",
+                "best": 1.0,
+                "worst": 6.0,
+                "graded_count": 2
+            }
+        },
+        {
+            "id": 30,
+            "name": "Mathematik",
+            "shown": 1.298,
+            "summary": {
+                "roots": [
+                    {
+                        "kind": "category",
+                        "name": "Leistungsnachweise",
+                        "date": null,
+                        "weight": 40.0,
+                        "value": 1.7,
+                        "children": [
+                            {
+                                "kind": "test",
+                                "name": "KEL - Spielplatz",
+                                "date": "2026-10-09T00:00:00+02:00",
+                                "weight": 1.0,
+                                "value": 1.7,
+                                "children": []
+                            }
+                        ]
+                    },
+                    {
+                        "kind": "category",
+                        "name": "Unterrichtsbeiträge",
+                        "date": null,
+                        "weight": 60.0,
+                        "value": 1.03,
+                        "children": [
+                            {
+                                "kind": "category",
+                                "name": "Kleine Leistungsüberprüfungen",
+                                "date": null,
+                                "weight": 40.0,
+                                "value": 1.0,
+                                "children": [
+                                    {
+                                        "kind": "test",
+                                        "name": "Test Nr. 1",
+                                        "date": "2026-09-23T00:00:00+02:00",
+                                        "weight": 1.0,
+                                        "value": 1.0,
+                                        "children": []
+                                    },
+                                    {
+                                        "kind": "test",
+                                        "name": "Test Nr. 2 - Sinussatz",
+                                        "date": "2026-09-30T00:00:00+02:00",
+                                        "weight": 1.0,
+                                        "value": 1.0,
+                                        "children": []
+                                    }
+                                ]
+                            },
+                            {
+                                "kind": "category",
+                                "name": "Seminarnote",
+                                "date": null,
+                                "weight": 40.0,
+                                "value": 1.06,
+                                "children": [
+                                    {
+                                        "kind": "category",
+                                        "name": "Bewertete Kooperationsseminare",
+                                        "date": null,
+                                        "weight": 70.0,
+                                        "value": 1.0,
+                                        "children": [
+                                            {
+                                                "kind": "test",
+                                                "name": "Kooperationsseminar",
+                                                "date": "2026-09-23T00:00:00+02:00",
+                                                "weight": 1.0,
+                                                "value": 1.0,
+                                                "children": []
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "kind": "category",
+                                        "name": "Trainingsseminare",
+                                        "date": null,
+                                        "weight": 30.0,
+                                        "value": 1.2,
+                                        "children": [
+                                            {
+                                                "kind": "test",
+                                                "name": "Pythagoras, Sin,Kos,Tan",
+                                                "date": "2026-08-27T00:00:00+02:00",
+                                                "weight": 1.0,
+                                                "value": 1.3,
+                                                "children": []
+                                            },
+                                            {
+                                                "kind": "test",
+                                                "name": "Kosinussatz",
+                                                "date": "2026-10-01T00:00:00+02:00",
+                                                "weight": 1.0,
+                                                "value": 1.3,
+                                                "children": []
+                                            },
+                                            {
+                                                "kind": "test",
+                                                "name": "Bogenmaß-Domino",
+                                                "date": "2026-11-11T00:00:00+01:00",
+                                                "weight": 1.0,
+                                                "value": 1.0,
+                                                "children": []
+                                            }
+                                        ]
+                                    }
+                                ]
+                            },
+                            {
+                                "kind": "category",
+                                "name": "Studiotimes",
+                                "date": null,
+                                "weight": 20.0,
+                                "value": null,
+                                "children": []
+                            }
+                        ]
+                    }
+                ],
+                "shown": 1.298,
+                "source": "Calculated grade",
+                "student_name": "Stempel, Carl Johann",
+                "best": 1.0,
+                "worst": 6.0,
+                "graded_count": 7
+            }
+        },
+        {
+            "id": 32,
+            "name": "Musik",
+            "shown": 1.8333333333,
+            "summary": {
+                "roots": [
+                    {
+                        "kind": "category",
+                        "name": "Diskursive Unterrichtsbeiträge",
+                        "date": null,
+                        "weight": 25.0,
+                        "value": 2.0,
+                        "children": [
+                            {
+                                "kind": "test",
+                                "name": "Musik in der Werbung - Werbespots",
+                                "date": "2026-09-06T00:00:00+02:00",
+                                "weight": 1.0,
+                                "value": 2.0,
+                                "children": []
+                            },
+                            {
+                                "kind": "test",
+                                "name": "Jingle Detektiv",
+                                "date": "2026-09-21T00:00:00+02:00",
+                                "weight": 1.0,
+                                "value": 2.0,
+                                "children": []
+                            }
+                        ]
+                    },
+                    {
+                        "kind": "category",
+                        "name": "Klassenarbeit",
+                        "date": null,
+                        "weight": 20.0,
+                        "value": null,
+                        "children": []
+                    },
+                    {
+                        "kind": "category",
+                        "name": "Praktisch-gestalterische Unterrichtsbeiträge",
+                        "date": null,
+                        "weight": 25.0,
+                        "value": null,
+                        "children": [
+                            {
+                                "kind": "test",
+                                "name": "Jingle Werkstatt",
+                                "date": "2026-10-06T00:00:00+02:00",
+                                "weight": 1.0,
+                                "value": null,
+                                "children": []
+                            }
+                        ]
+                    },
+                    {
+                        "kind": "category",
+                        "name": "Schriftliche Unterrichtsbeiträge",
+                        "date": null,
+                        "weight": 25.0,
+                        "value": 1.6666666666666667,
+                        "children": [
+                            {
+                                "kind": "test",
+                                "name": "Musik Begegnen",
+                                "date": "2026-08-25T00:00:00+02:00",
+                                "weight": 1.0,
+                                "value": 1.0,
+                                "children": []
+                            },
+                            {
+                                "kind": "test",
+                                "name": "Musikalische Parameter",
+                                "date": "2026-09-02T00:00:00+02:00",
+                                "weight": 1.0,
+                                "value": 1.0,
+                                "children": []
+                            },
+                            {
+                                "kind": "test",
+                                "name": "Jingle und Zielgruppe",
+                                "date": "2026-09-26T00:00:00+02:00",
+                                "weight": 1.0,
+                                "value": 3.0,
+                                "children": []
+                            },
+                            {
+                                "kind": "test",
+                                "name": "Jingle Bewerten",
+                                "date": "2026-10-06T00:00:00+02:00",
+                                "weight": 1.0,
+                                "value": null,
+                                "children": []
+                            }
+                        ]
+                    },
+                    {
+                        "kind": "category",
+                        "name": "Tests",
+                        "date": null,
+                        "weight": 5.0,
+                        "value": null,
+                        "children": []
+                    }
+                ],
+                "shown": 1.8333333333,
+                "source": "Calculated grade",
+                "student_name": "Stempel, Carl Johann",
+                "best": 1.0,
+                "worst": 6.0,
+                "graded_count": 5
+            }
+        },
+        {
+            "id": 41,
+            "name": "Sport",
+            "shown": 1.7,
+            "summary": {
+                "roots": [
+                    {
+                        "kind": "category",
+                        "name": "Leistungsüberprüfung",
+                        "date": null,
+                        "weight": 50.0,
+                        "value": null,
+                        "children": []
+                    },
+                    {
+                        "kind": "category",
+                        "name": "Seminare",
+                        "date": null,
+                        "weight": 50.0,
+                        "value": 1.7,
+                        "children": [
+                            {
+                                "kind": "category",
+                                "name": "Engagement",
+                                "date": null,
+                                "weight": 50.0,
+                                "value": 1.7,
+                                "children": [
+                                    {
+                                        "kind": "test",
+                                        "name": "Badminton",
+                                        "date": "2026-09-23T00:00:00+02:00",
+                                        "weight": 1.0,
+                                        "value": 1.7,
+                                        "children": []
+                                    }
+                                ]
+                            },
+                            {
+                                "kind": "category",
+                                "name": "Sozialverhalten",
+                                "date": null,
+                                "weight": 50.0,
+                                "value": 1.7,
+                                "children": [
+                                    {
+                                        "kind": "test",
+                                        "name": "Badminton",
+                                        "date": "2026-09-23T00:00:00+02:00",
+                                        "weight": 1.0,
+                                        "value": 1.7,
+                                        "children": []
+                                    }
+                                ]
+                            }
+                        ]
+                    }
+                ],
+                "shown": 1.7,
+                "source": "Calculated grade",
+                "student_name": "Stempel, Carl Johann",
+                "best": 1.0,
+                "worst": 6.0,
+                "graded_count": 2
+            }
+        }
+    ],
+    "overall": {
+        "roots": [],
+        "shown": 2.2230681818124998,
+        "source": "Average across subjects",
+        "student_name": "Stempel, Carl Johann",
+        "best": 1.0,
+        "worst": 6.0,
+        "graded_count": 28,
+        "subjects": [
+            {
+                "id": 6,
+                "name": "Chemie",
+                "shown": 2.3,
+                "summary": {
+                    "roots": [
+                        {
+                            "kind": "category",
+                            "name": "Leistungsnachweis",
+                            "date": null,
+                            "weight": 30.0,
+                            "value": null,
+                            "children": []
+                        },
+                        {
+                            "kind": "category",
+                            "name": "modulbezogene Leistungen",
+                            "date": null,
+                            "weight": 70.0,
+                            "value": 2.3,
+                            "children": [
+                                {
+                                    "kind": "category",
+                                    "name": "Test/Kolloquien",
+                                    "date": null,
+                                    "weight": 40.0,
+                                    "value": null,
+                                    "children": []
+                                },
+                                {
+                                    "kind": "category",
+                                    "name": "Unterrichtsbeiträge",
+                                    "date": null,
+                                    "weight": 60.0,
+                                    "value": 2.3,
+                                    "children": [
+                                        {
+                                            "kind": "test",
+                                            "name": "Unterrichtsbeiträge bis 05.10.",
+                                            "date": "2026-10-05T00:00:00+02:00",
+                                            "weight": 1.0,
+                                            "value": 2.3,
+                                            "children": []
+                                        }
+                                    ]
+                                }
+                            ]
+                        }
+                    ],
+                    "shown": 2.3,
+                    "source": "Calculated grade",
+                    "student_name": "Stempel, Carl Johann",
+                    "best": 1.0,
+                    "worst": 6.0,
+                    "graded_count": 1
+                }
+            },
+            {
+                "id": 8,
+                "name": "Deutsch",
+                "shown": 2.7945454545,
+                "summary": {
+                    "roots": [
+                        {
+                            "kind": "category",
+                            "name": "Klassenarbeiten / Klausuren",
+                            "date": null,
+                            "weight": 40.0,
+                            "value": 3.7,
+                            "children": [
+                                {
+                                    "kind": "test",
+                                    "name": "Klassenarbeit Nr. 1 - Gedichtinterpretation",
+                                    "date": "2026-10-10T00:00:00+02:00",
+                                    "weight": 1.0,
+                                    "value": 3.7,
+                                    "children": []
+                                }
+                            ]
+                        },
+                        {
+                            "kind": "category",
+                            "name": "Unterrichtsbeiträge",
+                            "date": null,
+                            "weight": 60.0,
+                            "value": 2.190909090909091,
+                            "children": [
+                                {
+                                    "kind": "category",
+                                    "name": "mündliche Beiträge",
+                                    "date": null,
+                                    "weight": 35.0,
+                                    "value": 2.7,
+                                    "children": [
+                                        {
+                                            "kind": "test",
+                                            "name": "Prozessnote I, bis 07.09.2026",
+                                            "date": "2026-09-07T00:00:00+02:00",
+                                            "weight": 1.0,
+                                            "value": 2.7,
+                                            "children": []
+                                        }
+                                    ]
+                                },
+                                {
+                                    "kind": "category",
+                                    "name": "praktisch-gestalterische Beiträge",
+                                    "date": null,
+                                    "weight": 15.0,
+                                    "value": null,
+                                    "children": []
+                                },
+                                {
+                                    "kind": "category",
+                                    "name": "schriftliche Beiträge",
+                                    "date": null,
+                                    "weight": 30.0,
+                                    "value": null,
+                                    "children": []
+                                },
+                                {
+                                    "kind": "category",
+                                    "name": "Tests",
+                                    "date": null,
+                                    "weight": 20.0,
+                                    "value": 1.3,
+                                    "children": [
+                                        {
+                                            "kind": "test",
+                                            "name": "Test 1: Sprachliche Gestaltungsmittel",
+                                            "date": "2026-09-16T00:00:00+02:00",
+                                            "weight": 1.0,
+                                            "value": 1.3,
+                                            "children": []
+                                        }
+                                    ]
+                                }
+                            ]
+                        }
+                    ],
+                    "shown": 2.7945454545,
+                    "source": "Calculated grade",
+                    "student_name": "Stempel, Carl Johann",
+                    "best": 1.0,
+                    "worst": 6.0,
+                    "graded_count": 3
+                }
+            },
+            {
+                "id": 12,
+                "name": "Englisch",
+                "shown": 2.0586666667,
+                "summary": {
+                    "roots": [
+                        {
+                            "kind": "category",
+                            "name": "Exams/KEL",
+                            "date": null,
+                            "weight": 40.0,
+                            "value": null,
+                            "children": [
+                                {
+                                    "kind": "test",
+                                    "name": "KEL Greenwashing",
+                                    "date": "2026-11-23T00:00:00+01:00",
+                                    "weight": 1.0,
+                                    "value": null,
+                                    "children": []
+                                }
+                            ]
+                        },
+                        {
+                            "kind": "category",
+                            "name": "Seminararbeit",
+                            "date": null,
+                            "weight": 60.0,
+                            "value": 2.058666666666667,
+                            "children": [
+                                {
+                                    "kind": "category",
+                                    "name": "Hard Skills",
+                                    "date": null,
+                                    "weight": 60.0,
+                                    "value": 1.72,
+                                    "children": [
+                                        {
+                                            "kind": "category",
+                                            "name": "Graded Seminars",
+                                            "date": null,
+                                            "weight": 50.0,
+                                            "value": null,
+                                            "children": []
+                                        },
+                                        {
+                                            "kind": "category",
+                                            "name": "Tests & Quizzes",
+                                            "date": null,
+                                            "weight": 20.0,
+                                            "value": 1.3,
+                                            "children": [
+                                                {
+                                                    "kind": "test",
+                                                    "name": "Vocab Quiz#1: Check-in & Station 1",
+                                                    "date": "2026-09-09T00:00:00+02:00",
+                                                    "weight": 1.0,
+                                                    "value": 1.3,
+                                                    "children": []
+                                                },
+                                                {
+                                                    "kind": "test",
+                                                    "name": "Vocab Quiz#2: The Garbage Eater",
+                                                    "date": "2026-10-06T00:00:00+02:00",
+                                                    "weight": 1.0,
+                                                    "value": 1.3,
+                                                    "children": []
+                                                }
+                                            ]
+                                        },
+                                        {
+                                            "kind": "category",
+                                            "name": "Written Work",
+                                            "date": null,
+                                            "weight": 30.0,
+                                            "value": 2.0,
+                                            "children": [
+                                                {
+                                                    "kind": "test",
+                                                    "name": "Personal letter",
+                                                    "date": "2026-09-09T00:00:00+02:00",
+                                                    "weight": 1.0,
+                                                    "value": 2.0,
+                                                    "children": []
+                                                }
+                                            ]
+                                        }
+                                    ]
+                                },
+                                {
+                                    "kind": "category",
+                                    "name": "Soft Skills",
+                                    "date": null,
+                                    "weight": 40.0,
+                                    "value": 2.566666666666667,
+                                    "children": [
+                                        {
+                                            "kind": "test",
+                                            "name": "31.09. - 11.09.",
+                                            "date": "2026-09-11T00:00:00+02:00",
+                                            "weight": 1.0,
+                                            "value": 2.3,
+                                            "children": []
+                                        },
+                                        {
+                                            "kind": "test",
+                                            "name": "14.09. - 25.09.",
+                                            "date": "2026-09-25T00:00:00+02:00",
+                                            "weight": 1.0,
+                                            "value": 2.7,
+                                            "children": []
+                                        },
+                                        {
+                                            "kind": "test",
+                                            "name": "28.09. - 09.10.",
+                                            "date": "2026-10-09T00:00:00+02:00",
+                                            "weight": 1.0,
+                                            "value": 2.7,
+                                            "children": []
+                                        },
+                                        {
+                                            "kind": "test",
+                                            "name": "07.12. - 18.12.",
+                                            "date": "2026-10-26T00:00:00+01:00",
+                                            "weight": 1.0,
+                                            "value": null,
+                                            "children": []
+                                        },
+                                        {
+                                            "kind": "test",
+                                            "name": "26.10. - 06.11.",
+                                            "date": "2026-11-06T00:00:00+01:00",
+                                            "weight": 1.0,
+                                            "value": null,
+                                            "children": []
+                                        },
+                                        {
+                                            "kind": "test",
+                                            "name": "09.11. - 20.11.",
+                                            "date": "2026-11-20T00:00:00+01:00",
+                                            "weight": 1.0,
+                                            "value": null,
+                                            "children": []
+                                        },
+                                        {
+                                            "kind": "test",
+                                            "name": "23.11. - 04.12.",
+                                            "date": "2026-12-04T00:00:00+01:00",
+                                            "weight": 1.0,
+                                            "value": null,
+                                            "children": []
+                                        }
+                                    ]
+                                }
+                            ]
+                        }
+                    ],
+                    "shown": 2.0586666667,
+                    "source": "Calculated grade",
+                    "student_name": "Stempel, Carl Johann",
+                    "best": 1.0,
+                    "worst": 6.0,
+                    "graded_count": 6
+                }
+            },
+            {
+                "id": 17,
+                "name": "Geschichte",
+                "shown": 2.15,
+                "summary": {
+                    "roots": [
+                        {
+                            "kind": "category",
+                            "name": "Klassenarbeiten / Klausuren",
+                            "date": null,
+                            "weight": 40.0,
+                            "value": null,
+                            "children": []
+                        },
+                        {
+                            "kind": "category",
+                            "name": "Unterrichtsbeiträge",
+                            "date": null,
+                            "weight": 60.0,
+                            "value": 2.15,
+                            "children": [
+                                {
+                                    "kind": "category",
+                                    "name": "mündliche Beiträge",
+                                    "date": null,
+                                    "weight": 35.0,
+                                    "value": 2.15,
+                                    "children": [
+                                        {
+                                            "kind": "test",
+                                            "name": "Bewertete Diskussion",
+                                            "date": "2026-09-08T00:00:00+02:00",
+                                            "weight": 1.0,
+                                            "value": 2.0,
+                                            "children": []
+                                        },
+                                        {
+                                            "kind": "test",
+                                            "name": "Prozessnote I, bis 07.09.2026",
+                                            "date": "2026-10-05T00:00:00+02:00",
+                                            "weight": 1.0,
+                                            "value": 2.3,
+                                            "children": []
+                                        }
+                                    ]
+                                },
+                                {
+                                    "kind": "category",
+                                    "name": "praktisch-gestalterische Beiträge",
+                                    "date": null,
+                                    "weight": 15.0,
+                                    "value": null,
+                                    "children": []
+                                },
+                                {
+                                    "kind": "category",
+                                    "name": "schriftliche Beiträge",
+                                    "date": null,
+                                    "weight": 30.0,
+                                    "value": null,
+                                    "children": []
+                                },
+                                {
+                                    "kind": "category",
+                                    "name": "Tests",
+                                    "date": null,
+                                    "weight": 20.0,
+                                    "value": null,
+                                    "children": []
+                                }
+                            ]
+                        }
+                    ],
+                    "shown": 2.15,
+                    "source": "Calculated grade",
+                    "student_name": "Stempel, Carl Johann",
+                    "best": 1.0,
+                    "worst": 6.0,
+                    "graded_count": 2
+                }
+            },
+            {
+                "id": 29,
+                "name": "Latein",
+                "shown": 3.65,
+                "summary": {
+                    "roots": [
+                        {
+                            "kind": "category",
+                            "name": "Leistungsnachweise",
+                            "date": null,
+                            "weight": 40.0,
+                            "value": null,
+                            "children": []
+                        },
+                        {
+                            "kind": "category",
+                            "name": "Unterrichtsbeiträge",
+                            "date": null,
+                            "weight": 60.0,
+                            "value": 3.65,
+                            "children": [
+                                {
+                                    "kind": "category",
+                                    "name": "Anwendungsseminare",
+                                    "date": null,
+                                    "weight": 40.0,
+                                    "value": null,
+                                    "children": []
+                                },
+                                {
+                                    "kind": "category",
+                                    "name": "Große Aufgaben",
+                                    "date": null,
+                                    "weight": 20.0,
+                                    "value": null,
+                                    "children": []
+                                },
+                                {
+                                    "kind": "category",
+                                    "name": "Studio Time",
+                                    "date": null,
+                                    "weight": 20.0,
+                                    "value": 6.0,
+                                    "children": [
+                                        {
+                                            "kind": "test",
+                                            "name": "Studio Times 08-10",
+                                            "date": "2026-09-18T00:00:00+02:00",
+                                            "weight": 1.0,
+                                            "value": 6.0,
+                                            "children": []
+                                        }
+                                    ]
+                                },
+                                {
+                                    "kind": "category",
+                                    "name": "Tests",
+                                    "date": null,
+                                    "weight": 20.0,
+                                    "value": 1.3,
+                                    "children": [
+                                        {
+                                            "kind": "test",
+                                            "name": "Abfragen 1. Hj.",
+                                            "date": "2026-09-18T00:00:00+02:00",
+                                            "weight": 1.0,
+                                            "value": null,
+                                            "children": []
+                                        },
+                                        {
+                                            "kind": "test",
+                                            "name": "Test #1",
+                                            "date": "2026-09-18T00:00:00+02:00",
+                                            "weight": 1.0,
+                                            "value": 1.3,
+                                            "children": []
+                                        }
+                                    ]
+                                }
+                            ]
+                        }
+                    ],
+                    "shown": 3.65,
+                    "source": "Calculated grade",
+                    "student_name": "Stempel, Carl Johann",
+                    "best": 1.0,
+                    "worst": 6.0,
+                    "graded_count": 2
+                }
+            },
+            {
+                "id": 30,
+                "name": "Mathematik",
+                "shown": 1.298,
+                "summary": {
+                    "roots": [
+                        {
+                            "kind": "category",
+                            "name": "Leistungsnachweise",
+                            "date": null,
+                            "weight": 40.0,
+                            "value": 1.7,
+                            "children": [
+                                {
+                                    "kind": "test",
+                                    "name": "KEL - Spielplatz",
+                                    "date": "2026-10-09T00:00:00+02:00",
+                                    "weight": 1.0,
+                                    "value": 1.7,
+                                    "children": []
+                                }
+                            ]
+                        },
+                        {
+                            "kind": "category",
+                            "name": "Unterrichtsbeiträge",
+                            "date": null,
+                            "weight": 60.0,
+                            "value": 1.03,
+                            "children": [
+                                {
+                                    "kind": "category",
+                                    "name": "Kleine Leistungsüberprüfungen",
+                                    "date": null,
+                                    "weight": 40.0,
+                                    "value": 1.0,
+                                    "children": [
+                                        {
+                                            "kind": "test",
+                                            "name": "Test Nr. 1",
+                                            "date": "2026-09-23T00:00:00+02:00",
+                                            "weight": 1.0,
+                                            "value": 1.0,
+                                            "children": []
+                                        },
+                                        {
+                                            "kind": "test",
+                                            "name": "Test Nr. 2 - Sinussatz",
+                                            "date": "2026-09-30T00:00:00+02:00",
+                                            "weight": 1.0,
+                                            "value": 1.0,
+                                            "children": []
+                                        }
+                                    ]
+                                },
+                                {
+                                    "kind": "category",
+                                    "name": "Seminarnote",
+                                    "date": null,
+                                    "weight": 40.0,
+                                    "value": 1.06,
+                                    "children": [
+                                        {
+                                            "kind": "category",
+                                            "name": "Bewertete Kooperationsseminare",
+                                            "date": null,
+                                            "weight": 70.0,
+                                            "value": 1.0,
+                                            "children": [
+                                                {
+                                                    "kind": "test",
+                                                    "name": "Kooperationsseminar",
+                                                    "date": "2026-09-23T00:00:00+02:00",
+                                                    "weight": 1.0,
+                                                    "value": 1.0,
+                                                    "children": []
+                                                }
+                                            ]
+                                        },
+                                        {
+                                            "kind": "category",
+                                            "name": "Trainingsseminare",
+                                            "date": null,
+                                            "weight": 30.0,
+                                            "value": 1.2,
+                                            "children": [
+                                                {
+                                                    "kind": "test",
+                                                    "name": "Pythagoras, Sin,Kos,Tan",
+                                                    "date": "2026-08-27T00:00:00+02:00",
+                                                    "weight": 1.0,
+                                                    "value": 1.3,
+                                                    "children": []
+                                                },
+                                                {
+                                                    "kind": "test",
+                                                    "name": "Kosinussatz",
+                                                    "date": "2026-10-01T00:00:00+02:00",
+                                                    "weight": 1.0,
+                                                    "value": 1.3,
+                                                    "children": []
+                                                },
+                                                {
+                                                    "kind": "test",
+                                                    "name": "Bogenmaß-Domino",
+                                                    "date": "2026-11-11T00:00:00+01:00",
+                                                    "weight": 1.0,
+                                                    "value": 1.0,
+                                                    "children": []
+                                                }
+                                            ]
+                                        }
+                                    ]
+                                },
+                                {
+                                    "kind": "category",
+                                    "name": "Studiotimes",
+                                    "date": null,
+                                    "weight": 20.0,
+                                    "value": null,
+                                    "children": []
+                                }
+                            ]
+                        }
+                    ],
+                    "shown": 1.298,
+                    "source": "Calculated grade",
+                    "student_name": "Stempel, Carl Johann",
+                    "best": 1.0,
+                    "worst": 6.0,
+                    "graded_count": 7
+                }
+            },
+            {
+                "id": 32,
+                "name": "Musik",
+                "shown": 1.8333333333,
+                "summary": {
+                    "roots": [
+                        {
+                            "kind": "category",
+                            "name": "Diskursive Unterrichtsbeiträge",
+                            "date": null,
+                            "weight": 25.0,
+                            "value": 2.0,
+                            "children": [
+                                {
+                                    "kind": "test",
+                                    "name": "Musik in der Werbung - Werbespots",
+                                    "date": "2026-09-06T00:00:00+02:00",
+                                    "weight": 1.0,
+                                    "value": 2.0,
+                                    "children": []
+                                },
+                                {
+                                    "kind": "test",
+                                    "name": "Jingle Detektiv",
+                                    "date": "2026-09-21T00:00:00+02:00",
+                                    "weight": 1.0,
+                                    "value": 2.0,
+                                    "children": []
+                                }
+                            ]
+                        },
+                        {
+                            "kind": "category",
+                            "name": "Klassenarbeit",
+                            "date": null,
+                            "weight": 20.0,
+                            "value": null,
+                            "children": []
+                        },
+                        {
+                            "kind": "category",
+                            "name": "Praktisch-gestalterische Unterrichtsbeiträge",
+                            "date": null,
+                            "weight": 25.0,
+                            "value": null,
+                            "children": [
+                                {
+                                    "kind": "test",
+                                    "name": "Jingle Werkstatt",
+                                    "date": "2026-10-06T00:00:00+02:00",
+                                    "weight": 1.0,
+                                    "value": null,
+                                    "children": []
+                                }
+                            ]
+                        },
+                        {
+                            "kind": "category",
+                            "name": "Schriftliche Unterrichtsbeiträge",
+                            "date": null,
+                            "weight": 25.0,
+                            "value": 1.6666666666666667,
+                            "children": [
+                                {
+                                    "kind": "test",
+                                    "name": "Musik Begegnen",
+                                    "date": "2026-08-25T00:00:00+02:00",
+                                    "weight": 1.0,
+                                    "value": 1.0,
+                                    "children": []
+                                },
+                                {
+                                    "kind": "test",
+                                    "name": "Musikalische Parameter",
+                                    "date": "2026-09-02T00:00:00+02:00",
+                                    "weight": 1.0,
+                                    "value": 1.0,
+                                    "children": []
+                                },
+                                {
+                                    "kind": "test",
+                                    "name": "Jingle und Zielgruppe",
+                                    "date": "2026-09-26T00:00:00+02:00",
+                                    "weight": 1.0,
+                                    "value": 3.0,
+                                    "children": []
+                                },
+                                {
+                                    "kind": "test",
+                                    "name": "Jingle Bewerten",
+                                    "date": "2026-10-06T00:00:00+02:00",
+                                    "weight": 1.0,
+                                    "value": null,
+                                    "children": []
+                                }
+                            ]
+                        },
+                        {
+                            "kind": "category",
+                            "name": "Tests",
+                            "date": null,
+                            "weight": 5.0,
+                            "value": null,
+                            "children": []
+                        }
+                    ],
+                    "shown": 1.8333333333,
+                    "source": "Calculated grade",
+                    "student_name": "Stempel, Carl Johann",
+                    "best": 1.0,
+                    "worst": 6.0,
+                    "graded_count": 5
+                }
+            },
+            {
+                "id": 41,
+                "name": "Sport",
+                "shown": 1.7,
+                "summary": {
+                    "roots": [
+                        {
+                            "kind": "category",
+                            "name": "Leistungsüberprüfung",
+                            "date": null,
+                            "weight": 50.0,
+                            "value": null,
+                            "children": []
+                        },
+                        {
+                            "kind": "category",
+                            "name": "Seminare",
+                            "date": null,
+                            "weight": 50.0,
+                            "value": 1.7,
+                            "children": [
+                                {
+                                    "kind": "category",
+                                    "name": "Engagement",
+                                    "date": null,
+                                    "weight": 50.0,
+                                    "value": 1.7,
+                                    "children": [
+                                        {
+                                            "kind": "test",
+                                            "name": "Badminton",
+                                            "date": "2026-09-23T00:00:00+02:00",
+                                            "weight": 1.0,
+                                            "value": 1.7,
+                                            "children": []
+                                        }
+                                    ]
+                                },
+                                {
+                                    "kind": "category",
+                                    "name": "Sozialverhalten",
+                                    "date": null,
+                                    "weight": 50.0,
+                                    "value": 1.7,
+                                    "children": [
+                                        {
+                                            "kind": "test",
+                                            "name": "Badminton",
+                                            "date": "2026-09-23T00:00:00+02:00",
+                                            "weight": 1.0,
+                                            "value": 1.7,
+                                            "children": []
+                                        }
+                                    ]
+                                }
+                            ]
+                        }
+                    ],
+                    "shown": 1.7,
+                    "source": "Calculated grade",
+                    "student_name": "Stempel, Carl Johann",
+                    "best": 1.0,
+                    "worst": 6.0,
+                    "graded_count": 2
+                }
+            }
+        ]
+    }
+}

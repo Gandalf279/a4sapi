@@ -1,0 +1,515 @@
+{
+    "subjectForStudentClassId": 45887,
+    "gradingIsClosed": false,
+    "gradingCloseWindowIsActive": false,
+    "scaleIsFixt": false,
+    "teacherId": 0,
+    "semesterId": 330,
+    "defaultGradeScaleId": null,
+    "bestGrade": 1,
+    "worstGrade": 6,
+    "rounding": {
+        "finalRounding": 1,
+        "roundingMode": 1
+    },
+    "structure": [
+        {
+            "id": 21559,
+            "name": "Leistungsnachweise",
+            "structureType": 0,
+            "tmpCalc": null,
+            "isDeleted": false,
+            "date": null,
+            "children": [
+                {
+                    "id": 50730,
+                    "name": "KEL - Spielplatz",
+                    "structureType": 1,
+                    "tmpCalc": null,
+                    "isDeleted": false,
+                    "date": "2026-10-09T00:00:00+02:00",
+                    "children": []
+                }
+            ]
+        },
+        {
+            "id": 21510,
+            "name": "Unterrichtsbeiträge",
+            "structureType": 0,
+            "tmpCalc": null,
+            "isDeleted": false,
+            "date": null,
+            "children": [
+                {
+                    "id": 21555,
+                    "name": "Kleine Leistungsüberprüfungen",
+                    "structureType": 0,
+                    "tmpCalc": null,
+                    "isDeleted": false,
+                    "date": null,
+                    "children": [
+                        {
+                            "id": 49767,
+                            "name": "Test Nr. 1",
+                            "structureType": 1,
+                            "tmpCalc": null,
+                            "isDeleted": false,
+                            "date": "2026-09-23T00:00:00+02:00",
+                            "children": []
+                        },
+                        {
+                            "id": 49973,
+                            "name": "Test Nr. 2 - Sinussatz",
+                            "structureType": 1,
+                            "tmpCalc": null,
+                            "isDeleted": false,
+                            "date": "2026-09-30T00:00:00+02:00",
+                            "children": []
+                        }
+                    ]
+                },
+                {
+                    "id": 21511,
+                    "name": "Seminarnote",
+                    "structureType": 0,
+                    "tmpCalc": null,
+                    "isDeleted": false,
+                    "date": null,
+                    "children": [
+                        {
+                            "id": 21556,
+                            "name": "Bewertete Kooperationsseminare",
+                            "structureType": 0,
+                            "tmpCalc": null,
+                            "isDeleted": false,
+                            "date": null,
+                            "children": [
+                                {
+                                    "id": 49974,
+                                    "name": "Kooperationsseminar",
+                                    "structureType": 1,
+                                    "tmpCalc": null,
+                                    "isDeleted": false,
+                                    "date": "2026-09-23T00:00:00+02:00",
+                                    "children": []
+                                }
+                            ]
+                        },
+                        {
+                            "id": 21557,
+                            "name": "Trainingsseminare",
+                            "structureType": 0,
+                            "tmpCalc": null,
+                            "isDeleted": false,
+                            "date": null,
+                            "children": [
+                                {
+                                    "id": 49151,
+                                    "name": "Pythagoras, Sin,Kos,Tan",
+                                    "structureType": 1,
+                                    "tmpCalc": null,
+                                    "isDeleted": false,
+                                    "date": "2026-08-27T00:00:00+02:00",
+                                    "children": []
+                                },
+                                {
+                                    "id": 50964,
+                                    "name": "Kosinussatz",
+                                    "structureType": 1,
+                                    "tmpCalc": null,
+                                    "isDeleted": false,
+                                    "date": "2026-10-01T00:00:00+02:00",
+                                    "children": []
+                                },
+                                {
+                                    "id": 50938,
+                                    "name": "Bogenmaß-Domino",
+                                    "structureType": 1,
+                                    "tmpCalc": null,
+                                    "isDeleted": false,
+                                    "date": "2026-11-11T00:00:00+01:00",
+                                    "children": []
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "id": 21558,
+                    "name": "Studiotimes",
+                    "structureType": 0,
+                    "tmpCalc": null,
+                    "isDeleted": false,
+                    "date": null,
+                    "children": []
+                }
+            ]
+        }
+    ],
+    "testCategories": [
+        {
+            "id": 21556,
+            "name": "Bewertete Kooperationsseminare",
+            "color": "#FFFFFF",
+            "parentId": 21511,
+            "weight": 70,
+            "isWeightActive": true,
+            "isShowExactAverage": false,
+            "isShowAverage": true,
+            "bestCount": null,
+            "isPublic": true,
+            "creator": "admin-loui",
+            "creationDate": "2026-08-21T10:20:45.103+02:00",
+            "lastModificator": "annika.mayrock",
+            "lastModificationDate": "2026-11-12T15:17:28.117+01:00",
+            "isFixt": false
+        },
+        {
+            "id": 21555,
+            "name": "Kleine Leistungsüberprüfungen",
+            "color": "#FFFFFF",
+            "parentId": 21510,
+            "weight": 40,
+            "isWeightActive": true,
+            "isShowExactAverage": false,
+            "isShowAverage": true,
+            "bestCount": null,
+            "isPublic": true,
+            "creator": "admin-loui",
+            "creationDate": "2026-08-21T10:20:45.103+02:00",
+            "lastModificator": "annika.mayrock",
+            "lastModificationDate": "2026-11-12T15:17:27.993+01:00",
+            "isFixt": false
+        },
+        {
+            "id": 21559,
+            "name": "Leistungsnachweise",
+            "color": "#FFFFFF",
+            "parentId": null,
+            "weight": 40,
+            "isWeightActive": true,
+            "isShowExactAverage": false,
+            "isShowAverage": true,
+            "bestCount": null,
+            "isPublic": true,
+            "creator": "admin-loui",
+            "creationDate": "2026-08-21T10:20:45.103+02:00",
+            "lastModificator": "annika.mayrock",
+            "lastModificationDate": "2026-11-12T15:17:27.93+01:00",
+            "isFixt": false
+        },
+        {
+            "id": 21511,
+            "name": "Seminarnote",
+            "color": "#FFFFFF",
+            "parentId": 21510,
+            "weight": 40,
+            "isWeightActive": true,
+            "isShowExactAverage": false,
+            "isShowAverage": true,
+            "bestCount": null,
+            "isPublic": true,
+            "creator": "admin-loui",
+            "creationDate": "2026-08-21T10:20:45.103+02:00",
+            "lastModificator": "annika.mayrock",
+            "lastModificationDate": "2026-11-12T15:17:28.117+01:00",
+            "isFixt": false
+        },
+        {
+            "id": 21558,
+            "name": "Studiotimes",
+            "color": "#FFFFFF",
+            "parentId": 21510,
+            "weight": 20,
+            "isWeightActive": true,
+            "isShowExactAverage": false,
+            "isShowAverage": true,
+            "bestCount": null,
+            "isPublic": true,
+            "creator": "admin-loui",
+            "creationDate": "2026-08-21T10:20:45.103+02:00",
+            "lastModificator": "annika.mayrock",
+            "lastModificationDate": "2026-11-12T15:17:28.307+01:00",
+            "isFixt": false
+        },
+        {
+            "id": 21557,
+            "name": "Trainingsseminare",
+            "color": "#FFFFFF",
+            "parentId": 21511,
+            "weight": 30,
+            "isWeightActive": true,
+            "isShowExactAverage": false,
+            "isShowAverage": true,
+            "bestCount": null,
+            "isPublic": true,
+            "creator": "admin-loui",
+            "creationDate": "2026-08-21T10:20:45.103+02:00",
+            "lastModificator": "annika.mayrock",
+            "lastModificationDate": "2026-11-12T15:17:28.18+01:00",
+            "isFixt": false
+        },
+        {
+            "id": 21510,
+            "name": "Unterrichtsbeiträge",
+            "color": "#FFFFFF",
+            "parentId": null,
+            "weight": 60,
+            "isWeightActive": true,
+            "isShowExactAverage": false,
+            "isShowAverage": true,
+            "bestCount": null,
+            "isPublic": true,
+            "creator": "admin-loui",
+            "creationDate": "2026-08-21T10:20:45.103+02:00",
+            "lastModificator": "annika.mayrock",
+            "lastModificationDate": "2026-11-12T15:17:27.993+01:00",
+            "isFixt": false
+        }
+    ],
+    "tests": [
+        {
+            "id": 49151,
+            "title": "Pythagoras, Sin,Kos,Tan",
+            "date": "2026-08-27T00:00:00+02:00",
+            "visibleDate": null,
+            "gradeScaleId": null,
+            "rounding": 10.0,
+            "weight": 1.0,
+            "maxPoints": 0.0,
+            "active": true,
+            "closed": false,
+            "visibleForStudents": true,
+            "showExactFinalGrade": false,
+            "showPoints": false,
+            "bonusPointsActive": false,
+            "bonusPoints": 0,
+            "calculationType": "Manual",
+            "comment": null,
+            "grades": [
+                {
+                    "id": 510109,
+                    "value": 1.3,
+                    "isManuallyChanged": false,
+                    "points": null,
+                    "isBlocked": false,
+                    "tendency": null,
+                    "comment": null,
+                    "isActive": true,
+                    "studentId": 6296,
+                    "testId": 49151
+                }
+            ]
+        },
+        {
+            "id": 49767,
+            "title": "Test Nr. 1",
+            "date": "2026-09-23T00:00:00+02:00",
+            "visibleDate": null,
+            "gradeScaleId": null,
+            "rounding": 10.0,
+            "weight": 1.0,
+            "maxPoints": 0.0,
+            "active": true,
+            "closed": false,
+            "visibleForStudents": true,
+            "showExactFinalGrade": false,
+            "showPoints": false,
+            "bonusPointsActive": false,
+            "bonusPoints": 0,
+            "calculationType": "Manual",
+            "comment": null,
+            "grades": [
+                {
+                    "id": 514719,
+                    "value": 1.0,
+                    "isManuallyChanged": false,
+                    "points": null,
+                    "isBlocked": false,
+                    "tendency": null,
+                    "comment": null,
+                    "isActive": true,
+                    "studentId": 6296,
+                    "testId": 49767
+                }
+            ]
+        },
+        {
+            "id": 49974,
+            "title": "Kooperationsseminar",
+            "date": "2026-09-23T00:00:00+02:00",
+            "visibleDate": null,
+            "gradeScaleId": null,
+            "rounding": 10.0,
+            "weight": 1.0,
+            "maxPoints": 0.0,
+            "active": true,
+            "closed": false,
+            "visibleForStudents": true,
+            "showExactFinalGrade": false,
+            "showPoints": false,
+            "bonusPointsActive": false,
+            "bonusPoints": 0,
+            "calculationType": "Manual",
+            "comment": null,
+            "grades": [
+                {
+                    "id": 516634,
+                    "value": 1.0,
+                    "isManuallyChanged": false,
+                    "points": null,
+                    "isBlocked": false,
+                    "tendency": null,
+                    "comment": null,
+                    "isActive": true,
+                    "studentId": 6296,
+                    "testId": 49974
+                }
+            ]
+        },
+        {
+            "id": 49973,
+            "title": "Test Nr. 2 - Sinussatz",
+            "date": "2026-09-30T00:00:00+02:00",
+            "visibleDate": null,
+            "gradeScaleId": null,
+            "rounding": 10.0,
+            "weight": 1.0,
+            "maxPoints": 0.0,
+            "active": true,
+            "closed": false,
+            "visibleForStudents": true,
+            "showExactFinalGrade": false,
+            "showPoints": false,
+            "bonusPointsActive": false,
+            "bonusPoints": 0,
+            "calculationType": "Manual",
+            "comment": null,
+            "grades": [
+                {
+                    "id": 516622,
+                    "value": 1.0,
+                    "isManuallyChanged": false,
+                    "points": null,
+                    "isBlocked": false,
+                    "tendency": null,
+                    "comment": null,
+                    "isActive": true,
+                    "studentId": 6296,
+                    "testId": 49973
+                }
+            ]
+        },
+        {
+            "id": 50964,
+            "title": "Kosinussatz",
+            "date": "2026-10-01T00:00:00+02:00",
+            "visibleDate": null,
+            "gradeScaleId": null,
+            "rounding": 10.0,
+            "weight": 1.0,
+            "maxPoints": 0.0,
+            "active": true,
+            "closed": false,
+            "visibleForStudents": true,
+            "showExactFinalGrade": false,
+            "showPoints": false,
+            "bonusPointsActive": false,
+            "bonusPoints": 0,
+            "calculationType": "Manual",
+            "comment": null,
+            "grades": [
+                {
+                    "id": 525001,
+                    "value": 1.3,
+                    "isManuallyChanged": false,
+                    "points": null,
+                    "isBlocked": false,
+                    "tendency": null,
+                    "comment": null,
+                    "isActive": true,
+                    "studentId": 6296,
+                    "testId": 50964
+                }
+            ]
+        },
+        {
+            "id": 50730,
+            "title": "KEL - Spielplatz",
+            "date": "2026-10-09T00:00:00+02:00",
+            "visibleDate": null,
+            "gradeScaleId": null,
+            "rounding": 10.0,
+            "weight": 1.0,
+            "maxPoints": 0.0,
+            "active": true,
+            "closed": false,
+            "visibleForStudents": true,
+            "showExactFinalGrade": false,
+            "showPoints": false,
+            "bonusPointsActive": false,
+            "bonusPoints": 0,
+            "calculationType": "Manual",
+            "comment": null,
+            "grades": [
+                {
+                    "id": 523108,
+                    "value": 1.7,
+                    "isManuallyChanged": false,
+                    "points": null,
+                    "isBlocked": false,
+                    "tendency": null,
+                    "comment": null,
+                    "isActive": true,
+                    "studentId": 6296,
+                    "testId": 50730
+                }
+            ]
+        },
+        {
+            "id": 50938,
+            "title": "Bogenmaß-Domino",
+            "date": "2026-11-11T00:00:00+01:00",
+            "visibleDate": null,
+            "gradeScaleId": null,
+            "rounding": 10.0,
+            "weight": 1.0,
+            "maxPoints": 0.0,
+            "active": true,
+            "closed": false,
+            "visibleForStudents": true,
+            "showExactFinalGrade": false,
+            "showPoints": false,
+            "bonusPointsActive": false,
+            "bonusPoints": 0,
+            "calculationType": "Manual",
+            "comment": null,
+            "grades": [
+                {
+                    "id": 524735,
+                    "value": 1.0,
+                    "isManuallyChanged": false,
+                    "points": null,
+                    "isBlocked": false,
+                    "tendency": null,
+                    "comment": null,
+                    "isActive": true,
+                    "studentId": 6296,
+                    "testId": 50938
+                }
+            ]
+        }
+    ],
+    "students": [
+        {
+            "id": 6296,
+            "name": "Stempel, Carl Johann",
+            "comment": null,
+            "gardeManuel": null,
+            "gardeCalculated": 1.298,
+            "gardeFinal": null,
+            "dispensation": false
+        }
+    ],
+    "categoryResults": []
+}

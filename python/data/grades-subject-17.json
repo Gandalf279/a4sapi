@@ -1,0 +1,275 @@
+{
+    "subjectForStudentClassId": 45888,
+    "gradingIsClosed": false,
+    "gradingCloseWindowIsActive": false,
+    "scaleIsFixt": false,
+    "teacherId": 0,
+    "semesterId": 330,
+    "defaultGradeScaleId": null,
+    "bestGrade": 1,
+    "worstGrade": 6,
+    "rounding": {
+        "finalRounding": 1,
+        "roundingMode": 1
+    },
+    "structure": [
+        {
+            "id": 22375,
+            "name": "Klassenarbeiten / Klausuren",
+            "structureType": 0,
+            "tmpCalc": null,
+            "isDeleted": false,
+            "date": null,
+            "children": []
+        },
+        {
+            "id": 22347,
+            "name": "Unterrichtsbeiträge",
+            "structureType": 0,
+            "tmpCalc": null,
+            "isDeleted": false,
+            "date": null,
+            "children": [
+                {
+                    "id": 22371,
+                    "name": "mündliche Beiträge",
+                    "structureType": 0,
+                    "tmpCalc": null,
+                    "isDeleted": false,
+                    "date": null,
+                    "children": [
+                        {
+                            "id": 49321,
+                            "name": "Bewertete Diskussion",
+                            "structureType": 1,
+                            "tmpCalc": null,
+                            "isDeleted": false,
+                            "date": "2026-09-08T00:00:00+02:00",
+                            "children": []
+                        },
+                        {
+                            "id": 50307,
+                            "name": "Prozessnote I, bis 07.09.2026",
+                            "structureType": 1,
+                            "tmpCalc": null,
+                            "isDeleted": false,
+                            "date": "2026-10-05T00:00:00+02:00",
+                            "children": []
+                        }
+                    ]
+                },
+                {
+                    "id": 22374,
+                    "name": "praktisch-gestalterische Beiträge",
+                    "structureType": 0,
+                    "tmpCalc": null,
+                    "isDeleted": false,
+                    "date": null,
+                    "children": []
+                },
+                {
+                    "id": 22372,
+                    "name": "schriftliche Beiträge",
+                    "structureType": 0,
+                    "tmpCalc": null,
+                    "isDeleted": false,
+                    "date": null,
+                    "children": []
+                },
+                {
+                    "id": 22373,
+                    "name": "Tests",
+                    "structureType": 0,
+                    "tmpCalc": null,
+                    "isDeleted": false,
+                    "date": null,
+                    "children": []
+                }
+            ]
+        }
+    ],
+    "testCategories": [
+        {
+            "id": 22375,
+            "name": "Klassenarbeiten / Klausuren",
+            "color": "#FFFFFF",
+            "parentId": null,
+            "weight": 40,
+            "isWeightActive": true,
+            "isShowExactAverage": false,
+            "isShowAverage": true,
+            "bestCount": null,
+            "isPublic": true,
+            "creator": "admin-loui",
+            "creationDate": "2026-09-02T18:42:24.997+02:00",
+            "lastModificator": "oliver.dross",
+            "lastModificationDate": "2026-10-07T07:13:01.997+02:00",
+            "isFixt": false
+        },
+        {
+            "id": 22371,
+            "name": "mündliche Beiträge",
+            "color": "#FFFFFF",
+            "parentId": 22347,
+            "weight": 35,
+            "isWeightActive": true,
+            "isShowExactAverage": false,
+            "isShowAverage": true,
+            "bestCount": null,
+            "isPublic": true,
+            "creator": "admin-loui",
+            "creationDate": "2026-09-02T18:42:24.997+02:00",
+            "lastModificator": "oliver.dross",
+            "lastModificationDate": "2026-10-07T07:13:01.997+02:00",
+            "isFixt": false
+        },
+        {
+            "id": 22374,
+            "name": "praktisch-gestalterische Beiträge",
+            "color": "#FFFFFF",
+            "parentId": 22347,
+            "weight": 15,
+            "isWeightActive": true,
+            "isShowExactAverage": false,
+            "isShowAverage": true,
+            "bestCount": null,
+            "isPublic": true,
+            "creator": "admin-loui",
+            "creationDate": "2026-09-02T18:42:24.997+02:00",
+            "lastModificator": "oliver.dross",
+            "lastModificationDate": "2026-10-07T07:13:02.12+02:00",
+            "isFixt": false
+        },
+        {
+            "id": 22372,
+            "name": "schriftliche Beiträge",
+            "color": "#FFFFFF",
+            "parentId": 22347,
+            "weight": 30,
+            "isWeightActive": true,
+            "isShowExactAverage": false,
+            "isShowAverage": true,
+            "bestCount": null,
+            "isPublic": true,
+            "creator": "admin-loui",
+            "creationDate": "2026-09-02T18:42:24.997+02:00",
+            "lastModificator": "oliver.dross",
+            "lastModificationDate": "2026-10-07T07:13:02.12+02:00",
+            "isFixt": false
+        },
+        {
+            "id": 22373,
+            "name": "Tests",
+            "color": "#FFFFFF",
+            "parentId": 22347,
+            "weight": 20,
+            "isWeightActive": true,
+            "isShowExactAverage": false,
+            "isShowAverage": true,
+            "bestCount": null,
+            "isPublic": true,
+            "creator": "admin-loui",
+            "creationDate": "2026-09-02T18:42:24.997+02:00",
+            "lastModificator": "oliver.dross",
+            "lastModificationDate": "2026-10-07T07:13:02.12+02:00",
+            "isFixt": false
+        },
+        {
+            "id": 22347,
+            "name": "Unterrichtsbeiträge",
+            "color": "#FFFFFF",
+            "parentId": null,
+            "weight": 60,
+            "isWeightActive": true,
+            "isShowExactAverage": false,
+            "isShowAverage": true,
+            "bestCount": null,
+            "isPublic": true,
+            "creator": "admin-loui",
+            "creationDate": "2026-09-02T18:42:24.997+02:00",
+            "lastModificator": "oliver.dross",
+            "lastModificationDate": "2026-10-07T07:13:01.997+02:00",
+            "isFixt": false
+        }
+    ],
+    "tests": [
+        {
+            "id": 49321,
+            "title": "Bewertete Diskussion",
+            "date": "2026-09-08T00:00:00+02:00",
+            "visibleDate": null,
+            "gradeScaleId": null,
+            "rounding": 10.0,
+            "weight": 1.0,
+            "maxPoints": 0.0,
+            "active": true,
+            "closed": false,
+            "visibleForStudents": true,
+            "showExactFinalGrade": false,
+            "showPoints": false,
+            "bonusPointsActive": false,
+            "bonusPoints": 0,
+            "calculationType": "Manual",
+            "comment": null,
+            "grades": [
+                {
+                    "id": 511373,
+                    "value": 2.0,
+                    "isManuallyChanged": false,
+                    "points": null,
+                    "isBlocked": false,
+                    "tendency": null,
+                    "comment": null,
+                    "isActive": true,
+                    "studentId": 6296,
+                    "testId": 49321
+                }
+            ]
+        },
+        {
+            "id": 50307,
+            "title": "Prozessnote I, bis 07.09.2026",
+            "date": "2026-10-05T00:00:00+02:00",
+            "visibleDate": null,
+            "gradeScaleId": null,
+            "rounding": 10.0,
+            "weight": 1.0,
+            "maxPoints": 0.0,
+            "active": true,
+            "closed": false,
+            "visibleForStudents": true,
+            "showExactFinalGrade": false,
+            "showPoints": false,
+            "bonusPointsActive": false,
+            "bonusPoints": 0,
+            "calculationType": "Manual",
+            "comment": null,
+            "grades": [
+                {
+                    "id": 519093,
+                    "value": 2.3,
+                    "isManuallyChanged": false,
+                    "points": null,
+                    "isBlocked": false,
+                    "tendency": null,
+                    "comment": null,
+                    "isActive": true,
+                    "studentId": 6296,
+                    "testId": 50307
+                }
+            ]
+        }
+    ],
+    "students": [
+        {
+            "id": 6296,
+            "name": "Stempel, Carl Johann",
+            "comment": null,
+            "gardeManuel": null,
+            "gardeCalculated": 2.15,
+            "gardeFinal": null,
+            "dispensation": false
+        }
+    ],
+    "categoryResults": []
+}

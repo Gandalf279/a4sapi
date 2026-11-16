@@ -1,0 +1,224 @@
+{
+    "subjectForStudentClassId": 45876,
+    "gradingIsClosed": false,
+    "gradingCloseWindowIsActive": false,
+    "scaleIsFixt": false,
+    "teacherId": 0,
+    "semesterId": 330,
+    "defaultGradeScaleId": null,
+    "bestGrade": 1,
+    "worstGrade": 6,
+    "rounding": {
+        "finalRounding": 1,
+        "roundingMode": 1
+    },
+    "structure": [
+        {
+            "id": 21261,
+            "name": "Leistungsüberprüfung",
+            "structureType": 0,
+            "tmpCalc": null,
+            "isDeleted": false,
+            "date": null,
+            "children": []
+        },
+        {
+            "id": 21239,
+            "name": "Seminare",
+            "structureType": 0,
+            "tmpCalc": null,
+            "isDeleted": false,
+            "date": null,
+            "children": [
+                {
+                    "id": 21260,
+                    "name": "Engagement",
+                    "structureType": 0,
+                    "tmpCalc": null,
+                    "isDeleted": false,
+                    "date": null,
+                    "children": [
+                        {
+                            "id": 49799,
+                            "name": "Badminton",
+                            "structureType": 1,
+                            "tmpCalc": null,
+                            "isDeleted": false,
+                            "date": "2026-09-23T00:00:00+02:00",
+                            "children": []
+                        }
+                    ]
+                },
+                {
+                    "id": 21259,
+                    "name": "Sozialverhalten",
+                    "structureType": 0,
+                    "tmpCalc": null,
+                    "isDeleted": false,
+                    "date": null,
+                    "children": [
+                        {
+                            "id": 49800,
+                            "name": "Badminton",
+                            "structureType": 1,
+                            "tmpCalc": null,
+                            "isDeleted": false,
+                            "date": "2026-09-23T00:00:00+02:00",
+                            "children": []
+                        }
+                    ]
+                }
+            ]
+        }
+    ],
+    "testCategories": [
+        {
+            "id": 21260,
+            "name": "Engagement",
+            "color": "#FFFFFF",
+            "parentId": 21239,
+            "weight": 50,
+            "isWeightActive": true,
+            "isShowExactAverage": false,
+            "isShowAverage": true,
+            "bestCount": null,
+            "isPublic": true,
+            "creator": "admin-loui",
+            "creationDate": "2026-08-17T20:03:12.33+02:00",
+            "lastModificator": "jan-hauke.erichsen",
+            "lastModificationDate": "2026-10-05T08:15:26.73+02:00",
+            "isFixt": false
+        },
+        {
+            "id": 21261,
+            "name": "Leistungsüberprüfung",
+            "color": "#FFFFFF",
+            "parentId": null,
+            "weight": 50,
+            "isWeightActive": true,
+            "isShowExactAverage": false,
+            "isShowAverage": true,
+            "bestCount": null,
+            "isPublic": true,
+            "creator": "admin-loui",
+            "creationDate": "2026-08-17T20:03:12.33+02:00",
+            "lastModificator": "jan-hauke.erichsen",
+            "lastModificationDate": "2026-10-05T08:15:26.683+02:00",
+            "isFixt": false
+        },
+        {
+            "id": 21239,
+            "name": "Seminare",
+            "color": "#FFFFFF",
+            "parentId": null,
+            "weight": 50,
+            "isWeightActive": true,
+            "isShowExactAverage": false,
+            "isShowAverage": true,
+            "bestCount": null,
+            "isPublic": true,
+            "creator": "admin-loui",
+            "creationDate": "2026-08-17T20:03:12.33+02:00",
+            "lastModificator": "jan-hauke.erichsen",
+            "lastModificationDate": "2026-10-05T08:15:26.73+02:00",
+            "isFixt": false
+        },
+        {
+            "id": 21259,
+            "name": "Sozialverhalten",
+            "color": "#FFFFFF",
+            "parentId": 21239,
+            "weight": 50,
+            "isWeightActive": true,
+            "isShowExactAverage": false,
+            "isShowAverage": true,
+            "bestCount": null,
+            "isPublic": true,
+            "creator": "admin-loui",
+            "creationDate": "2026-08-17T20:03:12.33+02:00",
+            "lastModificator": "jan-hauke.erichsen",
+            "lastModificationDate": "2026-10-05T08:15:26.807+02:00",
+            "isFixt": false
+        }
+    ],
+    "tests": [
+        {
+            "id": 49799,
+            "title": "Badminton",
+            "date": "2026-09-23T00:00:00+02:00",
+            "visibleDate": null,
+            "gradeScaleId": null,
+            "rounding": 10.0,
+            "weight": 1.0,
+            "maxPoints": 0.0,
+            "active": true,
+            "closed": false,
+            "visibleForStudents": true,
+            "showExactFinalGrade": false,
+            "showPoints": false,
+            "bonusPointsActive": false,
+            "bonusPoints": 0,
+            "calculationType": "Manual",
+            "comment": null,
+            "grades": [
+                {
+                    "id": 515106,
+                    "value": 1.7,
+                    "isManuallyChanged": false,
+                    "points": null,
+                    "isBlocked": false,
+                    "tendency": null,
+                    "comment": null,
+                    "isActive": true,
+                    "studentId": 6296,
+                    "testId": 49799
+                }
+            ]
+        },
+        {
+            "id": 49800,
+            "title": "Badminton",
+            "date": "2026-09-23T00:00:00+02:00",
+            "visibleDate": null,
+            "gradeScaleId": null,
+            "rounding": 10.0,
+            "weight": 1.0,
+            "maxPoints": 0.0,
+            "active": true,
+            "closed": false,
+            "visibleForStudents": true,
+            "showExactFinalGrade": false,
+            "showPoints": false,
+            "bonusPointsActive": false,
+            "bonusPoints": 0,
+            "calculationType": "Manual",
+            "comment": null,
+            "grades": [
+                {
+                    "id": 515115,
+                    "value": 1.7,
+                    "isManuallyChanged": false,
+                    "points": null,
+                    "isBlocked": false,
+                    "tendency": null,
+                    "comment": null,
+                    "isActive": true,
+                    "studentId": 6296,
+                    "testId": 49800
+                }
+            ]
+        }
+    ],
+    "students": [
+        {
+            "id": 6296,
+            "name": "Stempel, Carl Johann",
+            "comment": null,
+            "gardeManuel": null,
+            "gardeCalculated": 1.7,
+            "gardeFinal": null,
+            "dispensation": false
+        }
+    ],
+    "categoryResults": []
+}

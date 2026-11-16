@@ -1,0 +1,318 @@
+{
+    "subjectForStudentClassId": 45834,
+    "gradingIsClosed": false,
+    "gradingCloseWindowIsActive": false,
+    "scaleIsFixt": false,
+    "teacherId": 0,
+    "semesterId": 330,
+    "defaultGradeScaleId": null,
+    "bestGrade": 1,
+    "worstGrade": 6,
+    "rounding": {
+        "finalRounding": 1,
+        "roundingMode": 1
+    },
+    "structure": [
+        {
+            "id": 22726,
+            "name": "Leistungsnachweise",
+            "structureType": 0,
+            "tmpCalc": null,
+            "isDeleted": false,
+            "date": null,
+            "children": []
+        },
+        {
+            "id": 22721,
+            "name": "Unterrichtsbeiträge",
+            "structureType": 0,
+            "tmpCalc": null,
+            "isDeleted": false,
+            "date": null,
+            "children": [
+                {
+                    "id": 22722,
+                    "name": "Anwendungsseminare",
+                    "structureType": 0,
+                    "tmpCalc": null,
+                    "isDeleted": false,
+                    "date": null,
+                    "children": []
+                },
+                {
+                    "id": 22723,
+                    "name": "Große Aufgaben",
+                    "structureType": 0,
+                    "tmpCalc": null,
+                    "isDeleted": false,
+                    "date": null,
+                    "children": []
+                },
+                {
+                    "id": 22725,
+                    "name": "Studio Time",
+                    "structureType": 0,
+                    "tmpCalc": null,
+                    "isDeleted": false,
+                    "date": null,
+                    "children": [
+                        {
+                            "id": 49677,
+                            "name": "Studio Times 08-10",
+                            "structureType": 1,
+                            "tmpCalc": null,
+                            "isDeleted": false,
+                            "date": "2026-09-18T00:00:00+02:00",
+                            "children": []
+                        }
+                    ]
+                },
+                {
+                    "id": 22724,
+                    "name": "Tests",
+                    "structureType": 0,
+                    "tmpCalc": null,
+                    "isDeleted": false,
+                    "date": null,
+                    "children": [
+                        {
+                            "id": 49678,
+                            "name": "Abfragen 1. Hj.",
+                            "structureType": 1,
+                            "tmpCalc": null,
+                            "isDeleted": false,
+                            "date": "2026-09-18T00:00:00+02:00",
+                            "children": []
+                        },
+                        {
+                            "id": 49679,
+                            "name": "Test #1",
+                            "structureType": 1,
+                            "tmpCalc": null,
+                            "isDeleted": false,
+                            "date": "2026-09-18T00:00:00+02:00",
+                            "children": []
+                        }
+                    ]
+                }
+            ]
+        }
+    ],
+    "testCategories": [
+        {
+            "id": 22722,
+            "name": "Anwendungsseminare",
+            "color": "#FFFFFF",
+            "parentId": 22721,
+            "weight": 40,
+            "isWeightActive": true,
+            "isShowExactAverage": false,
+            "isShowAverage": false,
+            "bestCount": null,
+            "isPublic": false,
+            "creator": "anastasios.kotanidis",
+            "creationDate": "2026-09-18T15:43:01.963+02:00",
+            "lastModificator": "anastasios.kotanidis",
+            "lastModificationDate": "2026-09-18T15:51:57.197+02:00",
+            "isFixt": false
+        },
+        {
+            "id": 22723,
+            "name": "Große Aufgaben",
+            "color": "#FFFFFF",
+            "parentId": 22721,
+            "weight": 20,
+            "isWeightActive": true,
+            "isShowExactAverage": false,
+            "isShowAverage": false,
+            "bestCount": null,
+            "isPublic": false,
+            "creator": "anastasios.kotanidis",
+            "creationDate": "2026-09-18T15:43:01.963+02:00",
+            "lastModificator": "anastasios.kotanidis",
+            "lastModificationDate": "2026-09-18T15:51:57.197+02:00",
+            "isFixt": false
+        },
+        {
+            "id": 22726,
+            "name": "Leistungsnachweise",
+            "color": "#FFFFFF",
+            "parentId": null,
+            "weight": 40,
+            "isWeightActive": true,
+            "isShowExactAverage": false,
+            "isShowAverage": false,
+            "bestCount": null,
+            "isPublic": false,
+            "creator": "anastasios.kotanidis",
+            "creationDate": "2026-09-18T15:43:01.98+02:00",
+            "lastModificator": "anastasios.kotanidis",
+            "lastModificationDate": "2026-09-18T15:51:57.133+02:00",
+            "isFixt": false
+        },
+        {
+            "id": 22725,
+            "name": "Studio Time",
+            "color": "#FFFFFF",
+            "parentId": 22721,
+            "weight": 20,
+            "isWeightActive": true,
+            "isShowExactAverage": false,
+            "isShowAverage": false,
+            "bestCount": null,
+            "isPublic": false,
+            "creator": "anastasios.kotanidis",
+            "creationDate": "2026-09-18T15:43:01.963+02:00",
+            "lastModificator": "anastasios.kotanidis",
+            "lastModificationDate": "2026-09-18T15:51:57.197+02:00",
+            "isFixt": false
+        },
+        {
+            "id": 22724,
+            "name": "Tests",
+            "color": "#FFFFFF",
+            "parentId": 22721,
+            "weight": 20,
+            "isWeightActive": true,
+            "isShowExactAverage": false,
+            "isShowAverage": false,
+            "bestCount": null,
+            "isPublic": false,
+            "creator": "anastasios.kotanidis",
+            "creationDate": "2026-09-18T15:43:01.963+02:00",
+            "lastModificator": "anastasios.kotanidis",
+            "lastModificationDate": "2026-09-18T15:51:57.273+02:00",
+            "isFixt": false
+        },
+        {
+            "id": 22721,
+            "name": "Unterrichtsbeiträge",
+            "color": "#FFFFFF",
+            "parentId": null,
+            "weight": 60,
+            "isWeightActive": true,
+            "isShowExactAverage": false,
+            "isShowAverage": false,
+            "bestCount": null,
+            "isPublic": false,
+            "creator": "anastasios.kotanidis",
+            "creationDate": "2026-09-18T15:43:01.95+02:00",
+            "lastModificator": "anastasios.kotanidis",
+            "lastModificationDate": "2026-09-18T15:51:57.197+02:00",
+            "isFixt": false
+        }
+    ],
+    "tests": [
+        {
+            "id": 49677,
+            "title": "Studio Times 08-10",
+            "date": "2026-09-18T00:00:00+02:00",
+            "visibleDate": null,
+            "gradeScaleId": null,
+            "rounding": 10.0,
+            "weight": 1.0,
+            "maxPoints": 0.0,
+            "active": true,
+            "closed": false,
+            "visibleForStudents": true,
+            "showExactFinalGrade": false,
+            "showPoints": false,
+            "bonusPointsActive": false,
+            "bonusPoints": 0,
+            "calculationType": "Manual",
+            "comment": null,
+            "grades": [
+                {
+                    "id": 513455,
+                    "value": 6.0,
+                    "isManuallyChanged": false,
+                    "points": null,
+                    "isBlocked": false,
+                    "tendency": null,
+                    "comment": null,
+                    "isActive": true,
+                    "studentId": 6296,
+                    "testId": 49677
+                }
+            ]
+        },
+        {
+            "id": 49678,
+            "title": "Abfragen 1. Hj.",
+            "date": "2026-09-18T00:00:00+02:00",
+            "visibleDate": null,
+            "gradeScaleId": null,
+            "rounding": 10.0,
+            "weight": 1.0,
+            "maxPoints": 0.0,
+            "active": true,
+            "closed": false,
+            "visibleForStudents": true,
+            "showExactFinalGrade": false,
+            "showPoints": false,
+            "bonusPointsActive": false,
+            "bonusPoints": 0,
+            "calculationType": "Manual",
+            "comment": null,
+            "grades": [
+                {
+                    "id": 0,
+                    "value": null,
+                    "isManuallyChanged": false,
+                    "points": null,
+                    "isBlocked": false,
+                    "tendency": null,
+                    "comment": null,
+                    "isActive": true,
+                    "studentId": 6296,
+                    "testId": 49678
+                }
+            ]
+        },
+        {
+            "id": 49679,
+            "title": "Test #1",
+            "date": "2026-09-18T00:00:00+02:00",
+            "visibleDate": null,
+            "gradeScaleId": null,
+            "rounding": 10.0,
+            "weight": 1.0,
+            "maxPoints": 0.0,
+            "active": true,
+            "closed": false,
+            "visibleForStudents": true,
+            "showExactFinalGrade": false,
+            "showPoints": false,
+            "bonusPointsActive": false,
+            "bonusPoints": 0,
+            "calculationType": "Manual",
+            "comment": null,
+            "grades": [
+                {
+                    "id": 513442,
+                    "value": 1.3,
+                    "isManuallyChanged": false,
+                    "points": null,
+                    "isBlocked": false,
+                    "tendency": null,
+                    "comment": null,
+                    "isActive": true,
+                    "studentId": 6296,
+                    "testId": 49679
+                }
+            ]
+        }
+    ],
+    "students": [
+        {
+            "id": 6296,
+            "name": "Stempel, Carl Johann",
+            "comment": null,
+            "gardeManuel": null,
+            "gardeCalculated": 3.65,
+            "gardeFinal": null,
+            "dispensation": false
+        }
+    ],
+    "categoryResults": []
+}
