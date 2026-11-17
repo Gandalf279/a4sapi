@@ -326,7 +326,12 @@ def main() -> int:
         json.dump(parsed_schedule, f, ensure_ascii=False, indent=4)
 
     lessons = parsed_schedule.get("lessons", [])
-    filtered = [l for l in lessons if l.get("SubjectRelevantAbsences")]
+    filtered = [
+        l
+        for l in lessons
+        if l.get("SubjectRelevantAbsences")
+        or "gilde" in str(l.get("StudentClassName", "")).casefold()
+    ]
 
     keys = ["TeacherName", "SubjectName", "RoomName", "start", "end"]
     simplified = [

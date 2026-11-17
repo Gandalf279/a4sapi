@@ -253,7 +253,12 @@ def fetch_schedule(
         raise ScheduleError("The 'lessons' field in the API response is not a list.")
 
     if filter_relevant:
-        lessons = [lesson for lesson in lessons if lesson.get("SubjectRelevantAbsences")]
+        lessons = [
+            lesson
+            for lesson in lessons
+            if lesson.get("SubjectRelevantAbsences")
+            or "gilde" in str(lesson.get("StudentClassName", "")).casefold()
+        ]
 
     fields = (
         "TeacherName",
@@ -681,6 +686,7 @@ class ScheduleApp:
         self.current_week_start: dt.date | None = None
         self._grid_resize_job: str | None = None
         self._week_refresh_job: str | None = None
+        self._clock_refresh_job: str | None = None
         self._refresh_after_busy = False
         self.colors = self.LIGHT
         self._grade_scale: tuple[float, float] = (1.0, 6.0)
@@ -1527,6 +1533,7 @@ class ScheduleApp:
         self.current_subjects = collect_subjects(self.current_lessons)
         self.current_week_start = result["week_start"]
         self._draw_week_grid()
+        self._schedule_clock_tick()
         week_start: dt.date = result["week_start"]
         week_end: dt.date = result["week_end"]
         self.last_output_path = Path(result["output_path"])
@@ -1534,6 +1541,21 @@ class ScheduleApp:
             f"Saved {week_start:%d %b}–{week_end:%d %b %Y}  ·  {result['output_path']}"
         )
         self.count_var.set(f"{len(self.current_lessons)} lessons · 7 days")
+
+    def _schedule_clock_tick(self) -> None:
+        """Refresh the current-time marker every 15 seconds without re-fetching data."""
+        if self._clock_refresh_job is not None:
+            try:
+                self.root.after_cancel(self._clock_refresh_job)
+            except tk.TclError:
+                pass
+        self._clock_refresh_job = self.root.after(15000, self._update_clock_marker)
+
+    def _update_clock_marker(self) -> None:
+        self._clock_refresh_job = None
+        if self.current_week_start is not None:
+            self._draw_week_grid()
+        self._schedule_clock_tick()
 
     def _finish_busy(self) -> None:
         self.busy = False
@@ -1732,30 +1754,6 @@ class ScheduleApp:
                     font=("Segoe UI", 8),
                 )
 
-        now = dt.datetime.now()
-        today = now.date()
-        if week_start <= today <= week_start + dt.timedelta(days=6):
-            current_minute = now.hour * 60 + now.minute
-            if start_absolute <= current_minute <= end_absolute:
-                y = header_height + ((current_minute - start_absolute) / 60) * hour_height
-                canvas.create_line(
-                    0,
-                    y,
-                    total_width,
-                    y,
-                    fill=palette["accent"],
-                    width=2,
-                    dash=(6, 5),
-                )
-                canvas.create_text(
-                    time_col_width + 8,
-                    y - 10,
-                    text=now.strftime("%H:%M"),
-                    anchor="w",
-                    fill=palette["accent"],
-                    font=("Segoe UI", 8, "bold"),
-                )
-
         lesson_colors = (
             self.DARK_LESSON_COLORS
             if ctk.get_appearance_mode() == "Dark"
@@ -1835,6 +1833,39 @@ class ScheduleApp:
                     fill=palette["lesson_text"],
                     font=("Segoe UI", 8, "bold"),
                     justify="left",
+                )
+
+        now = dt.datetime.now()
+        today = now.date()
+        if week_start <= today <= week_start + dt.timedelta(days=6):
+            current_minute = now.hour * 60 + now.minute
+            if start_absolute <= current_minute <= end_absolute:
+                y = header_height + ((current_minute - start_absolute) / 60) * hour_height
+                canvas.create_line(
+                    time_col_width,
+                    y,
+                    total_width,
+                    y,
+                    fill=palette["accent"],
+                    width=3,
+                    capstyle="round",
+                )
+                canvas.create_oval(
+                    time_col_width - 6,
+                    y - 6,
+                    time_col_width + 6,
+                    y + 6,
+                    fill=palette["accent"],
+                    outline=palette["accent"],
+                    width=1,
+                )
+                canvas.create_text(
+                    time_col_width + 10,
+                    y - 12,
+                    text=now.strftime("%H:%M"),
+                    anchor="w",
+                    fill=palette["accent"],
+                    font=("Segoe UI", 8, "bold"),
                 )
 
         canvas.configure(scrollregion=(0, 0, total_width, total_height))

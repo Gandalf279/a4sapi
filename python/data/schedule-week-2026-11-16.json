@@ -36,6 +36,15 @@
         "end": "2026-11-17T10:30:00+01:00"
     },
     {
+        "TeacherName": "Wolfgang Tirs",
+        "SubjectName": "Gilde",
+        "RoomName": "THW",
+        "Subject_Id": 1069,
+        "StudentClass_Id": 6890,
+        "start": "2026-11-17T10:30:00+01:00",
+        "end": "2026-11-17T12:30:00+01:00"
+    },
+    {
         "TeacherName": "Olaf Thiele",
         "SubjectName": "Geschichte",
         "RoomName": "H3.1.Seminar 2",
@@ -79,6 +88,15 @@
         "StudentClass_Id": 6525,
         "start": "2026-11-18T15:00:00+01:00",
         "end": "2026-11-18T16:00:00+01:00"
+    },
+    {
+        "TeacherName": "Andreas Schweizer",
+        "SubjectName": "Gilde",
+        "RoomName": "Steg-Hafenbereich",
+        "Subject_Id": 1069,
+        "StudentClass_Id": 6845,
+        "start": "2026-11-18T16:00:00+01:00",
+        "end": "2026-11-18T18:00:00+01:00"
     },
     {
         "TeacherName": "Jan-Hauke Erichsen",

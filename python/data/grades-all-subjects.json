@@ -796,6 +796,20 @@
                 "worst": 6.0,
                 "graded_count": 2
             }
+        },
+        {
+            "id": 1069,
+            "name": "Gilde",
+            "shown": null,
+            "summary": {
+                "roots": [],
+                "shown": null,
+                "source": "Calculated locally",
+                "student_name": "",
+                "best": 0.0,
+                "worst": 0.0,
+                "graded_count": 0
+            }
         }
     ],
     "overall": {
@@ -1602,6 +1616,20 @@
                     "best": 1.0,
                     "worst": 6.0,
                     "graded_count": 2
+                }
+            },
+            {
+                "id": 1069,
+                "name": "Gilde",
+                "shown": null,
+                "summary": {
+                    "roots": [],
+                    "shown": null,
+                    "source": "Calculated locally",
+                    "student_name": "",
+                    "best": 0.0,
+                    "worst": 0.0,
+                    "graded_count": 0
                 }
             }
         ]
